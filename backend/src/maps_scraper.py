@@ -4,7 +4,6 @@ import re
 import aiohttp
 import sys
 import os
-import json
 from typing import AsyncGenerator
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
@@ -14,77 +13,232 @@ from src.utils import setup_logger
 logger = setup_logger(config.LOG_FILE)
 
 
-async def _extract_detail_from_page(page, place_info: dict) -> dict:
-    """Extract business details from the currently loaded Google Maps detail page."""
+async def _extract_from_detail_page(page) -> dict:
+    """Extract ALL available data from the currently loaded Google Maps detail page.
     
-    # Name
-    if not place_info["Nome"]:
+    Uses multiple selector strategies for each field to handle Google's varying DOM.
+    """
+    info = {
+        "Nome": "",
+        "Nota Google": "",
+        "Avaliações": "",
+        "Categoria": "",
+        "Endereço": "",
+        "Telefone Maps": "",
+        "Site Oficial Maps": "",
+        "Google Maps URL": page.url
+    }
+    
+    # === NAME ===
+    for selector in ["h1.DUwDvf", "h1", "[data-attrid='title']"]:
         try:
-            h1 = page.locator("h1").first
-            if await h1.count() > 0:
-                place_info["Nome"] = (await h1.text_content()).strip()
+            el = page.locator(selector).first
+            if await el.count() > 0:
+                text = (await el.text_content() or "").strip()
+                if text:
+                    info["Nome"] = text
+                    break
         except Exception:
             pass
 
-    # Rating
+    # === RATING ===
+    for selector in [
+        "div.F7nice span[aria-hidden='true']",
+        "div.F7L82c span.ceA1da",
+        "span.ceNzKf[aria-label]",
+        "span[aria-label*='estrela']",
+        "div.fontDisplayLarge"
+    ]:
+        try:
+            el = page.locator(selector).first
+            if await el.count() > 0:
+                text = await el.get_attribute("aria-label") or await el.text_content() or ""
+                match = re.search(r"(\d[.,]\d)", text)
+                if match:
+                    info["Nota Google"] = match.group(1).replace(",", ".")
+                    break
+        except Exception:
+            pass
+
+    # === REVIEWS COUNT ===
+    for selector in [
+        "div.F7nice span[aria-label*='avaliação']",
+        "span[aria-label*='avaliações']",
+        "button[aria-label*='avaliação']",
+        "button[jsaction*='reviews'] span"
+    ]:
+        try:
+            el = page.locator(selector).first
+            if await el.count() > 0:
+                text = await el.get_attribute("aria-label") or await el.text_content() or ""
+                rev_match = re.search(r"([\d\.\s,]+)", text)
+                if rev_match:
+                    cleaned = rev_match.group(1).replace(".", "").replace(",", "").replace(" ", "").strip()
+                    if cleaned.isdigit() and int(cleaned) > 0:
+                        info["Avaliações"] = cleaned
+                        break
+        except Exception:
+            pass
+
+    # === CATEGORY ===
+    for selector in [
+        "button[jsaction*='category']",
+        "button[jsaction*='pane.rating.category']",
+        ".DkEaL",
+        "span.DkEaL"
+    ]:
+        try:
+            el = page.locator(selector).first
+            if await el.count() > 0:
+                text = (await el.text_content() or "").strip()
+                if text and len(text) < 80:
+                    info["Categoria"] = text
+                    break
+        except Exception:
+            pass
+
+    # === ADDRESS ===
+    for selector in [
+        "button[data-item-id='address']",
+        "button[data-item-id='oloc']",
+        "[data-item-id='address'] .fontBodyMedium",
+        "button[aria-label*='Endereço']",
+        "button[aria-label*='endereço']"
+    ]:
+        try:
+            el = page.locator(selector).first
+            if await el.count() > 0:
+                text = await el.get_attribute("aria-label") or await el.text_content() or ""
+                cleaned = text.replace("Endereço:", "").replace("endereço:", "").strip()
+                if cleaned and len(cleaned) > 3:
+                    info["Endereço"] = cleaned
+                    break
+        except Exception:
+            pass
+
+    # === PHONE ===
+    for selector in [
+        "button[data-item-id*='phone']",
+        "button[data-item-id*='tel:']",
+        "button[aria-label*='Telefone']",
+        "button[aria-label*='telefone']",
+        "a[data-item-id*='phone']",
+        "a[href^='tel:']"
+    ]:
+        try:
+            el = page.locator(selector).first
+            if await el.count() > 0:
+                text = await el.get_attribute("aria-label") or await el.text_content() or ""
+                cleaned = text.replace("Telefone:", "").replace("telefone:", "").strip()
+                # Extract just the phone number
+                phone_match = re.search(r'[\(\+]?[\d\s\(\)\-\.]{8,}', cleaned)
+                if phone_match:
+                    info["Telefone Maps"] = phone_match.group(0).strip()
+                    break
+        except Exception:
+            pass
+
+    # === WEBSITE ===
+    for selector in [
+        "a[data-item-id='authority']",
+        "a[data-item-id*='authority']",
+        "a[aria-label*='site']",
+        "a[aria-label*='Site']",
+        "a[aria-label*='Website']"
+    ]:
+        try:
+            el = page.locator(selector).first
+            if await el.count() > 0:
+                href = await el.get_attribute("href")
+                if href and href.startswith("http") and "google" not in href:
+                    info["Site Oficial Maps"] = href
+                    break
+        except Exception:
+            pass
+
+    return info
+
+
+async def _extract_feed_item_data(page, index: int) -> dict:
+    """Extract data from a single feed item card in the Google Maps list view.
+    
+    This extracts basic data directly from the list without clicking into details.
+    """
+    info = {
+        "Nome": "",
+        "Nota Google": "",
+        "Avaliações": "",
+        "Categoria": "",
+        "Endereço": "",
+        "Telefone Maps": "",
+        "Site Oficial Maps": "",
+        "Google Maps URL": ""
+    }
+    
     try:
-        rating_elem = page.locator("div.F7L82c span.ceA1da, span[aria-label*='estrelas']").first
-        if await rating_elem.count() > 0:
-            aria = await rating_elem.get_attribute("aria-label") or await rating_elem.text_content()
-            match = re.search(r"(\d+[.,]\d+)", aria)
-            if match:
-                place_info["Nota Google"] = match.group(1).replace(",", ".")
+        # Each feed item is inside a div with role='article' or similar
+        # Get the link first
+        links = page.locator("a[href*='/maps/place/']")
+        if index >= await links.count():
+            return info
+        
+        link = links.nth(index)
+        info["Google Maps URL"] = await link.get_attribute("href") or ""
+        info["Nome"] = await link.get_attribute("aria-label") or ""
+        
+        # Try to get the parent card container
+        # The card text usually contains: rating, reviews, category, address, price
+        try:
+            # Navigate up to the containing card
+            card = link.locator("xpath=ancestor::div[contains(@class, 'Nv2PK')]")
+            if await card.count() == 0:
+                card = link.locator("xpath=ancestor::div[contains(@jsaction, 'mouseover')]")
+            
+            if await card.count() > 0:
+                card_text = await card.text_content() or ""
+                
+                # Extract rating (e.g., "4,7" or "4.7")
+                rating_match = re.search(r'(\d[.,]\d)\s*\(', card_text)
+                if rating_match:
+                    info["Nota Google"] = rating_match.group(1).replace(",", ".")
+                
+                # Extract reviews count (e.g., "(149)")
+                reviews_match = re.search(r'\((\d[\d\.\s]*)\)', card_text)
+                if reviews_match:
+                    info["Avaliações"] = reviews_match.group(1).replace(".", "").replace(" ", "").strip()
+                
+                # Try to get individual elements within the card
+                # Category is often in a span after the reviews
+                try:
+                    cat_spans = card.locator("span").all()
+                    spans = await cat_spans
+                    for span in spans:
+                        span_text = (await span.text_content() or "").strip()
+                        # Category is usually a short text like "Academia", "Restaurante"
+                        if (span_text and 2 < len(span_text) < 40 
+                            and not re.match(r'^[\d.,()]+$', span_text)
+                            and '·' not in span_text
+                            and span_text != info["Nome"]
+                            and not span_text.startswith("Aberto")
+                            and not span_text.startswith("Fechado")):
+                            # Check if it looks like a category (no numbers, not an address)
+                            if not re.search(r'\d{3,}', span_text) and ',' not in span_text:
+                                if not info["Categoria"]:
+                                    info["Categoria"] = span_text
+                except Exception:
+                    pass
+                    
+                # Address: often contains comma and numbers
+                addr_match = re.search(r'·\s*([^·]*(?:R\.|Rua|Av\.|Avenida|Praça|Al\.|Alameda|Trav\.)[^·]+)', card_text)
+                if addr_match:
+                    info["Endereço"] = addr_match.group(1).strip()
+        except Exception:
+            pass
+    
     except Exception:
         pass
     
-    # Reviews count
-    try:
-        reviews_elem = page.locator("button[aria-label*='avaliações'], span[aria-label*='avaliações']").first
-        if await reviews_elem.count() > 0:
-            aria_rev = await reviews_elem.get_attribute("aria-label") or await reviews_elem.text_content()
-            rev_match = re.search(r"([\d\.\s]+)\s*avaliaç", aria_rev, re.IGNORECASE)
-            if rev_match:
-                place_info["Avaliações"] = rev_match.group(1).replace(".", "").strip()
-    except Exception:
-        pass
-
-    # Category
-    try:
-        cat_elem = page.locator("button[jsaction*='category']").first
-        if await cat_elem.count() > 0:
-            place_info["Categoria"] = (await cat_elem.text_content()).strip()
-    except Exception:
-        pass
-
-    # Address
-    try:
-        addr_btn = page.locator("button[data-item-id='address']").first
-        if await addr_btn.count() > 0:
-            aria_addr = await addr_btn.get_attribute("aria-label") or await addr_btn.text_content()
-            place_info["Endereço"] = aria_addr.replace("Endereço:", "").strip()
-    except Exception:
-        pass
-
-    # Phone
-    try:
-        phone_btn = page.locator("button[data-item-id*='phone']").first
-        if await phone_btn.count() > 0:
-            aria_phone = await phone_btn.get_attribute("aria-label") or await phone_btn.text_content()
-            place_info["Telefone Maps"] = aria_phone.replace("Telefone:", "").strip()
-    except Exception:
-        pass
-
-    # Website
-    try:
-        site_link = page.locator("a[data-item-id='authority']").first
-        if await site_link.count() > 0:
-            site_url = await site_link.get_attribute("href")
-            if site_url:
-                place_info["Site Oficial Maps"] = site_url
-    except Exception:
-        pass
-
-    return place_info
+    return info
 
 
 async def scrape_google_maps_streaming(
@@ -97,13 +251,12 @@ async def scrape_google_maps_streaming(
 ) -> AsyncGenerator[dict, None]:
     """Streaming scraper: yields enriched place data one at a time.
     
-    Uses a SINGLE Playwright page throughout:
-    1. Scroll the search results to collect links
-    2. Navigate the SAME page to each detail URL (no new tabs)
-    3. Extract data and yield each lead
-    4. Close browser only after all leads are processed
-    
-    Memory usage: ~200MB constant (one page), never spikes.
+    Strategy (inspired by Apify):
+    1. Scroll Google Maps feed to collect results
+    2. Extract basic data from each feed card (name, rating, category, address)
+    3. Navigate the SAME page to each detail URL for complete data (phone, website)
+    4. Yield each lead as it's ready (SSE streaming)
+    5. Close browser at the end
     """
     from playwright.async_api import async_playwright
     
@@ -133,9 +286,9 @@ async def scrape_google_maps_streaming(
                 viewport={"width": 1280, "height": 720}
             )
             
-            # Block heavy resources to save memory
+            # Block images and media to save memory (keep CSS for proper rendering)
             async def route_intercept(route):
-                if route.request.resource_type in ["image", "stylesheet", "font", "media"]:
+                if route.request.resource_type in ["image", "font", "media"]:
                     await route.abort()
                 else:
                     await route.continue_()
@@ -144,7 +297,7 @@ async def scrape_google_maps_streaming(
             page = await context.new_page()
             
             try:
-                # === PHASE 1: Collect the list ===
+                # === PHASE 1: Scroll and collect list data ===
                 await page.goto(url, wait_until="domcontentloaded", timeout=30000)
                 await page.wait_for_timeout(3000)
                 
@@ -196,94 +349,100 @@ async def scrape_google_maps_streaming(
                     if end_of_list:
                         break
 
-                # Collect all links
-                items = page.locator("a[href*='/maps/place/']")
-                total_items = await items.count()
+                # Extract basic data from feed items
+                total_items = await page.locator("a[href*='/maps/place/']").count()
+                items_count = min(total_items, max_results)
                 
-                place_links = []
-                for i in range(min(total_items, max_results)):
-                    href = await items.nth(i).get_attribute("href")
-                    aria_label = await items.nth(i).get_attribute("aria-label")
-                    if href and href not in [pl["href"] for pl in place_links]:
-                        place_links.append({"href": href, "name": aria_label or ""})
+                feed_data = []
+                for i in range(items_count):
+                    item_data = await _extract_feed_item_data(page, i)
+                    if item_data["Google Maps URL"]:
+                        feed_data.append(item_data)
                 
-                logger.info(f"[Phase 1] {len(place_links)} locais coletados. Iniciando enriquecimento...")
+                logger.info(f"[Phase 1] {len(feed_data)} itens extraídos da lista.")
 
-                # === PHASE 2: Enrich each place using the SAME page ===
+                # === PHASE 2: Navigate to each detail for complete data ===
                 if mode == "simples":
-                    # Simple mode: just return basic info, no detail navigation
-                    for pl in place_links:
-                        yield {
-                            "Nome": pl.get("name", ""),
-                            "Google Maps URL": pl.get("href", ""),
-                            "Nota Google": "",
-                            "Avaliações": "",
-                            "Categoria": "",
-                            "Endereço": "",
-                            "Telefone Maps": "",
-                            "Site Oficial Maps": ""
-                        }
+                    for item in feed_data:
+                        yield item
                 else:
-                    # Direcionada/Completa: navigate to each detail page
-                    for pl in place_links:
-                        place_info = {
-                            "Nome": pl.get("name", ""),
-                            "Google Maps URL": pl.get("href", ""),
-                            "Nota Google": "",
-                            "Avaliações": "",
-                            "Categoria": "",
-                            "Endereço": "",
-                            "Telefone Maps": "",
-                            "Site Oficial Maps": ""
-                        }
-                        
-                        detail_url = pl["href"] if pl["href"].startswith("http") else f"https://www.google.com{pl['href']}"
+                    for item in feed_data:
+                        detail_url = item["Google Maps URL"]
+                        if not detail_url.startswith("http"):
+                            detail_url = f"https://www.google.com{detail_url}"
                         
                         try:
                             await page.goto(detail_url, wait_until="domcontentloaded", timeout=15000)
-                            await page.wait_for_timeout(1500)
+                            await page.wait_for_timeout(2000)
                             
-                            place_info = await _extract_detail_from_page(page, place_info)
+                            detail_data = await _extract_from_detail_page(page)
+                            
+                            # Merge: detail data takes priority, but keep feed data as fallback
+                            merged = {}
+                            for key in item:
+                                feed_val = item.get(key, "")
+                                detail_val = detail_data.get(key, "")
+                                merged[key] = detail_val if detail_val else feed_val
+                            
                         except Exception as e:
-                            logger.warning(f"Erro ao navegar para detalhe de '{pl.get('name')}': {e}")
+                            logger.warning(f"Erro ao navegar para '{item.get('Nome')}': {e}")
+                            merged = item
                         
                         # Apply filters
                         skip = False
                         if min_rating > 0:
                             try:
-                                rating_val = float(place_info.get("Nota Google", 0) or 0)
+                                rating_val = float(merged.get("Nota Google", 0) or 0)
                                 if rating_val < min_rating:
                                     skip = True
                             except ValueError:
                                 pass
-                        if has_website_filter and not place_info.get("Site Oficial Maps"):
+                        if has_website_filter and not merged.get("Site Oficial Maps"):
                             skip = True
-                        if has_phone_filter and not place_info.get("Telefone Maps"):
+                        if has_phone_filter and not merged.get("Telefone Maps"):
                             skip = True
                         
                         if not skip:
-                            # For "direcionada": also try to grab Instagram from site via HTTP
-                            if mode == "direcionada" and place_info.get("Site Oficial Maps"):
+                            # For "direcionada"/"completa": grab Instagram from website via HTTP
+                            if merged.get("Site Oficial Maps"):
                                 try:
                                     async with aiohttp.ClientSession() as session:
                                         async with session.get(
-                                            place_info["Site Oficial Maps"],
+                                            merged["Site Oficial Maps"],
                                             timeout=aiohttp.ClientTimeout(total=5),
                                             headers={"User-Agent": config.HTTP_USER_AGENT},
-                                            ssl=False
+                                            ssl=False,
+                                            allow_redirects=True
                                         ) as resp:
                                             if resp.status == 200:
                                                 site_html = await resp.text(errors="replace")
+                                                # Instagram
                                                 insta_match = re.search(
-                                                    r'href=[\'\"](https?://(?:www\.)?instagram\.com/[^\'\"]+)[\'"]',
+                                                    r'href=[\'\"](https?://(?:www\.)?instagram\.com/[^\'\"\s?#]+)',
                                                     site_html
                                                 )
                                                 if insta_match:
-                                                    place_info["Instagram"] = insta_match.group(1)
+                                                    merged["Instagram"] = insta_match.group(1)
+                                                # Facebook
+                                                fb_match = re.search(
+                                                    r'href=[\'\"](https?://(?:www\.)?facebook\.com/[^\'\"\s?#]+)',
+                                                    site_html
+                                                )
+                                                if fb_match:
+                                                    merged["Facebook"] = fb_match.group(1)
+                                                # Email
+                                                email_match = re.search(
+                                                    r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+',
+                                                    site_html
+                                                )
+                                                if email_match:
+                                                    email = email_match.group(0)
+                                                    if not email.endswith(('.png', '.jpg', '.gif', '.webp', '.svg')):
+                                                        merged["Email"] = email
                                 except Exception:
                                     pass
                             
-                            yield place_info
+                            yield merged
                 
             finally:
                 await page.close()

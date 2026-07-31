@@ -88,10 +88,10 @@ def format_lead(item: dict) -> dict:
         "Avaliações": item.get("Avaliações", ""),
         "Site": item.get("Site Oficial Maps", ""),
         "Email RH": "",
-        "Email Geral": "",
+        "Email Geral": item.get("Email", ""),
         "LinkedIn": "",
         "Instagram": item.get("Instagram", ""),
-        "Facebook": "",
+        "Facebook": item.get("Facebook", ""),
         "Página de Carreiras": "",
         "Google Maps URL": item.get("Google Maps URL", ""),
         "Status": 1

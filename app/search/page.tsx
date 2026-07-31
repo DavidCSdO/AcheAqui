@@ -122,9 +122,9 @@ function SearchContent() {
               
               if (payload.type === "status") {
                 setLoadingStage(payload.message);
-              } else if (payload.type === "lead") {
+              } else if (payload.type === "basic_lead" || payload.type === "lead") {
                 setLoading(false);
-                setLoadingStage("");
+                setLoadingStage("Enriquecendo contatos e redes sociais em segundo plano...");
                 
                 const item = payload.data;
                 const mappedLead = {
@@ -143,11 +143,38 @@ function SearchContent() {
                   maps_url: item["Google Maps URL"]
                 };
                 
-                collectedLeads.push(mappedLead);
+                const targetIdx = payload.index - 1;
+                if (targetIdx < collectedLeads.length) {
+                  collectedLeads[targetIdx] = mappedLead;
+                } else {
+                  collectedLeads.push(mappedLead);
+                }
                 setData([...collectedLeads]);
                 
+              } else if (payload.type === "lead_update") {
+                const item = payload.data;
+                const targetIdx = payload.index - 1;
+                
+                if (targetIdx >= 0 && targetIdx < collectedLeads.length) {
+                  const existing = collectedLeads[targetIdx];
+                  collectedLeads[targetIdx] = {
+                    ...existing,
+                    category: item.Categoria || existing.category,
+                    address: item["Endereço"] || existing.address,
+                    cellphone: item["Telefone Celular"] || existing.cellphone,
+                    landline: item["Telefone Fixo"] || existing.landline,
+                    whatsapp: item["WhatsApp Direct"] || existing.whatsapp,
+                    email: item["Email Geral"] || item["Email RH"] || existing.email,
+                    website: item.Site || existing.website,
+                    google_rating: item["Nota Google"] ? parseFloat(item["Nota Google"].toString().replace(',','.')) : existing.google_rating,
+                    instagram: item["Instagram"] || existing.instagram,
+                    linkedin: item["LinkedIn"] || existing.linkedin,
+                  };
+                  setData([...collectedLeads]);
+                }
               } else if (payload.type === "done") {
                 setLoading(false);
+                setLoadingStage("");
                 if (eventSource) eventSource.close();
                 if (collectedLeads.length > 0 && query) {
                   fetchAiConsultant(query, collectedLeads);
@@ -155,6 +182,7 @@ function SearchContent() {
               } else if (payload.type === "error") {
                 console.error("SSE error from server:", payload.message);
                 setLoading(false);
+                setLoadingStage("");
                 if (eventSource) eventSource.close();
               }
             } catch (parseErr) {
@@ -331,7 +359,14 @@ function SearchContent() {
         </form>
 
         <div className="flex justify-between items-center mb-6">
-          <p className="text-white/50 text-sm">{data.length > 0 ? `${data.length} resultados encontrados` : ''}</p>
+          <div className="flex items-center gap-3">
+            <p className="text-white/50 text-sm">{data.length > 0 ? `${data.length} resultados encontrados` : ''}</p>
+            {loadingStage && !loading && (
+              <span className="flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 animate-pulse">
+                <Loader2 size={12} className="animate-spin" /> {loadingStage}
+              </span>
+            )}
+          </div>
           {data.length > 0 && (
             <button 
               onClick={exportToCSV}

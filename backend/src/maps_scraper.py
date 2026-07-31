@@ -14,10 +14,7 @@ logger = setup_logger(config.LOG_FILE)
 
 
 async def _extract_from_detail_page(page) -> dict:
-    """Extract ALL available data from the currently loaded Google Maps detail page.
-    
-    Uses multiple selector strategies for each field to handle Google's varying DOM.
-    """
+    """Extract ALL available data from the currently loaded Google Maps detail page."""
     info = {
         "Nome": "",
         "Nota Google": "",
@@ -29,7 +26,7 @@ async def _extract_from_detail_page(page) -> dict:
         "Google Maps URL": page.url
     }
     
-    # === NAME ===
+    # Name
     for selector in ["h1.DUwDvf", "h1", "[data-attrid='title']"]:
         try:
             el = page.locator(selector).first
@@ -41,7 +38,7 @@ async def _extract_from_detail_page(page) -> dict:
         except Exception:
             pass
 
-    # === RATING ===
+    # Rating
     for selector in [
         "div.F7nice span[aria-hidden='true']",
         "div.F7L82c span.ceA1da",
@@ -60,7 +57,7 @@ async def _extract_from_detail_page(page) -> dict:
         except Exception:
             pass
 
-    # === REVIEWS COUNT ===
+    # Reviews count
     for selector in [
         "div.F7nice span[aria-label*='avaliação']",
         "span[aria-label*='avaliações']",
@@ -80,7 +77,7 @@ async def _extract_from_detail_page(page) -> dict:
         except Exception:
             pass
 
-    # === CATEGORY ===
+    # Category
     for selector in [
         "button[jsaction*='category']",
         "button[jsaction*='pane.rating.category']",
@@ -97,7 +94,7 @@ async def _extract_from_detail_page(page) -> dict:
         except Exception:
             pass
 
-    # === ADDRESS ===
+    # Address
     for selector in [
         "button[data-item-id='address']",
         "button[data-item-id='oloc']",
@@ -116,7 +113,7 @@ async def _extract_from_detail_page(page) -> dict:
         except Exception:
             pass
 
-    # === PHONE ===
+    # Phone
     for selector in [
         "button[data-item-id*='phone']",
         "button[data-item-id*='tel:']",
@@ -130,7 +127,6 @@ async def _extract_from_detail_page(page) -> dict:
             if await el.count() > 0:
                 text = await el.get_attribute("aria-label") or await el.text_content() or ""
                 cleaned = text.replace("Telefone:", "").replace("telefone:", "").strip()
-                # Extract just the phone number
                 phone_match = re.search(r'[\(\+]?[\d\s\(\)\-\.]{8,}', cleaned)
                 if phone_match:
                     info["Telefone Maps"] = phone_match.group(0).strip()
@@ -138,7 +134,7 @@ async def _extract_from_detail_page(page) -> dict:
         except Exception:
             pass
 
-    # === WEBSITE ===
+    # Website
     for selector in [
         "a[data-item-id='authority']",
         "a[data-item-id*='authority']",
@@ -160,10 +156,7 @@ async def _extract_from_detail_page(page) -> dict:
 
 
 async def _extract_feed_item_data(page, index: int) -> dict:
-    """Extract data from a single feed item card in the Google Maps list view.
-    
-    This extracts basic data directly from the list without clicking into details.
-    """
+    """Extract basic data from a single feed item card in the Google Maps list view."""
     info = {
         "Nome": "",
         "Nota Google": "",
@@ -176,8 +169,6 @@ async def _extract_feed_item_data(page, index: int) -> dict:
     }
     
     try:
-        # Each feed item is inside a div with role='article' or similar
-        # Get the link first
         links = page.locator("a[href*='/maps/place/']")
         if index >= await links.count():
             return info
@@ -186,10 +177,7 @@ async def _extract_feed_item_data(page, index: int) -> dict:
         info["Google Maps URL"] = await link.get_attribute("href") or ""
         info["Nome"] = await link.get_attribute("aria-label") or ""
         
-        # Try to get the parent card container
-        # The card text usually contains: rating, reviews, category, address, price
         try:
-            # Navigate up to the containing card
             card = link.locator("xpath=ancestor::div[contains(@class, 'Nv2PK')]")
             if await card.count() == 0:
                 card = link.locator("xpath=ancestor::div[contains(@jsaction, 'mouseover')]")
@@ -197,38 +185,31 @@ async def _extract_feed_item_data(page, index: int) -> dict:
             if await card.count() > 0:
                 card_text = await card.text_content() or ""
                 
-                # Extract rating (e.g., "4,7" or "4.7")
                 rating_match = re.search(r'(\d[.,]\d)\s*\(', card_text)
                 if rating_match:
                     info["Nota Google"] = rating_match.group(1).replace(",", ".")
                 
-                # Extract reviews count (e.g., "(149)")
                 reviews_match = re.search(r'\((\d[\d\.\s]*)\)', card_text)
                 if reviews_match:
                     info["Avaliações"] = reviews_match.group(1).replace(".", "").replace(" ", "").strip()
                 
-                # Try to get individual elements within the card
-                # Category is often in a span after the reviews
                 try:
                     cat_spans = card.locator("span").all()
                     spans = await cat_spans
                     for span in spans:
                         span_text = (await span.text_content() or "").strip()
-                        # Category is usually a short text like "Academia", "Restaurante"
                         if (span_text and 2 < len(span_text) < 40 
                             and not re.match(r'^[\d.,()]+$', span_text)
                             and '·' not in span_text
                             and span_text != info["Nome"]
                             and not span_text.startswith("Aberto")
                             and not span_text.startswith("Fechado")):
-                            # Check if it looks like a category (no numbers, not an address)
                             if not re.search(r'\d{3,}', span_text) and ',' not in span_text:
                                 if not info["Categoria"]:
                                     info["Categoria"] = span_text
                 except Exception:
                     pass
                     
-                # Address: often contains comma and numbers
                 addr_match = re.search(r'·\s*([^·]*(?:R\.|Rua|Av\.|Avenida|Praça|Al\.|Alameda|Trav\.)[^·]+)', card_text)
                 if addr_match:
                     info["Endereço"] = addr_match.group(1).strip()
@@ -249,18 +230,14 @@ async def scrape_google_maps_streaming(
     has_phone_filter: bool = False,
     mode: str = "direcionada"
 ) -> AsyncGenerator[dict, None]:
-    """Streaming scraper: yields enriched place data one at a time.
+    """2-Phase Streaming Scraper:
     
-    Strategy (inspired by Apify):
-    1. Scroll Google Maps feed to collect results
-    2. Extract basic data from each feed card (name, rating, category, address)
-    3. Navigate the SAME page to each detail URL for complete data (phone, website)
-    4. Yield each lead as it's ready (SSE streaming)
-    5. Close browser at the end
+    Phase 1 (Instant ~3s): Emits ALL basic leads found in list view immediately so UI shows cards.
+    Phase 2 (Background Enrichment): Navigates details + fast HTTP social search to enrich each lead live on screen.
     """
     from playwright.async_api import async_playwright
     
-    logger.info(f"Busca streaming: '{query}' (máx: {max_results}, modo: {mode})")
+    logger.info(f"Busca 2-fases streaming: '{query}' (máx: {max_results}, modo: {mode})")
     
     encoded_query = urllib.parse.quote(query)
     url = f"https://www.google.com/maps/search/{encoded_query}?hl=pt-BR"
@@ -286,7 +263,6 @@ async def scrape_google_maps_streaming(
                 viewport={"width": 1280, "height": 720}
             )
             
-            # Block images and media to save memory (keep CSS for proper rendering)
             async def route_intercept(route):
                 if route.request.resource_type in ["image", "font", "media"]:
                     await route.abort()
@@ -301,7 +277,6 @@ async def scrape_google_maps_streaming(
                 await page.goto(url, wait_until="domcontentloaded", timeout=30000)
                 await page.wait_for_timeout(3000)
                 
-                # Dismiss cookie consent
                 try:
                     reject_btn = page.locator("button:has-text('Rejeitar tudo'), button:has-text('Reject all')").first
                     if await reject_btn.is_visible():
@@ -316,7 +291,6 @@ async def scrape_google_maps_streaming(
                 except Exception:
                     pass
 
-                # Scroll to collect results
                 prev_count = 0
                 scroll_attempts = 0
                 max_scroll_attempts = 15
@@ -359,25 +333,31 @@ async def scrape_google_maps_streaming(
                     if item_data["Google Maps URL"]:
                         feed_data.append(item_data)
                 
-                logger.info(f"[Phase 1] {len(feed_data)} itens extraídos da lista.")
+                logger.info(f"[Phase 1 completo] {len(feed_data)} leads básicos extraídos. Emitindo imediatamente para a UI...")
 
-                # === PHASE 2: Navigate to each detail for complete data ===
-                if mode == "simples":
-                    for item in feed_data:
-                        yield item
-                else:
-                    for item in feed_data:
+                # EMIT ALL BASIC LEADS IMMEDIATELY (UI SHOWS ALL CARDS RIGHT AWAY)
+                for idx, item in enumerate(feed_data):
+                    yield {
+                        "_phase": "basic",
+                        "index": idx + 1,
+                        "data": item
+                    }
+
+                # === PHASE 2: Background Enrichment ===
+                if mode != "simples":
+                    logger.info(f"[Phase 2 em andamento] Enriquecendo {len(feed_data)} leads...")
+                    
+                    for idx, item in enumerate(feed_data):
                         detail_url = item["Google Maps URL"]
                         if not detail_url.startswith("http"):
                             detail_url = f"https://www.google.com{detail_url}"
                         
                         try:
                             await page.goto(detail_url, wait_until="domcontentloaded", timeout=15000)
-                            await page.wait_for_timeout(2000)
+                            await page.wait_for_timeout(1500)
                             
                             detail_data = await _extract_from_detail_page(page)
                             
-                            # Merge: detail data takes priority, but keep feed data as fallback
                             merged = {}
                             for key in item:
                                 feed_val = item.get(key, "")
@@ -404,7 +384,6 @@ async def scrape_google_maps_streaming(
                         
                         if not skip:
                             async with aiohttp.ClientSession() as session:
-                                # First try official website if available
                                 if merged.get("Site Oficial Maps"):
                                     try:
                                         async with session.get(
@@ -416,21 +395,18 @@ async def scrape_google_maps_streaming(
                                         ) as resp:
                                             if resp.status == 200:
                                                 site_html = await resp.text(errors="replace")
-                                                # Instagram
                                                 insta_match = re.search(
                                                     r'href=[\'\"](https?://(?:www\.)?instagram\.com/[^\'\"\s?#]+)',
                                                     site_html
                                                 )
                                                 if insta_match:
                                                     merged["Instagram"] = insta_match.group(1)
-                                                # Facebook
                                                 fb_match = re.search(
                                                     r'href=[\'\"](https?://(?:www\.)?facebook\.com/[^\'\"\s?#]+)',
                                                     site_html
                                                 )
                                                 if fb_match:
                                                     merged["Facebook"] = fb_match.group(1)
-                                                # Email
                                                 email_match = re.search(
                                                     r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+',
                                                     site_html
@@ -473,13 +449,18 @@ async def scrape_google_maps_streaming(
                                     except Exception:
                                         pass
                             
-                            yield merged
+                            # EMIT ENRICHED UPDATE FOR THIS LEAD IN REAL TIME!
+                            yield {
+                                "_phase": "enriched",
+                                "index": idx + 1,
+                                "data": merged
+                            }
                 
             finally:
                 await page.close()
             
             await browser.close()
-            logger.info("Browser fechado. Scraping completo.")
+            logger.info("Browser fechado. 2 fases concluídas com sucesso.")
     
     except Exception as e:
         logger.error(f"Erro fatal no scraper: {e}")
@@ -493,11 +474,13 @@ async def scrape_google_maps(
     has_phone_filter: bool = False,
     mode: str = "direcionada"
 ) -> list[dict]:
-    """Non-streaming version: collects all results and returns them as a list."""
-    results = []
-    async for place in scrape_google_maps_streaming(
+    """Non-streaming version: returns all enriched results."""
+    results_map = {}
+    async for payload in scrape_google_maps_streaming(
         query, max_results, min_rating,
         has_website_filter, has_phone_filter, mode
     ):
-        results.append(place)
-    return results
+        data = payload.get("data", {})
+        idx = payload.get("index", 1)
+        results_map[idx] = data
+    return list(results_map.values())

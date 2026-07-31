@@ -192,7 +192,7 @@ async def scrape_stream(request: Request):
             # Send initial status
             yield f"data: {json.dumps({'type': 'status', 'message': 'Coletando lista do Google Maps...'})}\n\n"
             
-            async for raw_place in scrape_google_maps_streaming(
+            async for payload in scrape_google_maps_streaming(
                 query=query,
                 max_results=limit,
                 min_rating=min_rating,
@@ -200,20 +200,24 @@ async def scrape_stream(request: Request):
                 has_phone_filter=has_phone,
                 mode=mode
             ):
-                # Check if client disconnected
                 if await request.is_disconnected():
                     logger.info("[SSE] Client disconnected, stopping.")
                     break
                 
+                phase = payload.get("_phase", "enriched")
+                raw_place = payload.get("data", {})
+                idx = payload.get("index", 1)
+                
                 lead = format_lead(raw_place)
                 
-                # For "completa" mode, deep enrich via HTTP
-                if mode == "completa":
-                    async with aiohttp.ClientSession() as session:
-                        lead = await deep_enrich_lead(lead, session)
-                
-                count += 1
-                yield f"data: {json.dumps({'type': 'lead', 'index': count, 'data': lead}, ensure_ascii=False)}\n\n"
+                if phase == "basic":
+                    count = max(count, idx)
+                    yield f"data: {json.dumps({'type': 'basic_lead', 'index': idx, 'data': lead}, ensure_ascii=False)}\n\n"
+                elif phase == "enriched":
+                    if mode == "completa":
+                        async with aiohttp.ClientSession() as session:
+                            lead = await deep_enrich_lead(lead, session)
+                    yield f"data: {json.dumps({'type': 'lead_update', 'index': idx, 'data': lead}, ensure_ascii=False)}\n\n"
             
             # Send completion signal
             yield f"data: {json.dumps({'type': 'done', 'total': count})}\n\n"

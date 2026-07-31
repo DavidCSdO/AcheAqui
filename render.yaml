@@ -7,7 +7,7 @@ services:
     plan: free # Você pode mudar para starter, standard, etc se precisar de mais recursos
     envVars:
       - key: PORT
-        value: 8000
+        value: "8000"
     # O Playwright e uvicorn estão configurados no Dockerfile
 
   # Serviço do Frontend (Next.js)
@@ -25,4 +25,4 @@ services:
           name: acheaqui-backend
           envVarKey: RENDER_EXTERNAL_URL
       - key: NODE_VERSION
-        value: 20
+        value: "20"

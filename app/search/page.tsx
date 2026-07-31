@@ -105,7 +105,7 @@ function SearchContent() {
         setLoadingStage("Interceptando dados do Google Maps (isso pode levar de 5 a 15 segundos)...");
         let finalScrapedData: any[] = [];
         try {
-          const pyResponse = await fetch("http://127.0.0.1:8000/api/scrape", {
+          const pyResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000"}/api/scrape`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ query, limit: limit, min_rating: 0, has_website: false, has_phone: false, mode: mode }),
@@ -154,7 +154,7 @@ function SearchContent() {
   const fetchAiConsultant = async (q: string, comps: any[]) => {
     setLoadingAi(true);
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/semantic_search", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000"}/api/semantic_search`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: q, companies: comps.slice(0, 10) }) // envia os 10 primeiros

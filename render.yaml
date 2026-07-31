@@ -1,0 +1,28 @@
+services:
+  # Serviço do Backend (Python FastAPI) com Docker
+  - type: web
+    name: acheaqui-backend
+    env: docker
+    rootDir: backend
+    plan: free # Você pode mudar para starter, standard, etc se precisar de mais recursos
+    envVars:
+      - key: PORT
+        value: 8000
+    # O Playwright e uvicorn estão configurados no Dockerfile
+
+  # Serviço do Frontend (Next.js)
+  - type: web
+    name: acheaqui-frontend
+    env: node
+    rootDir: .
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: free # Mude caso necessite de mais RAM no processo de build
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: acheaqui-backend
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: NODE_VERSION
+        value: 20

@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     // For local dev, we assume it's running on port 8000.
     let scraperData = null;
     try {
-      const pyResponse = await fetch("http://127.0.0.1:8000/api/scrape", {
+      const pyResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000"}/api/scrape`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

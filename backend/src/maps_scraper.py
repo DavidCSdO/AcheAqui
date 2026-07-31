@@ -13,148 +13,6 @@ from src.utils import setup_logger
 logger = setup_logger(config.LOG_FILE)
 
 
-async def _extract_from_detail_page(page) -> dict:
-    """Extract ALL available data from the currently loaded Google Maps detail page."""
-    info = {
-        "Nome": "",
-        "Nota Google": "",
-        "Avaliações": "",
-        "Categoria": "",
-        "Endereço": "",
-        "Telefone Maps": "",
-        "Site Oficial Maps": "",
-        "Google Maps URL": page.url
-    }
-    
-    # Name
-    for selector in ["h1.DUwDvf", "h1", "[data-attrid='title']"]:
-        try:
-            el = page.locator(selector).first
-            if await el.count() > 0:
-                text = (await el.text_content() or "").strip()
-                if text:
-                    info["Nome"] = text
-                    break
-        except Exception:
-            pass
-
-    # Rating
-    for selector in [
-        "div.F7nice span[aria-hidden='true']",
-        "div.F7L82c span.ceA1da",
-        "span.ceNzKf[aria-label]",
-        "span[aria-label*='estrela']",
-        "div.fontDisplayLarge"
-    ]:
-        try:
-            el = page.locator(selector).first
-            if await el.count() > 0:
-                text = await el.get_attribute("aria-label") or await el.text_content() or ""
-                match = re.search(r"(\d[.,]\d)", text)
-                if match:
-                    info["Nota Google"] = match.group(1).replace(",", ".")
-                    break
-        except Exception:
-            pass
-
-    # Reviews count
-    for selector in [
-        "div.F7nice span[aria-label*='avaliação']",
-        "span[aria-label*='avaliações']",
-        "button[aria-label*='avaliação']",
-        "button[jsaction*='reviews'] span"
-    ]:
-        try:
-            el = page.locator(selector).first
-            if await el.count() > 0:
-                text = await el.get_attribute("aria-label") or await el.text_content() or ""
-                rev_match = re.search(r"([\d\.\s,]+)", text)
-                if rev_match:
-                    cleaned = rev_match.group(1).replace(".", "").replace(",", "").replace(" ", "").strip()
-                    if cleaned.isdigit() and int(cleaned) > 0:
-                        info["Avaliações"] = cleaned
-                        break
-        except Exception:
-            pass
-
-    # Category
-    for selector in [
-        "button[jsaction*='category']",
-        "button[jsaction*='pane.rating.category']",
-        ".DkEaL",
-        "span.DkEaL"
-    ]:
-        try:
-            el = page.locator(selector).first
-            if await el.count() > 0:
-                text = (await el.text_content() or "").strip()
-                if text and len(text) < 80:
-                    info["Categoria"] = text
-                    break
-        except Exception:
-            pass
-
-    # Address
-    for selector in [
-        "button[data-item-id='address']",
-        "button[data-item-id='oloc']",
-        "[data-item-id='address'] .fontBodyMedium",
-        "button[aria-label*='Endereço']",
-        "button[aria-label*='endereço']"
-    ]:
-        try:
-            el = page.locator(selector).first
-            if await el.count() > 0:
-                text = await el.get_attribute("aria-label") or await el.text_content() or ""
-                cleaned = text.replace("Endereço:", "").replace("endereço:", "").strip()
-                if cleaned and len(cleaned) > 3:
-                    info["Endereço"] = cleaned
-                    break
-        except Exception:
-            pass
-
-    # Phone
-    for selector in [
-        "button[data-item-id*='phone']",
-        "button[data-item-id*='tel:']",
-        "button[aria-label*='Telefone']",
-        "button[aria-label*='telefone']",
-        "a[data-item-id*='phone']",
-        "a[href^='tel:']"
-    ]:
-        try:
-            el = page.locator(selector).first
-            if await el.count() > 0:
-                text = await el.get_attribute("aria-label") or await el.text_content() or ""
-                cleaned = text.replace("Telefone:", "").replace("telefone:", "").strip()
-                phone_match = re.search(r'[\(\+]?[\d\s\(\)\-\.]{8,}', cleaned)
-                if phone_match:
-                    info["Telefone Maps"] = phone_match.group(0).strip()
-                    break
-        except Exception:
-            pass
-
-    # Website
-    for selector in [
-        "a[data-item-id='authority']",
-        "a[data-item-id*='authority']",
-        "a[aria-label*='site']",
-        "a[aria-label*='Site']",
-        "a[aria-label*='Website']"
-    ]:
-        try:
-            el = page.locator(selector).first
-            if await el.count() > 0:
-                href = await el.get_attribute("href")
-                if href and href.startswith("http") and "google" not in href:
-                    info["Site Oficial Maps"] = href
-                    break
-        except Exception:
-            pass
-
-    return info
-
-
 async def _extract_feed_item_data(page, index: int) -> dict:
     """Extract basic data from a single feed item card in the Google Maps list view."""
     info = {
@@ -165,7 +23,10 @@ async def _extract_feed_item_data(page, index: int) -> dict:
         "Endereço": "",
         "Telefone Maps": "",
         "Site Oficial Maps": "",
-        "Google Maps URL": ""
+        "Google Maps URL": "",
+        "Instagram": "",
+        "Facebook": "",
+        "Email": ""
     }
     
     try:
@@ -185,14 +46,17 @@ async def _extract_feed_item_data(page, index: int) -> dict:
             if await card.count() > 0:
                 card_text = await card.text_content() or ""
                 
+                # Rating
                 rating_match = re.search(r'(\d[.,]\d)\s*\(', card_text)
                 if rating_match:
                     info["Nota Google"] = rating_match.group(1).replace(",", ".")
                 
+                # Reviews
                 reviews_match = re.search(r'\((\d[\d\.\s]*)\)', card_text)
                 if reviews_match:
                     info["Avaliações"] = reviews_match.group(1).replace(".", "").replace(" ", "").strip()
                 
+                # Category
                 try:
                     cat_spans = card.locator("span").all()
                     spans = await cat_spans
@@ -210,6 +74,7 @@ async def _extract_feed_item_data(page, index: int) -> dict:
                 except Exception:
                     pass
                     
+                # Address snippet
                 addr_match = re.search(r'·\s*([^·]*(?:R\.|Rua|Av\.|Avenida|Praça|Al\.|Alameda|Trav\.)[^·]+)', card_text)
                 if addr_match:
                     info["Endereço"] = addr_match.group(1).strip()
@@ -222,25 +87,18 @@ async def _extract_feed_item_data(page, index: int) -> dict:
     return info
 
 
-async def scrape_google_maps_streaming(
-    query: str,
-    max_results: int = 15,
-    min_rating: float = 0.0,
-    has_website_filter: bool = False,
-    has_phone_filter: bool = False,
-    mode: str = "direcionada"
-) -> AsyncGenerator[dict, None]:
-    """2-Phase Streaming Scraper:
+async def collect_basic_leads_from_maps(query: str, max_results: int = 15) -> list[dict]:
+    """Phase 1: Uses Playwright for ~3 seconds to scroll Maps list view and collect basic cards.
     
-    Phase 1 (Instant ~3s): Emits ALL basic leads found in list view immediately so UI shows cards.
-    Phase 2 (Background Enrichment): Navigates details + fast HTTP social search to enrich each lead live on screen.
+    CLOSES BROWSER IMMEDIATELY to free memory before returning.
     """
     from playwright.async_api import async_playwright
     
-    logger.info(f"Busca 2-fases streaming: '{query}' (máx: {max_results}, modo: {mode})")
+    logger.info(f"[Phase 1] Coletando lista rápida no Maps: '{query}' (máx: {max_results})")
     
     encoded_query = urllib.parse.quote(query)
     url = f"https://www.google.com/maps/search/{encoded_query}?hl=pt-BR"
+    feed_data = []
     
     try:
         async with async_playwright() as p:
@@ -264,7 +122,7 @@ async def scrape_google_maps_streaming(
             )
             
             async def route_intercept(route):
-                if route.request.resource_type in ["image", "font", "media"]:
+                if route.request.resource_type in ["image", "font", "media", "stylesheet"]:
                     await route.abort()
                 else:
                     await route.continue_()
@@ -273,27 +131,26 @@ async def scrape_google_maps_streaming(
             page = await context.new_page()
             
             try:
-                # === PHASE 1: Scroll and collect list data ===
-                await page.goto(url, wait_until="domcontentloaded", timeout=30000)
-                await page.wait_for_timeout(3000)
+                await page.goto(url, wait_until="domcontentloaded", timeout=25000)
+                await page.wait_for_timeout(2000)
                 
                 try:
                     reject_btn = page.locator("button:has-text('Rejeitar tudo'), button:has-text('Reject all')").first
                     if await reject_btn.is_visible():
                         await reject_btn.click()
-                        await page.wait_for_timeout(1000)
+                        await page.wait_for_timeout(500)
                 except Exception:
                     pass
 
                 feed_selector = "div[role='feed']"
                 try:
-                    await page.wait_for_selector(feed_selector, timeout=10000)
+                    await page.wait_for_selector(feed_selector, timeout=8000)
                 except Exception:
                     pass
 
                 prev_count = 0
                 scroll_attempts = 0
-                max_scroll_attempts = 15
+                max_scroll_attempts = 12
 
                 while scroll_attempts < max_scroll_attempts:
                     items = page.locator("a[href*='/maps/place/']")
@@ -317,153 +174,171 @@ async def scrape_google_maps_streaming(
                     else:
                         await page.evaluate("window.scrollBy(0, 1000);")
                         
-                    await page.wait_for_timeout(int(config.MAPS_SCROLL_DELAY_SEC * 1000))
+                    await page.wait_for_timeout(1000)
                     
                     end_of_list = await page.locator("text='Você chegou ao fim da lista'").count() > 0
                     if end_of_list:
                         break
 
-                # Extract basic data from feed items
                 total_items = await page.locator("a[href*='/maps/place/']").count()
                 items_count = min(total_items, max_results)
                 
-                feed_data = []
                 for i in range(items_count):
                     item_data = await _extract_feed_item_data(page, i)
                     if item_data["Google Maps URL"]:
                         feed_data.append(item_data)
-                
-                logger.info(f"[Phase 1 completo] {len(feed_data)} leads básicos extraídos. Emitindo imediatamente para a UI...")
-
-                # EMIT ALL BASIC LEADS IMMEDIATELY (UI SHOWS ALL CARDS RIGHT AWAY)
-                for idx, item in enumerate(feed_data):
-                    yield {
-                        "_phase": "basic",
-                        "index": idx + 1,
-                        "data": item
-                    }
-
-                # === PHASE 2: Background Enrichment ===
-                if mode != "simples":
-                    logger.info(f"[Phase 2 em andamento] Enriquecendo {len(feed_data)} leads...")
-                    
-                    for idx, item in enumerate(feed_data):
-                        detail_url = item["Google Maps URL"]
-                        if not detail_url.startswith("http"):
-                            detail_url = f"https://www.google.com{detail_url}"
                         
-                        try:
-                            await page.goto(detail_url, wait_until="domcontentloaded", timeout=15000)
-                            await page.wait_for_timeout(1500)
-                            
-                            detail_data = await _extract_from_detail_page(page)
-                            
-                            merged = {}
-                            for key in item:
-                                feed_val = item.get(key, "")
-                                detail_val = detail_data.get(key, "")
-                                merged[key] = detail_val if detail_val else feed_val
-                            
-                        except Exception as e:
-                            logger.warning(f"Erro ao navegar para '{item.get('Nome')}': {e}")
-                            merged = item
-                        
-                        # Apply filters
-                        skip = False
-                        if min_rating > 0:
-                            try:
-                                rating_val = float(merged.get("Nota Google", 0) or 0)
-                                if rating_val < min_rating:
-                                    skip = True
-                            except ValueError:
-                                pass
-                        if has_website_filter and not merged.get("Site Oficial Maps"):
-                            skip = True
-                        if has_phone_filter and not merged.get("Telefone Maps"):
-                            skip = True
-                        
-                        if not skip:
-                            async with aiohttp.ClientSession() as session:
-                                if merged.get("Site Oficial Maps"):
-                                    try:
-                                        async with session.get(
-                                            merged["Site Oficial Maps"],
-                                            timeout=aiohttp.ClientTimeout(total=5),
-                                            headers={"User-Agent": config.HTTP_USER_AGENT},
-                                            ssl=False,
-                                            allow_redirects=True
-                                        ) as resp:
-                                            if resp.status == 200:
-                                                site_html = await resp.text(errors="replace")
-                                                insta_match = re.search(
-                                                    r'href=[\'\"](https?://(?:www\.)?instagram\.com/[^\'\"\s?#]+)',
-                                                    site_html
-                                                )
-                                                if insta_match:
-                                                    merged["Instagram"] = insta_match.group(1)
-                                                fb_match = re.search(
-                                                    r'href=[\'\"](https?://(?:www\.)?facebook\.com/[^\'\"\s?#]+)',
-                                                    site_html
-                                                )
-                                                if fb_match:
-                                                    merged["Facebook"] = fb_match.group(1)
-                                                email_match = re.search(
-                                                    r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+',
-                                                    site_html
-                                                )
-                                                if email_match:
-                                                    email = email_match.group(0)
-                                                    if not email.endswith(('.png', '.jpg', '.gif', '.webp', '.svg')):
-                                                        merged["Email"] = email
-                                    except Exception:
-                                        pass
-                                
-                                # Instant Search Fallback if Instagram/Facebook still missing
-                                if not merged.get("Instagram") and merged.get("Nome"):
-                                    try:
-                                        search_term = f"{merged['Nome']} {query} instagram"
-                                        search_url = f"https://html.duckduckgo.com/html/?q={urllib.parse.quote(search_term)}"
-                                        async with session.get(
-                                            search_url,
-                                            timeout=aiohttp.ClientTimeout(total=4),
-                                            headers={"User-Agent": config.HTTP_USER_AGENT}
-                                        ) as search_resp:
-                                            if search_resp.status == 200:
-                                                s_html = await search_resp.text(errors="replace")
-                                                unquoted_s = urllib.parse.unquote(s_html)
-                                                
-                                                insta_matches = re.findall(r'https?://(?:www\.)?instagram\.com/[a-zA-Z0-9_.]+', unquoted_s)
-                                                for insta in insta_matches:
-                                                    clean_insta = insta.rstrip('.')
-                                                    if not any(x in clean_insta.lower() for x in ['/p/', '/reel/', '/stories/', '/explore/']):
-                                                        merged["Instagram"] = clean_insta
-                                                        break
-                                                        
-                                                if not merged.get("Facebook"):
-                                                    fb_matches = re.findall(r'https?://(?:www\.)?facebook\.com/[a-zA-Z0-9_.]+', unquoted_s)
-                                                    for fb in fb_matches:
-                                                        clean_fb = fb.rstrip('.')
-                                                        if not any(x in clean_fb.lower() for x in ['/sharer', '/share', '/dialog']):
-                                                            merged["Facebook"] = clean_fb
-                                                            break
-                                    except Exception:
-                                        pass
-                            
-                            # EMIT ENRICHED UPDATE FOR THIS LEAD IN REAL TIME!
-                            yield {
-                                "_phase": "enriched",
-                                "index": idx + 1,
-                                "data": merged
-                            }
-                
             finally:
                 await page.close()
             
+            # CRITICAL: Close browser immediately
             await browser.close()
-            logger.info("Browser fechado. 2 fases concluídas com sucesso.")
+            logger.info(f"[Phase 1 Concluída] Navegador FECHADO. {len(feed_data)} leads básicos na memória.")
     
     except Exception as e:
-        logger.error(f"Erro fatal no scraper: {e}")
+        logger.error(f"Erro na Phase 1 (Maps list): {e}")
+        
+    return feed_data
+
+
+async def enrich_lead_via_http_search(lead: dict, city_query: str, session: aiohttp.ClientSession) -> dict:
+    """Phase 2: 100% Lightweight HTTP Search Enrichment (ZERO Browser, ZERO RAM spike).
+    
+    Performs a fast HTTP search for '{company_name} {city_query}' on DuckDuckGo HTML
+    to extract Phone, Instagram, Facebook, and Official Website links.
+    """
+    enriched = dict(lead)
+    company_name = enriched.get("Nome", "")
+    if not company_name:
+        return enriched
+        
+    search_term = f"{company_name} {city_query}"
+    search_url = f"https://html.duckduckgo.com/html/?q={urllib.parse.quote(search_term)}"
+    
+    try:
+        async with session.get(
+            search_url,
+            timeout=aiohttp.ClientTimeout(total=5),
+            headers={"User-Agent": config.HTTP_USER_AGENT}
+        ) as resp:
+            if resp.status == 200:
+                raw_html = await resp.text(errors="replace")
+                html = urllib.parse.unquote(raw_html)
+                
+                # 1. Extract Instagram Link
+                if not enriched.get("Instagram"):
+                    insta_matches = re.findall(r'https?://(?:www\.)?instagram\.com/[a-zA-Z0-9_.]+', html)
+                    for insta in insta_matches:
+                        clean_insta = insta.rstrip('.')
+                        if not any(x in clean_insta.lower() for x in ['/p/', '/reel/', '/stories/', '/explore/', '/developer/']):
+                            enriched["Instagram"] = clean_insta
+                            break
+
+                # 2. Extract Facebook Link
+                if not enriched.get("Facebook"):
+                    fb_matches = re.findall(r'https?://(?:www\.)?facebook\.com/[a-zA-Z0-9_.]+', html)
+                    for fb in fb_matches:
+                        clean_fb = fb.rstrip('.')
+                        if not any(x in clean_fb.lower() for x in ['/sharer', '/share', '/dialog', '/policies']):
+                            enriched["Facebook"] = clean_fb
+                            break
+
+                # 3. Extract Phone (if missing from Maps list)
+                if not enriched.get("Telefone Maps"):
+                    phone_match = re.search(r'\(?\d{2}\)?\s*9?\d{4}[-\s]?\d{4}', html)
+                    if phone_match:
+                        enriched["Telefone Maps"] = phone_match.group(0).strip()
+
+                # 4. Extract Website (if missing from Maps list)
+                if not enriched.get("Site Oficial Maps"):
+                    urls = re.findall(r'uddg=(https?%3A%2F%2F[^&"\']+)', raw_html)
+                    for u in urls:
+                        decoded = urllib.parse.unquote(u)
+                        if not any(x in decoded.lower() for x in [
+                            'instagram.com', 'facebook.com', 'google.com', 'youtube.com', 
+                            'duckduckgo.com', 'tripadvisor.com', 'cnpj.biz', 'econodata.com', 'solutudo.com.br'
+                        ]):
+                            enriched["Site Oficial Maps"] = decoded
+                            break
+
+    except Exception as e:
+        logger.warning(f"Search enrichment error for '{company_name}': {e}")
+
+    # 5. If Website exists, do a quick HTTP GET to grab Email
+    if enriched.get("Site Oficial Maps") and not enriched.get("Email"):
+        try:
+            async with session.get(
+                enriched["Site Oficial Maps"],
+                timeout=aiohttp.ClientTimeout(total=4),
+                headers={"User-Agent": config.HTTP_USER_AGENT},
+                ssl=False
+            ) as site_resp:
+                if site_resp.status == 200:
+                    site_html = await site_resp.text(errors="replace")
+                    email_match = re.search(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+', site_html)
+                    if email_match:
+                        email = email_match.group(0)
+                        if not email.endswith(('.png', '.jpg', '.gif', '.webp', '.svg')):
+                            enriched["Email"] = email
+        except Exception:
+            pass
+
+    return enriched
+
+
+async def scrape_google_maps_streaming(
+    query: str,
+    max_results: int = 15,
+    min_rating: float = 0.0,
+    has_website_filter: bool = False,
+    has_phone_filter: bool = False,
+    mode: str = "direcionada"
+) -> AsyncGenerator[dict, None]:
+    """Ultra-Fast Zero-Browser-Enrichment Streaming Scraper:
+    
+    1. Phase 1 (Playwright ~3s): Collects basic leads from Maps list and CLOSES BROWSER IMMEDIATELY.
+    2. Emits all basic leads to UI (UI shows 20 cards in 3s).
+    3. Phase 2 (100% HTTP Search ~1s): Enriches Instagram, Facebook, Phone & Website via lightweight HTTP requests.
+    4. Emits lead_update events live in real-time. Zero RAM spike on Render!
+    """
+    logger.info(f"Iniciando busca ultra-rápida: '{query}' (máx: {max_results})")
+    
+    # Phase 1: Collect list with Playwright (closes browser immediately)
+    feed_data = await collect_basic_leads_from_maps(query, max_results)
+    
+    if not feed_data:
+        return
+
+    # EMIT ALL BASIC LEADS IMMEDIATELY TO THE UI (3 SECONDS TOTAL UX!)
+    for idx, item in enumerate(feed_data):
+        yield {
+            "_phase": "basic",
+            "index": idx + 1,
+            "data": item
+        }
+
+    # Phase 2: HTTP Search Enrichment (Zero Browser!)
+    if mode != "simples":
+        logger.info(f"[Phase 2 - HTTP] Enriquecendo {len(feed_data)} leads via busca leve...")
+        
+        sem = asyncio.Semaphore(5)  # 5 parallel HTTP searches
+        
+        async def enrich_worker(idx: int, item: dict, session: aiohttp.ClientSession):
+            async with sem:
+                enriched = await enrich_lead_via_http_search(item, query, session)
+                return {
+                    "_phase": "enriched",
+                    "index": idx + 1,
+                    "data": enriched
+                }
+
+        async with aiohttp.ClientSession() as session:
+            tasks = [enrich_worker(i, item, session) for i, item in enumerate(feed_data)]
+            for completed_task in asyncio.as_completed(tasks):
+                res = await completed_task
+                yield res
+
+    logger.info("Scraping completo. Browser fechado há muito tempo!")
 
 
 async def scrape_google_maps(

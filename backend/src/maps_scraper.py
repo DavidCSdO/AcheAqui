@@ -403,10 +403,10 @@ async def scrape_google_maps_streaming(
                             skip = True
                         
                         if not skip:
-                            # For "direcionada"/"completa": grab Instagram from website via HTTP
-                            if merged.get("Site Oficial Maps"):
-                                try:
-                                    async with aiohttp.ClientSession() as session:
+                            async with aiohttp.ClientSession() as session:
+                                # First try official website if available
+                                if merged.get("Site Oficial Maps"):
+                                    try:
                                         async with session.get(
                                             merged["Site Oficial Maps"],
                                             timeout=aiohttp.ClientTimeout(total=5),
@@ -439,8 +439,39 @@ async def scrape_google_maps_streaming(
                                                     email = email_match.group(0)
                                                     if not email.endswith(('.png', '.jpg', '.gif', '.webp', '.svg')):
                                                         merged["Email"] = email
-                                except Exception:
-                                    pass
+                                    except Exception:
+                                        pass
+                                
+                                # Instant Search Fallback if Instagram/Facebook still missing
+                                if not merged.get("Instagram") and merged.get("Nome"):
+                                    try:
+                                        search_term = f"{merged['Nome']} {query} instagram"
+                                        search_url = f"https://html.duckduckgo.com/html/?q={urllib.parse.quote(search_term)}"
+                                        async with session.get(
+                                            search_url,
+                                            timeout=aiohttp.ClientTimeout(total=4),
+                                            headers={"User-Agent": config.HTTP_USER_AGENT}
+                                        ) as search_resp:
+                                            if search_resp.status == 200:
+                                                s_html = await search_resp.text(errors="replace")
+                                                unquoted_s = urllib.parse.unquote(s_html)
+                                                
+                                                insta_matches = re.findall(r'https?://(?:www\.)?instagram\.com/[a-zA-Z0-9_.]+', unquoted_s)
+                                                for insta in insta_matches:
+                                                    clean_insta = insta.rstrip('.')
+                                                    if not any(x in clean_insta.lower() for x in ['/p/', '/reel/', '/stories/', '/explore/']):
+                                                        merged["Instagram"] = clean_insta
+                                                        break
+                                                        
+                                                if not merged.get("Facebook"):
+                                                    fb_matches = re.findall(r'https?://(?:www\.)?facebook\.com/[a-zA-Z0-9_.]+', unquoted_s)
+                                                    for fb in fb_matches:
+                                                        clean_fb = fb.rstrip('.')
+                                                        if not any(x in clean_fb.lower() for x in ['/sharer', '/share', '/dialog']):
+                                                            merged["Facebook"] = clean_fb
+                                                            break
+                                    except Exception:
+                                        pass
                             
                             yield merged
                 

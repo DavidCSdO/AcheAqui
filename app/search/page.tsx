@@ -55,8 +55,11 @@ function SearchContent() {
   }, []);
 
   useEffect(() => {
+    let eventSource: EventSource | null = null;
+    
     const fetchData = async () => {
       setLoading(true);
+      setData([]);
       setLoadingStage("Consultando Supabase...");
       const supabase = createClient();
       
@@ -101,54 +104,132 @@ function SearchContent() {
         if (query) {
           fetchAiConsultant(query, mappedLocal);
         }
-        } else if (query) {
-        setLoadingStage("Interceptando dados do Google Maps (isso pode levar de 5 a 15 segundos)...");
-        let finalScrapedData: any[] = [];
+      } else if (query) {
+        // === SSE STREAMING ===
+        setLoadingStage("Coletando dados do Google Maps...");
+        
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+        const sseUrl = `${apiUrl}/api/scrape/stream?q=${encodeURIComponent(query)}&limit=${limit}&mode=${mode}`;
+        
+        const collectedLeads: any[] = [];
+        
         try {
-          const pyResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000"}/api/scrape`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ query, limit: limit, min_rating: 0, has_website: false, has_phone: false, mode: mode }),
-            cache: 'no-store'
-          });
+          eventSource = new EventSource(sseUrl);
           
-          if (pyResponse.ok) {
-            setLoadingStage("Processando e enriquecendo leads...");
-            const pyResult = await pyResponse.json();
-            if (pyResult.status === "success" && pyResult.data && pyResult.data.length > 0) {
-              const mappedData = pyResult.data.map((item: any, i: number) => ({
-                id: `scraped-${i}`,
-                name: item.Nome || "Empresa Encontrada",
-                category: item.Categoria,
-                address: item.Endereço,
-                cellphone: item["Telefone Celular"],
-                landline: item["Telefone Fixo"],
-                whatsapp: item["WhatsApp Direct"],
-                email: item["Email Geral"] || item["Email RH"],
-                website: item.Site,
-                google_rating: item["Nota Google"] ? parseFloat(item["Nota Google"].toString().replace(',','.')) : null,
-                instagram: item["Instagram"],
-                linkedin: item["LinkedIn"],
-                maps_url: item["Google Maps URL"]
-              }));
-              finalScrapedData = mappedData;
-              setData(mappedData);
+          eventSource.onmessage = (event) => {
+            try {
+              const payload = JSON.parse(event.data);
+              
+              if (payload.type === "status") {
+                setLoadingStage(payload.message);
+              } else if (payload.type === "lead") {
+                setLoading(false);
+                setLoadingStage("");
+                
+                const item = payload.data;
+                const mappedLead = {
+                  id: `scraped-${payload.index}`,
+                  name: item.Nome || "Empresa Encontrada",
+                  category: item.Categoria,
+                  address: item["Endereço"],
+                  cellphone: item["Telefone Celular"],
+                  landline: item["Telefone Fixo"],
+                  whatsapp: item["WhatsApp Direct"],
+                  email: item["Email Geral"] || item["Email RH"],
+                  website: item.Site,
+                  google_rating: item["Nota Google"] ? parseFloat(item["Nota Google"].toString().replace(',','.')) : null,
+                  instagram: item["Instagram"],
+                  linkedin: item["LinkedIn"],
+                  maps_url: item["Google Maps URL"]
+                };
+                
+                collectedLeads.push(mappedLead);
+                setData([...collectedLeads]);
+                
+              } else if (payload.type === "done") {
+                setLoading(false);
+                if (eventSource) eventSource.close();
+                if (collectedLeads.length > 0 && query) {
+                  fetchAiConsultant(query, collectedLeads);
+                }
+              } else if (payload.type === "error") {
+                console.error("SSE error from server:", payload.message);
+                setLoading(false);
+                if (eventSource) eventSource.close();
+              }
+            } catch (parseErr) {
+              console.error("SSE parse error:", parseErr);
             }
-          }
+          };
+          
+          eventSource.onerror = (err) => {
+            console.error("SSE connection error:", err);
+            if (eventSource) eventSource.close();
+            
+            // If we got zero results via SSE, try fallback POST
+            if (collectedLeads.length === 0) {
+              fallbackPostScrape(query, limit, mode, collectedLeads);
+            } else {
+              setLoading(false);
+            }
+          };
+          
         } catch (e) {
-          console.error("On-the-fly search scraper failed:", e);
-        } finally {
-          setLoading(false);
-          if (finalScrapedData.length > 0 && query) {
-            fetchAiConsultant(query, finalScrapedData);
-          }
+          console.error("SSE setup failed:", e);
+          fallbackPostScrape(query, limit, mode, collectedLeads);
         }
       } else {
         setLoading(false);
       }
     };
 
+    const fallbackPostScrape = async (q: string, lim: number, m: string, collected: any[]) => {
+      setLoadingStage("Tentando via método alternativo...");
+      try {
+        const pyResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000"}/api/scrape`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query: q, limit: lim, min_rating: 0, has_website: false, has_phone: false, mode: m }),
+          cache: 'no-store'
+        });
+        
+        if (pyResponse.ok) {
+          const pyResult = await pyResponse.json();
+          if (pyResult.status === "success" && pyResult.data && pyResult.data.length > 0) {
+            const mappedData = pyResult.data.map((item: any, i: number) => ({
+              id: `scraped-${i}`,
+              name: item.Nome || "Empresa Encontrada",
+              category: item.Categoria,
+              address: item["Endereço"],
+              cellphone: item["Telefone Celular"],
+              landline: item["Telefone Fixo"],
+              whatsapp: item["WhatsApp Direct"],
+              email: item["Email Geral"] || item["Email RH"],
+              website: item.Site,
+              google_rating: item["Nota Google"] ? parseFloat(item["Nota Google"].toString().replace(',','.')) : null,
+              instagram: item["Instagram"],
+              linkedin: item["LinkedIn"],
+              maps_url: item["Google Maps URL"]
+            }));
+            setData(mappedData);
+            if (q) fetchAiConsultant(q, mappedData);
+          }
+        }
+      } catch (e) {
+        console.error("Fallback POST scraper also failed:", e);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchData();
+    
+    // Cleanup: close SSE on unmount or re-render
+    return () => {
+      if (eventSource) {
+        eventSource.close();
+      }
+    };
   }, [query, limit]);
 
   const fetchAiConsultant = async (q: string, comps: any[]) => {

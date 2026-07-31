@@ -1,40 +1,48 @@
 import asyncio
 from urllib.parse import urljoin, urlparse
-from playwright.async_api import BrowserContext
+import aiohttp
 import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import config
 
-async def fetch_page_content(context: BrowserContext, url: str) -> str:
-    page = await context.new_page()
-    content = ""
+
+async def fetch_page_content(session: aiohttp.ClientSession, url: str) -> str:
+    """Fetch page HTML via HTTP request (no browser needed)."""
     try:
-        await page.goto(url, wait_until="domcontentloaded", timeout=config.PAGE_TIMEOUT_MS)
-        await page.wait_for_timeout(1000)
-        content = await page.content()
+        async with session.get(
+            url,
+            timeout=aiohttp.ClientTimeout(total=config.CRAWL_TIMEOUT_SEC),
+            headers={"User-Agent": config.HTTP_USER_AGENT},
+            ssl=False
+        ) as response:
+            if response.status == 200:
+                return await response.text(errors="replace")
     except Exception:
         pass
-    finally:
-        await page.close()
-    return content
+    return ""
 
-async def crawl_company_site(context: BrowserContext, base_url: str) -> list[str]:
+
+async def crawl_company_site(session: aiohttp.ClientSession, base_url: str) -> list[str]:
+    """Crawl a company website using HTTP requests (no browser).
+    
+    Visits the base URL and common subpages to extract contact info.
+    """
     parsed_base = urlparse(base_url)
     domain = parsed_base.netloc
-    scheme = parsed_base.scheme
+    scheme = parsed_base.scheme or "https"
     
     urls_to_visit = set()
     for path in config.CANDIDATE_PATHS:
         full_url = f"{scheme}://{domain}{path}"
         urls_to_visit.add(full_url)
-        
-    sem = asyncio.Semaphore(2) # Limit to 2 concurrent paths per company
+    
+    sem = asyncio.Semaphore(2)  # Limit to 2 concurrent paths per company
     
     async def fetch_with_sem(url):
         async with sem:
-            return await fetch_page_content(context, url)
+            return await fetch_page_content(session, url)
             
     tasks = [fetch_with_sem(url) for url in urls_to_visit]
     html_contents = await asyncio.gather(*tasks)

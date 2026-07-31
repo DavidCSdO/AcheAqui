@@ -76,20 +76,30 @@ def format_lead(item: dict) -> dict:
     celulares, fixos = categorize_phones({raw_phone}) if raw_phone else (set(), set())
     wa_links = generate_whatsapp_links(celulares)
     
+    celular_str = ", ".join(sorted(celulares))
+    fixo_str = ", ".join(sorted(fixos))
+    
+    # Robust fallback: if raw_phone exists but wasn't categorized, put it in Telefone Celular
+    if not celular_str and not fixo_str and raw_phone:
+        celular_str = raw_phone
+        digits = re.sub(r'\D', '', raw_phone)
+        if len(digits) >= 10:
+            wa_links = [f"https://wa.me/55{digits}"]
+    
     return {
         "Nome": item.get("Nome", ""),
         "Categoria": item.get("Categoria", ""),
         "Endereço": item.get("Endereço", ""),
-        "Telefone Celular": ", ".join(sorted(celulares)),
+        "Telefone Celular": celular_str,
         "WhatsApp Direct": wa_links[0] if wa_links else "",
         "WhatsApp Links": wa_links,
-        "Telefone Fixo": ", ".join(sorted(fixos)),
+        "Telefone Fixo": fixo_str,
         "Nota Google": item.get("Nota Google", ""),
         "Avaliações": item.get("Avaliações", ""),
-        "Site": item.get("Site Oficial Maps", ""),
+        "Site": item.get("Site Oficial Maps", "") or item.get("Site", ""),
         "Email RH": "",
-        "Email Geral": item.get("Email", ""),
-        "LinkedIn": "",
+        "Email Geral": item.get("Email", "") or item.get("Email Geral", ""),
+        "LinkedIn": item.get("LinkedIn", ""),
         "Instagram": item.get("Instagram", ""),
         "Facebook": item.get("Facebook", ""),
         "Página de Carreiras": "",

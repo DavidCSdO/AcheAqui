@@ -132,15 +132,15 @@ function SearchContent() {
                   name: item.Nome || "Empresa Encontrada",
                   category: item.Categoria,
                   address: item["Endereço"],
-                  cellphone: item["Telefone Celular"],
-                  landline: item["Telefone Fixo"],
-                  whatsapp: item["WhatsApp Direct"],
-                  email: item["Email Geral"] || item["Email RH"],
-                  website: item.Site,
+                  cellphone: item["Telefone Celular"] || item["Telefone Maps"] || item["Telefone Fixo"] || "",
+                  landline: item["Telefone Fixo"] || "",
+                  whatsapp: item["WhatsApp Direct"] || (item["Telefone Celular"] ? `https://wa.me/55${item["Telefone Celular"].replace(/\D/g, '')}` : ""),
+                  email: item["Email Geral"] || item["Email RH"] || item["Email"] || "",
+                  website: item.Site || item["Site Oficial Maps"] || "",
                   google_rating: item["Nota Google"] ? parseFloat(item["Nota Google"].toString().replace(',','.')) : null,
-                  instagram: item["Instagram"],
-                  linkedin: item["LinkedIn"],
-                  maps_url: item["Google Maps URL"]
+                  instagram: item["Instagram"] || "",
+                  linkedin: item["LinkedIn"] || "",
+                  maps_url: item["Google Maps URL"] || ""
                 };
                 
                 const targetIdx = payload.index - 1;
@@ -157,15 +157,18 @@ function SearchContent() {
                 
                 if (targetIdx >= 0 && targetIdx < collectedLeads.length) {
                   const existing = collectedLeads[targetIdx];
+                  const newPhone = item["Telefone Celular"] || item["Telefone Maps"] || item["Telefone Fixo"] || existing.cellphone;
+                  const newWa = item["WhatsApp Direct"] || existing.whatsapp || (newPhone ? `https://wa.me/55${newPhone.replace(/\D/g, '')}` : "");
+                  
                   collectedLeads[targetIdx] = {
                     ...existing,
                     category: item.Categoria || existing.category,
                     address: item["Endereço"] || existing.address,
-                    cellphone: item["Telefone Celular"] || existing.cellphone,
+                    cellphone: newPhone,
                     landline: item["Telefone Fixo"] || existing.landline,
-                    whatsapp: item["WhatsApp Direct"] || existing.whatsapp,
-                    email: item["Email Geral"] || item["Email RH"] || existing.email,
-                    website: item.Site || existing.website,
+                    whatsapp: newWa,
+                    email: item["Email Geral"] || item["Email RH"] || item["Email"] || existing.email,
+                    website: item.Site || item["Site Oficial Maps"] || existing.website,
                     google_rating: item["Nota Google"] ? parseFloat(item["Nota Google"].toString().replace(',','.')) : existing.google_rating,
                     instagram: item["Instagram"] || existing.instagram,
                     linkedin: item["LinkedIn"] || existing.linkedin,

@@ -178,6 +178,7 @@ function SearchContent() {
                 if (eventSource) eventSource.close();
                 if (collectedLeads.length > 0 && query) {
                   fetchAiConsultant(query, collectedLeads);
+                  cacheLeadsToSupabase(collectedLeads);
                 }
               } else if (payload.type === "error") {
                 console.error("SSE error from server:", payload.message);
@@ -276,6 +277,26 @@ function SearchContent() {
       console.error("AI Semantic Error:", e);
     } finally {
       setLoadingAi(false);
+    }
+  };
+
+  const cacheLeadsToSupabase = async (leads: any[]) => {
+    try {
+      const supabase = createClient();
+      const recordsToInsert = leads.map(l => ({
+        name: l.name,
+        category: l.category || query,
+        address: l.address,
+        phone: l.cellphone || l.landline,
+        website: l.website,
+        instagram: l.instagram,
+        linkedin: l.linkedin,
+        google_rating: l.google_rating,
+        maps_url: l.maps_url
+      }));
+      await supabase.from("companies").upsert(recordsToInsert, { onConflict: 'name' });
+    } catch (e) {
+      console.error("Failed to cache leads to Supabase:", e);
     }
   };
 

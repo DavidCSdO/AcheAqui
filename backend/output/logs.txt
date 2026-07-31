@@ -208,3 +208,10 @@ Browser logs:
 2026-07-30 23:13:31,273 - INFO - Iniciando busca no Google Maps para: 'empresas no green office em petrópolis rio de janeiro' (máx: 20)
 2026-07-30 23:23:18,117 - INFO - Recebida requisição de busca API: 'Salões de beleza Recife' (limite: 20)
 2026-07-30 23:23:18,832 - INFO - Iniciando busca no Google Maps para: 'Salões de beleza Recife' (máx: 20)
+2026-07-31 13:16:46,363 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Academia Embu das Artes' (máx: 5)
+2026-07-31 13:16:58,857 - ERROR - Erro na Phase 1 (Maps list): Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://www.google.com/maps/search/Academia%20Embu%20das%20Artes?hl=pt-BR", waiting until "domcontentloaded"
+
+2026-07-31 13:21:16,786 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Academia Embu das Artes' (máx: 5)
+2026-07-31 13:21:20,707 - INFO - [Phase 1 Concluída] Navegador FECHADO. 5 leads básicos na memória.

@@ -109,10 +109,8 @@ async def collect_basic_leads_from_maps(query: str, max_results: int = 15) -> li
                     "--no-sandbox",
                     "--disable-setuid-sandbox",
                     "--disable-gpu",
-                    "--single-process",
                     "--disable-software-rasterizer",
-                    "--disable-extensions",
-                    "--js-flags=--max-old-space-size=128"
+                    "--disable-extensions"
                 ]
             )
             
@@ -122,7 +120,7 @@ async def collect_basic_leads_from_maps(query: str, max_results: int = 15) -> li
             )
             
             async def route_intercept(route):
-                if route.request.resource_type in ["image", "font", "media", "stylesheet"]:
+                if route.request.resource_type in ["image", "media", "font"]:
                     await route.abort()
                 else:
                     await route.continue_()
@@ -321,7 +319,7 @@ async def scrape_google_maps_streaming(
     if mode != "simples":
         logger.info(f"[Phase 2 - HTTP] Enriquecendo {len(feed_data)} leads via busca leve...")
         
-        sem = asyncio.Semaphore(5)  # 5 parallel HTTP searches
+        sem = asyncio.Semaphore(15)  # 15 parallel HTTP searches
         
         async def enrich_worker(idx: int, item: dict, session: aiohttp.ClientSession):
             async with sem:

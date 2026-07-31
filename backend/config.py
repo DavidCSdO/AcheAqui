@@ -16,19 +16,12 @@ DEFAULT_MAPS_QUERY = "Empresas de Tecnologia em São Paulo"
 DEFAULT_MAPS_LIMIT = 10
 MAPS_SCROLL_DELAY_SEC = 1.5
 
-MAX_CONCURRENT_PAGES = 5
+MAX_CONCURRENT_PAGES = 3
 PAGE_TIMEOUT_MS = 15000
 
 CANDIDATE_PATHS = [
     "/",
     "/contato",
     "/contact",
-    "/about",
     "/sobre",
-    "/fale-conosco",
-    "/careers",
-    "/carreiras",
-    "/jobs",
-    "/trabalhe-conosco",
-    "/recrutamento",
 ]

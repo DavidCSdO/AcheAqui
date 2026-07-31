@@ -30,7 +30,13 @@ async def crawl_company_site(context: BrowserContext, base_url: str) -> list[str
         full_url = f"{scheme}://{domain}{path}"
         urls_to_visit.add(full_url)
         
-    tasks = [fetch_page_content(context, url) for url in urls_to_visit]
+    sem = asyncio.Semaphore(2) # Limit to 2 concurrent paths per company
+    
+    async def fetch_with_sem(url):
+        async with sem:
+            return await fetch_page_content(context, url)
+            
+    tasks = [fetch_with_sem(url) for url in urls_to_visit]
     html_contents = await asyncio.gather(*tasks)
     
     return [html for html in html_contents if html]

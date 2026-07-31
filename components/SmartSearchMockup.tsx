@@ -1,20 +1,40 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useAnimations";
 import Crosshair from "./Crosshair";
 import { Search, List, MapPin, Table, Star, Phone, Mail } from "lucide-react";
 
-const RESULTS = [
-  { name: "Sorridents Odontologia Paulista", cat: "Clínica Odontológica", addr: "Av. Paulista, 1000 — São Paulo", phone: "+55 11 3288-1200", email: "paulista@sorridents.com.br", rating: 4.9 },
-  { name: "Dental Spec Pinheiros", cat: "Implantes & Ortodontia", addr: "R. dos Pinheiros, 450 — São Paulo", phone: "+55 11 3031-9988", email: "contato@dentalspec.com.br", rating: 4.8 },
-  { name: "Instituto Odonto Moema", cat: "Odontologia Estética", addr: "Av. Moema, 310 — São Paulo", phone: "+55 11 5052-7700", email: "atendimento@iomoema.com.br", rating: 5.0 },
-  { name: "OdontoCare Itaim Bibi", cat: "Cirurgia & Geral", addr: "R. Joaquim Floriano, 820 — São Paulo", phone: "+55 11 3168-4040", email: "itaim@odontocare.com.br", rating: 4.7 },
-];
+import { createClient } from "@/utils/supabase/client";
 
 export default function SmartSearchMockup() {
   const ref = useScrollReveal();
   const [view, setView] = useState<"lista" | "mapa" | "tabela">("lista");
+  const [results, setResults] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchCompanies = async () => {
+      const supabase = createClient();
+      const { data } = await supabase
+        .from("companies")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .limit(4);
+      
+      if (data && data.length > 0) {
+        setResults(data);
+      } else {
+        // Fallback to mock data if database is empty
+        setResults([
+          { name: "Sorridents Odontologia Paulista", category: "Clínica Odontológica", address: "Av. Paulista, 1000 — São Paulo", phone: "+55 11 3288-1200", email: "paulista@sorridents.com.br", google_rating: 4.9 },
+          { name: "Dental Spec Pinheiros", category: "Implantes & Ortodontia", address: "R. dos Pinheiros, 450 — São Paulo", phone: "+55 11 3031-9988", email: "contato@dentalspec.com.br", google_rating: 4.8 },
+          { name: "Instituto Odonto Moema", category: "Odontologia Estética", address: "Av. Moema, 310 — São Paulo", phone: "+55 11 5052-7700", email: "atendimento@iomoema.com.br", google_rating: 5.0 },
+          { name: "OdontoCare Itaim Bibi", category: "Cirurgia & Geral", address: "R. Joaquim Floriano, 820 — São Paulo", phone: "+55 11 3168-4040", email: "itaim@odontocare.com.br", google_rating: 4.7 },
+        ]);
+      }
+    };
+    fetchCompanies();
+  }, []);
 
   return (
     <section id="pesquisa-inteligente" className="section-padding bg-white relative">
@@ -71,25 +91,25 @@ export default function SmartSearchMockup() {
           <div className="p-6 min-h-[360px]">
             {view === "lista" && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {RESULTS.map((r, i) => (
+                {results.map((r, i) => (
                   <div key={i} className="card-dark p-5 space-y-3">
                     <div className="flex items-start justify-between">
                       <div>
-                        <span className="text-[0.625rem] uppercase tracking-[0.1em] text-white/25 font-mono">{r.cat}</span>
+                        <span className="text-[0.625rem] uppercase tracking-[0.1em] text-white/25 font-mono">{r.category || 'Empresa'}</span>
                         <h4 className="text-[0.875rem] font-semibold text-white mt-0.5">{r.name}</h4>
                         <p className="text-[0.75rem] text-white/30 flex items-center gap-1 mt-1">
                           <MapPin size={11} />
-                          {r.addr}
+                          {r.address || 'Não informado'}
                         </p>
                       </div>
                       <div className="flex items-center gap-1 text-amber-400 text-[0.75rem] font-semibold shrink-0">
                         <Star size={12} className="fill-amber-400" />
-                        {r.rating}
+                        {r.google_rating || '5.0'}
                       </div>
                     </div>
                     <div className="pt-3 border-t border-white/[0.06] flex items-center gap-4 text-[0.6875rem] font-mono">
-                      <span className="text-emerald-400/80 flex items-center gap-1"><Phone size={11} />{r.phone}</span>
-                      <span className="text-blue-400/80 flex items-center gap-1 truncate"><Mail size={11} />{r.email}</span>
+                      <span className="text-emerald-400/80 flex items-center gap-1"><Phone size={11} />{r.phone || 'N/A'}</span>
+                      <span className="text-blue-400/80 flex items-center gap-1 truncate"><Mail size={11} />{r.email || 'N/A'}</span>
                     </div>
                   </div>
                 ))}
@@ -102,7 +122,7 @@ export default function SmartSearchMockup() {
                   backgroundSize: "40px 40px",
                   backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)"
                 }} />
-                {RESULTS.map((r, i) => (
+                {results.map((r, i) => (
                   <div key={i} className="absolute group cursor-pointer" style={{ top: `${20 + i * 20}%`, left: `${15 + i * 22}%` }}>
                     <div className="flex items-center gap-2 bg-[var(--color-primary)] border border-blue-500/40 px-3 py-1.5 rounded-full text-[0.6875rem] font-semibold text-white shadow-xl hover:bg-[var(--color-secondary)] transition-all duration-200">
                       <Crosshair size={12} className="text-blue-400 group-hover:rotate-90 transition-transform duration-300" />
@@ -126,13 +146,13 @@ export default function SmartSearchMockup() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/[0.04]">
-                    {RESULTS.map((r, i) => (
+                    {results.map((r, i) => (
                       <tr key={i} className="hover:bg-white/[0.02] transition text-[0.8125rem]">
                         <td className="p-3 font-semibold text-white">{r.name}</td>
-                        <td className="p-3 text-white/40">{r.cat}</td>
-                        <td className="p-3 font-mono text-emerald-400/80 text-[0.75rem]">{r.phone}</td>
-                        <td className="p-3 font-mono text-blue-400/80 text-[0.75rem]">{r.email}</td>
-                        <td className="p-3 text-right text-amber-400 font-semibold">⭐ {r.rating}</td>
+                        <td className="p-3 text-white/40">{r.category || '-'}</td>
+                        <td className="p-3 font-mono text-emerald-400/80 text-[0.75rem]">{r.phone || '-'}</td>
+                        <td className="p-3 font-mono text-blue-400/80 text-[0.75rem]">{r.email || '-'}</td>
+                        <td className="p-3 text-right text-amber-400 font-semibold">⭐ {r.google_rating || '5.0'}</td>
                       </tr>
                     ))}
                   </tbody>

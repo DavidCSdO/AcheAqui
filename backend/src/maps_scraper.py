@@ -17,7 +17,8 @@ async def scrape_google_maps(
     max_results: int = 15,
     min_rating: float = 0.0,
     has_website_filter: bool = False,
-    has_phone_filter: bool = False
+    has_phone_filter: bool = False,
+    mode: str = "direcionada"
 ) -> list[dict]:
     logger.info(f"Iniciando busca no Google Maps para: '{query}' (máx: {max_results})")
     
@@ -89,100 +90,112 @@ async def scrape_google_maps(
             if href and href not in [p["href"] for p in place_links]:
                 place_links.append({"href": href, "name": aria_label or ""})
 
-        for idx, item in enumerate(place_links, 1):
-            name = item["name"]
-            href = item["href"]
-            
-            place_info = {
-                "Nome": name,
-                "Google Maps URL": href,
-                "Nota Google": "",
-                "Avaliações": "",
-                "Categoria": "",
-                "Endereço": "",
-                "Telefone Maps": "",
-                "Site Oficial Maps": ""
-            }
-            
-            try:
-                full_url = href if href.startswith("http") else f"https://www.google.com{href}"
-                detail_page = await context.new_page()
-                await detail_page.goto(full_url, wait_until="domcontentloaded", timeout=15000)
-                await detail_page.wait_for_timeout(1500)
+        sem = asyncio.Semaphore(10)
+        
+        async def extract_detail(item):
+            async with sem:
+                name = item["name"]
+                href = item["href"]
                 
-                if not place_info["Nome"]:
-                    h1 = detail_page.locator("h1").first
-                    if await h1.count() > 0:
-                        place_info["Nome"] = (await h1.text_content()).strip()
-
-                try:
-                    rating_elem = detail_page.locator("div.F7L82c span.ceA1da, span[aria-label*='estrelas']").first
-                    if await rating_elem.count() > 0:
-                        aria = await rating_elem.get_attribute("aria-label") or await rating_elem.text_content()
-                        match = re.search(r"(\d+[.,]\d+)", aria)
-                        if match:
-                            place_info["Nota Google"] = match.group(1).replace(",", ".")
-                            
-                    reviews_elem = detail_page.locator("button[aria-label*='avaliações'], span[aria-label*='avaliações']").first
-                    if await reviews_elem.count() > 0:
-                        aria_rev = await reviews_elem.get_attribute("aria-label") or await reviews_elem.text_content()
-                        rev_match = re.search(r"([\d\.\s]+)\s*avaliaç", aria_rev, re.IGNORECASE)
-                        if rev_match:
-                            place_info["Avaliações"] = rev_match.group(1).replace(".", "").strip()
-                except Exception:
-                    pass
-
-                try:
-                    cat_elem = detail_page.locator("button[jsaction*='category']").first
-                    if await cat_elem.count() > 0:
-                        place_info["Categoria"] = (await cat_elem.text_content()).strip()
-                except Exception:
-                    pass
-
-                try:
-                    addr_btn = detail_page.locator("button[data-item-id='address']").first
-                    if await addr_btn.count() > 0:
-                        aria_addr = await addr_btn.get_attribute("aria-label") or await addr_btn.text_content()
-                        place_info["Endereço"] = aria_addr.replace("Endereço:", "").strip()
-                except Exception:
-                    pass
-
-                try:
-                    phone_btn = detail_page.locator("button[data-item-id*='phone']").first
-                    if await phone_btn.count() > 0:
-                        aria_phone = await phone_btn.get_attribute("aria-label") or await phone_btn.text_content()
-                        place_info["Telefone Maps"] = aria_phone.replace("Telefone:", "").strip()
-                except Exception:
-                    pass
-
-                try:
-                    site_link = detail_page.locator("a[data-item-id='authority']").first
-                    if await site_link.count() > 0:
-                        site_url = await site_link.get_attribute("href")
-                        if site_url:
-                            place_info["Site Oficial Maps"] = site_url
-                except Exception:
-                    pass
-
-                await detail_page.close()
-            except Exception:
-                pass
+                place_info = {
+                    "Nome": name,
+                    "Google Maps URL": href,
+                    "Nota Google": "",
+                    "Avaliações": "",
+                    "Categoria": "",
+                    "Endereço": "",
+                    "Telefone Maps": "",
+                    "Site Oficial Maps": ""
+                }
                 
-            if min_rating > 0:
+                if mode == "simples":
+                    return place_info
+                
                 try:
-                    rating_val = float(place_info.get("Nota Google", 0) or 0)
-                    if rating_val < min_rating:
-                        continue
-                except ValueError:
+                    full_url = href if href.startswith("http") else f"https://www.google.com{href}"
+                    detail_page = await context.new_page()
+                    await detail_page.goto(full_url, wait_until="domcontentloaded", timeout=15000)
+                    
+                    if not place_info["Nome"]:
+                        h1 = detail_page.locator("h1").first
+                        if await h1.count() > 0:
+                            place_info["Nome"] = (await h1.text_content()).strip()
+
+                    try:
+                        rating_elem = detail_page.locator("div.F7L82c span.ceA1da, span[aria-label*='estrelas']").first
+                        if await rating_elem.count() > 0:
+                            aria = await rating_elem.get_attribute("aria-label") or await rating_elem.text_content()
+                            match = re.search(r"(\d+[.,]\d+)", aria)
+                            if match:
+                                place_info["Nota Google"] = match.group(1).replace(",", ".")
+                                
+                        reviews_elem = detail_page.locator("button[aria-label*='avaliações'], span[aria-label*='avaliações']").first
+                        if await reviews_elem.count() > 0:
+                            aria_rev = await reviews_elem.get_attribute("aria-label") or await reviews_elem.text_content()
+                            rev_match = re.search(r"([\d\.\s]+)\s*avaliaç", aria_rev, re.IGNORECASE)
+                            if rev_match:
+                                place_info["Avaliações"] = rev_match.group(1).replace(".", "").strip()
+                    except Exception:
+                        pass
+
+                    try:
+                        cat_elem = detail_page.locator("button[jsaction*='category']").first
+                        if await cat_elem.count() > 0:
+                            place_info["Categoria"] = (await cat_elem.text_content()).strip()
+                    except Exception:
+                        pass
+
+                    try:
+                        addr_btn = detail_page.locator("button[data-item-id='address']").first
+                        if await addr_btn.count() > 0:
+                            aria_addr = await addr_btn.get_attribute("aria-label") or await addr_btn.text_content()
+                            place_info["Endereço"] = aria_addr.replace("Endereço:", "").strip()
+                    except Exception:
+                        pass
+
+                    try:
+                        phone_btn = detail_page.locator("button[data-item-id*='phone']").first
+                        if await phone_btn.count() > 0:
+                            aria_phone = await phone_btn.get_attribute("aria-label") or await phone_btn.text_content()
+                            place_info["Telefone Maps"] = aria_phone.replace("Telefone:", "").strip()
+                    except Exception:
+                        pass
+
+                    try:
+                        site_link = detail_page.locator("a[data-item-id='authority']").first
+                        if await site_link.count() > 0:
+                            site_url = await site_link.get_attribute("href")
+                            if site_url:
+                                place_info["Site Oficial Maps"] = site_url
+                    except Exception:
+                        pass
+
+                    await detail_page.close()
+                except Exception:
                     pass
+                    
+                if min_rating > 0:
+                    try:
+                        rating_val = float(place_info.get("Nota Google", 0) or 0)
+                        if rating_val < min_rating:
+                            return None
+                    except ValueError:
+                        pass
 
-            if has_website_filter and not place_info.get("Site Oficial Maps"):
-                continue
+                if has_website_filter and not place_info.get("Site Oficial Maps"):
+                    return None
 
-            if has_phone_filter and not place_info.get("Telefone Maps"):
-                continue
+                if has_phone_filter and not place_info.get("Telefone Maps"):
+                    return None
 
-            places_data.append(place_info)
+                return place_info
+
+        tasks = [extract_detail(item) for item in place_links]
+        results = await asyncio.gather(*tasks)
+        
+        for r in results:
+            if r is not None:
+                places_data.append(r)
 
     except Exception as e:
         logger.error(f"Erro na raspagem do Google Maps: {e}")

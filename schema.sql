@@ -72,6 +72,12 @@ CREATE POLICY "Public can view companies" ON public.companies FOR SELECT USING (
 CREATE POLICY "Users can view own company ai_data" ON public.ai_data FOR SELECT USING (
   EXISTS (SELECT 1 FROM public.companies WHERE companies.id = ai_data.company_id AND companies.owner_id = auth.uid())
 );
+CREATE POLICY "Users can insert own company ai_data" ON public.ai_data FOR INSERT WITH CHECK (
+  EXISTS (SELECT 1 FROM public.companies WHERE companies.id = ai_data.company_id AND companies.owner_id = auth.uid())
+);
+CREATE POLICY "Users can update own company ai_data" ON public.ai_data FOR UPDATE USING (
+  EXISTS (SELECT 1 FROM public.companies WHERE companies.id = ai_data.company_id AND companies.owner_id = auth.uid())
+);
 
 -- Analytics: Users can view their own analytics
 CREATE POLICY "Users can view own company analytics" ON public.analytics FOR SELECT USING (

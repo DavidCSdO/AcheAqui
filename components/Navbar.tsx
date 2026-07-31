@@ -2,16 +2,35 @@
 
 import React, { useState, useEffect } from "react";
 import Crosshair from "./Crosshair";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X, Settings } from "lucide-react";
+import SettingsModal from "./SettingsModal";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Check if user is logged in
+    const checkUser = async () => {
+      const { createClient } = await import("@/utils/supabase/client");
+      const supabase = createClient();
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) setIsLoggedIn(true);
+      
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+        setIsLoggedIn(!!session);
+      });
+      return () => subscription.unsubscribe();
+    };
+    checkUser();
   }, []);
 
   return (
@@ -42,8 +61,7 @@ export default function Navbar() {
           {[
             { label: "Produto", href: "/" },
             { label: "Preço", href: "/pricing" },
-            { label: "API", href: "/api-docs" },
-            { label: "Docs", href: "/api-docs" }
+            { label: "Meu CRM", href: "/crm" },
           ].map((item) => (
             <a
               key={item.label}
@@ -53,27 +71,49 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
+          <button 
+            onClick={() => setSettingsOpen(true)}
+            className="flex items-center gap-2 text-[0.875rem] font-medium text-white/70 hover:text-[var(--color-secondary)] transition-colors duration-200"
+          >
+            <Settings size={16} /> Pitches
+          </button>
         </nav>
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <a
-            href="/auth"
-            className="text-[0.875rem] font-medium px-3 py-2 text-white/70 hover:text-white transition-colors"
-          >
-            Login
-          </a>
-          <a 
-            href="/auth" 
-            className={`flex items-center gap-2 text-[0.8125rem] font-semibold !py-[10px] !px-5 rounded-[var(--radius-sm)] transition-all hover:scale-105 active:scale-95 ${
-              scrolled
-              ? "bg-[var(--color-secondary)] text-white hover:bg-purple-500"
-              : "bg-white text-[var(--color-primary)] hover:bg-white/90"
-            }`}
-          >
-            Começar grátis
-            <ArrowRight size={14} />
-          </a>
+          {isLoggedIn ? (
+            <a 
+              href="/dashboard" 
+              className={`flex items-center gap-2 text-[0.8125rem] font-semibold !py-[10px] !px-5 rounded-[var(--radius-sm)] transition-all hover:scale-105 active:scale-95 ${
+                scrolled
+                ? "bg-[var(--color-secondary)] text-white hover:bg-purple-500"
+                : "bg-white text-[var(--color-primary)] hover:bg-white/90"
+              }`}
+            >
+              Acessar Dashboard
+              <ArrowRight size={14} />
+            </a>
+          ) : (
+            <>
+              <a
+                href="/auth"
+                className="text-[0.875rem] font-medium px-3 py-2 text-white/70 hover:text-white transition-colors"
+              >
+                Login
+              </a>
+              <a 
+                href="/auth" 
+                className={`flex items-center gap-2 text-[0.8125rem] font-semibold !py-[10px] !px-5 rounded-[var(--radius-sm)] transition-all hover:scale-105 active:scale-95 ${
+                  scrolled
+                  ? "bg-[var(--color-secondary)] text-white hover:bg-purple-500"
+                  : "bg-white text-[var(--color-primary)] hover:bg-white/90"
+                }`}
+              >
+                Começar grátis
+                <ArrowRight size={14} />
+              </a>
+            </>
+          )}
         </div>
 
         {/* Mobile Toggle */}
@@ -89,27 +129,44 @@ export default function Navbar() {
       {/* Mobile Drawer */}
       {mobileOpen && (
         <div className="md:hidden bg-white border-b border-[var(--color-border)] px-6 py-8 space-y-5 animate-fade-in">
-          {["Produto", "Preço", "API", "Docs"].map((item) => (
+          {["Produto", "Preço", "Meu CRM"].map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase()}`}
+              href={item === "Meu CRM" ? "/crm" : `#${item.toLowerCase()}`}
               onClick={() => setMobileOpen(false)}
               className="block text-[0.9375rem] font-medium text-[var(--color-text-primary)]"
             >
               {item}
             </a>
           ))}
+          <button 
+            onClick={() => { setSettingsOpen(true); setMobileOpen(false); }}
+            className="block text-[0.9375rem] font-medium text-[var(--color-text-primary)]"
+          >
+            Configurar Pitches
+          </button>
           <div className="pt-5 border-t border-[var(--color-border)] space-y-3">
-            <a href="/dashboard" className="block text-center text-[0.875rem] font-medium py-2.5 border border-[var(--color-border)] rounded-[var(--radius-sm)] text-[var(--color-text-primary)]">
-              Login
-            </a>
-            <a href="#comecar" className="btn-primary w-full justify-center text-[0.875rem]">
-              Começar grátis
-              <ArrowRight size={14} />
-            </a>
+            {isLoggedIn ? (
+              <a href="/dashboard" className="btn-primary w-full justify-center text-[0.875rem]">
+                Acessar Dashboard
+                <ArrowRight size={14} />
+              </a>
+            ) : (
+              <>
+                <a href="/auth" className="block text-center text-[0.875rem] font-medium py-2.5 border border-[var(--color-border)] rounded-[var(--radius-sm)] text-[var(--color-text-primary)]">
+                  Login
+                </a>
+                <a href="/auth" className="btn-primary w-full justify-center text-[0.875rem]">
+                  Começar grátis
+                  <ArrowRight size={14} />
+                </a>
+              </>
+            )}
           </div>
         </div>
       )}
+
+      <SettingsModal isOpen={settingsOpen} onClose={() => setSettingsOpen(false)} />
     </header>
   );
 }

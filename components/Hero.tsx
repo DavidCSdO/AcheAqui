@@ -1,33 +1,95 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Crosshair from "./Crosshair";
 import { Search, MapPin, Star, Phone, Mail, Paperclip, ArrowUp } from "lucide-react";
 
 export default function Hero() {
   const [query, setQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
+  const [suggestionIndex, setSuggestionIndex] = useState(0);
+  const [placeholder, setPlaceholder] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const allSuggestions = [
+    "Clínicas odontológicas SP",
+    "Advogados no Rio de Janeiro",
+    "Agências de marketing PR",
+    "Padarias artesanais BH",
+    "Contabilidade Porto Alegre",
+    "Crossfit em Salvador",
+    "Restaurantes veganos",
+    "Imobiliárias Florianópolis",
+    "Veterinárias Curitiba",
+    "Petshops em Fortaleza",
+    "Salões de beleza Recife",
+    "Lojas de carros Goiânia"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSuggestionIndex((prev) => (prev + 3) % allSuggestions.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    let i = 0;
+    let isDeleting = false;
+    let loop = 0;
+    let timer: NodeJS.Timeout;
+
+    const type = () => {
+      const current = allSuggestions[loop % allSuggestions.length];
+      
+      if (isDeleting) {
+        setPlaceholder(current.substring(0, i - 1));
+        i--;
+      } else {
+        setPlaceholder(current.substring(0, i + 1));
+        i++;
+      }
+
+      let speed = isDeleting ? 30 : 70;
+
+      if (!isDeleting && i === current.length) {
+        speed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && i === 0) {
+        isDeleting = false;
+        loop++;
+        speed = 500;
+      }
+
+      timer = setTimeout(type, speed);
+    };
+
+    timer = setTimeout(type, 70);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSearch = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (!query) return;
     setIsSearching(true);
-    setTimeout(() => {
-      setIsSearching(false);
-      // Simulate scrolling to results or next section
-      document.getElementById('live-feed')?.scrollIntoView({ behavior: 'smooth' });
-    }, 800);
+    if (formRef.current) {
+      formRef.current.submit();
+    }
   };
 
   const handlePillClick = (text: string) => {
-    setQuery(text);
-    setTimeout(() => {
-      setIsSearching(true);
-      setTimeout(() => {
-        setIsSearching(false);
-        document.getElementById('live-feed')?.scrollIntoView({ behavior: 'smooth' });
-      }, 800);
-    }, 100);
+    let i = 0;
+    setQuery("");
+    const typeInterval = setInterval(() => {
+      setQuery(text.substring(0, i + 1));
+      i++;
+      if (i >= text.length) {
+        clearInterval(typeInterval);
+        setTimeout(() => {
+          if (formRef.current) formRef.current.submit();
+        }, 400);
+      }
+    }, 30);
   };
 
   return (
@@ -64,57 +126,64 @@ export default function Hero() {
 
         {/* Search Bar - Minimalist Dark Island */}
         <form 
-          onSubmit={handleSearch}
-          className="w-full max-w-2xl mb-6 animate-fade-in-up" 
+          ref={formRef}
+          action="/search" 
+          method="GET" 
+          className="w-full max-w-2xl mb-6 animate-fade-in-up relative group" 
           style={{ animationDelay: "300ms" }}
         >
           <div className="bg-[#1C1C1E] rounded-[16px] p-2 shadow-2xl flex flex-col transition-all duration-300 focus-within:ring-2 focus-within:ring-white/10">
             <div className="flex items-center gap-3 px-4 py-2">
               <input
                 type="text"
+                name="q"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Ex: Clínicas odontológicas em São Paulo..."
+                placeholder={placeholder || "O que você procura?"}
                 className="flex-1 bg-transparent text-[0.9375rem] text-white placeholder:text-white/40 focus:outline-none"
               />
-              <button type="button" className="text-white/40 hover:text-white transition-colors p-2 rounded-lg">
-                <Paperclip size={16} />
-              </button>
+              <div className="hidden sm:flex items-center border-l border-white/10 pl-4 h-full shrink-0">
+                <input 
+                  type="number" 
+                  name="limit" 
+                  defaultValue="20" 
+                  min="1" 
+                  max="500"
+                  className="bg-transparent text-[0.875rem] text-white/70 w-20 focus:outline-none text-center"
+                  placeholder="20"
+                />
+                <span className="text-[0.75rem] text-white/40 mr-3">Leads</span>
+              </div>
+              <select name="mode" defaultValue="direcionada" className="bg-transparent text-[0.875rem] text-white/70 border-l border-white/10 pl-3 focus:outline-none hidden md:block appearance-none cursor-pointer">
+                <option value="simples" className="bg-[#1C1C1E]">⚡ Rápida</option>
+                <option value="direcionada" className="bg-[#1C1C1E]">📍 Direcionada</option>
+                <option value="completa" className="bg-[#1C1C1E]">🕵️ Completa</option>
+              </select>
               <button 
                 type="submit"
-                disabled={isSearching}
-                className="bg-white/10 hover:bg-white/20 text-white p-2.5 rounded-xl transition-all disabled:opacity-50"
+                className="bg-white/10 hover:bg-white/20 text-white p-2.5 rounded-xl transition-all ml-2"
               >
-                {isSearching ? (
-                  <Crosshair size={16} className="animate-spin" />
-                ) : (
-                  <ArrowUp size={16} />
-                )}
+                <Search size={16} />
               </button>
             </div>
           </div>
         </form>
 
-        {/* Minimal Category Pills */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16 animate-fade-in-up" style={{ animationDelay: "450ms" }}>
-          <button 
-            onClick={() => handlePillClick("Leads Qualificados")}
-            className="px-5 py-2.5 rounded-full bg-white text-black text-[0.8125rem] font-bold shadow-lg hover:scale-105 transition-transform"
-          >
-            Leads Qualificados
-          </button>
-          <button 
-            onClick={() => handlePillClick("Enriquecimento de Dados")}
-            className="px-5 py-2.5 rounded-full bg-black/30 backdrop-blur-md text-white text-[0.8125rem] font-medium hover:bg-black/50 transition-colors border border-transparent hover:border-white/10"
-          >
-            Enriquecimento
-          </button>
-          <button 
-            onClick={() => handlePillClick("Integrações via API")}
-            className="px-5 py-2.5 rounded-full bg-black/30 backdrop-blur-md text-white text-[0.8125rem] font-medium hover:bg-black/50 transition-colors border border-transparent hover:border-white/10"
-          >
-            Integrações API
-          </button>
+        {/* Dynamic Search Suggestions */}
+        <div className="flex flex-wrap justify-center gap-3 mb-16 h-[40px] animate-fade-in-up" style={{ animationDelay: "450ms" }}>
+          {[0, 1, 2].map((offset) => {
+            const index = (suggestionIndex + offset) % allSuggestions.length;
+            const suggestion = allSuggestions[index];
+            return (
+              <button 
+                key={`${index}-${suggestion}`}
+                onClick={() => handlePillClick(suggestion)}
+                className="px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md text-white text-[0.8125rem] font-medium hover:bg-white/20 hover:scale-105 transition-all border border-transparent hover:border-white/10 animate-fade-in-up"
+              >
+                <span className="opacity-50 mr-2">🔍</span> {suggestion}
+              </button>
+            );
+          })}
         </div>
 
       </div>

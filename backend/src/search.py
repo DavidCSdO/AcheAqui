@@ -77,3 +77,15 @@ async def find_company_urls(company_name: str):
             break
             
     return site_url, linkedin_url
+
+async def find_instagram_url(company_name: str) -> str:
+    query = f"{company_name} instagram"
+    try:
+        results = await search_query(query, max_results=3)
+        for res in results:
+            url = res.get("href", "")
+            if "instagram.com/" in url and "/p/" not in url and "/reel/" not in url:
+                return url
+    except Exception:
+        pass
+    return ""

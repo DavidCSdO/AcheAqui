@@ -10,3 +10,4 @@ beautifulsoup4
 aiohttp
 python-dotenv
 dnspython
+google-generativeai

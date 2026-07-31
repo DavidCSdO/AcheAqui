@@ -483,6 +483,7 @@ function SearchContent() {
                 );
               })}
             </div>
+            </>
           )}
         </div>
       </div>

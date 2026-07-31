@@ -191,7 +191,7 @@ export default function LojistaDashboard() {
                       <div key={i} className="bg-white/5 border border-white/5 p-4 rounded-xl">
                         <h4 className="font-bold text-pink-400 text-sm mb-1">Post {i+1}: {post.title}</h4>
                         <p className="text-white/60 text-xs mb-2"><strong>Ideia:</strong> {post.idea}</p>
-                        <p className="text-white/60 text-xs italic border-l-2 border-pink-500/30 pl-2">" {post.caption} "</p>
+                        <p className="text-white/60 text-xs italic border-l-2 border-pink-500/30 pl-2">&quot; {post.caption} &quot;</p>
                       </div>
                     ))}
                   </div>
@@ -207,12 +207,13 @@ export default function LojistaDashboard() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {aiGenerated.faqs?.map((faq: any, i: number) => (
                       <div key={i} className="bg-white/5 border border-white/5 p-4 rounded-xl">
-                        <p className="text-amber-400 text-sm font-bold mb-2">Q: "{faq.question}"</p>
-                        <p className="text-white/60 text-xs italic">" {faq.answer} "</p>
+                        <p className="text-amber-400 text-sm font-bold mb-2">Q: &quot;{faq.question}&quot;</p>
+                        <p className="text-white/60 text-xs italic">&quot; {faq.answer} &quot;</p>
                       </div>
                     ))}
                   </div>
 
+              </div>
               </div>
             )}
           </div>

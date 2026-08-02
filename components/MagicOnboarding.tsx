@@ -86,7 +86,7 @@ export default function MagicOnboarding({ onComplete }: { onComplete: () => void
                 {step > 1 ? <Search size={16} /> : <Crosshair size={16} className="animate-spin" />}
               </div>
               <span className={`text-[1.125rem] font-medium ${step >= 1 ? 'text-white' : 'text-white/40'}`}>
-                Rastreando {companyName} no Google Maps...
+                Rastreando {companyName} nas bases públicas...
               </span>
             </div>
             
@@ -95,7 +95,7 @@ export default function MagicOnboarding({ onComplete }: { onComplete: () => void
                 {step > 2 ? <Sparkles size={16} /> : (step === 2 ? <Crosshair size={16} className="animate-spin" /> : <span className="w-2 h-2 rounded-full bg-white/20" />)}
               </div>
               <span className={`text-[1.125rem] font-medium ${step >= 2 ? 'text-white' : 'text-white/40'}`}>
-                Gemini IA escrevendo SEO e Posts...
+                IA AcheAqui escrevendo SEO e Posts...
               </span>
             </div>
             

@@ -106,7 +106,7 @@ function SearchContent() {
         }
       } else if (query) {
         // === SSE STREAMING ===
-        setLoadingStage("Coletando dados do Google Maps...");
+        setLoadingStage("Coletando dados da rede...");
         
         const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
         const sseUrl = `${apiUrl}/api/scrape/stream?q=${encodeURIComponent(query)}&limit=${limit}&mode=${mode}`;
@@ -486,7 +486,7 @@ function SearchContent() {
                           {company.name}
                         </h2>
                         {company.maps_url && (
-                          <a href={company.maps_url} target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[var(--color-secondary)] transition-colors" title="Abrir no Google Maps">
+                          <a href={company.maps_url} target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[var(--color-secondary)] transition-colors" title="Abrir no Mapa">
                             <MapPin size={16} />
                           </a>
                         )}

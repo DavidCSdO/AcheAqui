@@ -55,28 +55,28 @@ export default function TestimonialsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {TESTIMONIALS.map((t, idx) => (
-            <div key={idx} className={`reveal reveal-delay-${idx + 1} card p-8 flex flex-col justify-between`}>
+            <div key={idx} className={`reveal reveal-delay-${idx + 1} group card p-8 flex flex-col justify-between hover:-translate-y-2 hover:shadow-[0_20px_40px_-12px_rgba(167,139,250,0.18)] hover:border-violet-400/50 transition-all duration-300 cursor-pointer`}>
               <div className="space-y-5">
                 {/* Stars */}
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
+                    <Star key={i} size={14} className="fill-amber-400 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                   ))}
                 </div>
 
-                <p className="text-[0.9375rem] text-[var(--color-text-secondary)] leading-[1.75] italic">
+                <p className="text-[0.9375rem] text-[var(--color-text-secondary)] leading-[1.75] italic group-hover:text-slate-900 transition-colors">
                   &ldquo;{t.quote}&rdquo;
                 </p>
               </div>
 
               <div className="mt-8 pt-6 border-t border-[var(--color-border-subtle)] flex items-center gap-3.5">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--color-secondary)] to-[var(--color-accent)] text-white text-[0.6875rem] font-bold flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-pink-500 text-white text-[0.6875rem] font-bold flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-md shadow-violet-500/20">
                   {t.initials}
                 </div>
                 <div>
-                  <h4 className="text-[0.875rem] font-semibold text-[var(--color-text-primary)]">{t.name}</h4>
+                  <h4 className="text-[0.875rem] font-semibold text-[var(--color-text-primary)] group-hover:text-violet-600 transition-colors">{t.name}</h4>
                   <p className="text-[0.75rem] text-[var(--color-text-muted)]">
-                    {t.role} · <span className="text-[var(--color-secondary)]">{t.company}</span>
+                    {t.role} · <span className="text-[var(--color-secondary)] font-medium">{t.company}</span>
                   </p>
                 </div>
               </div>

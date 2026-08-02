@@ -48,16 +48,14 @@ export default function PricingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Starter */}
-            <div className="rounded-[24px] border border-white/[0.06] bg-white/[0.02] p-8 flex flex-col hover:bg-white/[0.04] transition-colors duration-300">
-              <h3 className="text-[1.25rem] font-bold text-white mb-2">Starter</h3>
-              <p className="text-[0.875rem] text-white/60 h-10">Para profissionais autônomos que estão começando.</p>
+            <div className="group rounded-[24px] border border-white/[0.08] bg-white/[0.02] p-8 flex flex-col hover:bg-white/[0.06] hover:border-violet-400/40 hover:-translate-y-2 hover:shadow-[0_20px_50px_-10px_rgba(167,139,250,0.18)] transition-all duration-300">
+              <h3 className="text-[1.25rem] font-bold text-white mb-2 group-hover:text-violet-300 transition-colors">Starter</h3>
+              <p className="text-[0.875rem] text-white/60 h-10">Ideal para profissionais autônomos e validações rápidas.</p>
               <div className="my-6">
-                <span className="text-[2.5rem] font-bold tracking-tight text-white">
-                  R$ {billing === "anual" ? "79" : "99"}
-                </span>
-                <span className="text-white/40 text-[0.875rem]">/mês</span>
+                <span className="text-[2.5rem] font-bold tracking-tight text-white font-mono">R$ 0</span>
+                <span className="text-white/50 text-[0.875rem]">/mês</span>
               </div>
-              <a href="/auth" className="w-full text-center py-3 rounded-[12px] bg-white/10 text-white font-semibold text-[0.9375rem] hover:bg-white/20 transition-colors mb-8">
+              <a href="/auth" className="w-full text-center py-3 rounded-[12px] bg-white/10 text-white font-semibold text-[0.9375rem] hover:bg-white/20 hover:scale-[1.03] active:scale-95 transition-all duration-200 mb-8 border border-white/10">
                 Começar grátis
               </a>
               <ul className="space-y-4 flex-1">
@@ -68,7 +66,7 @@ export default function PricingPage() {
                   "Suporte por e-mail"
                 ].map((f, i) => (
                   <li key={i} className="flex items-start gap-3 text-[0.875rem] text-white/80">
-                    <Check size={18} className="text-emerald-400 shrink-0" />
+                    <Check size={18} className="text-emerald-400 shrink-0 mt-0.5" />
                     {f}
                   </li>
                 ))}
@@ -76,19 +74,19 @@ export default function PricingPage() {
             </div>
 
             {/* Pro */}
-            <div className="rounded-[24px] border border-[var(--color-secondary)] bg-white/[0.05] p-8 flex flex-col shadow-2xl scale-105 relative z-10 transform">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-accent)] text-white text-[0.75rem] font-bold tracking-wide uppercase shadow-md">
+            <div className="group rounded-[24px] border-2 border-violet-400 bg-white/[0.06] p-8 flex flex-col shadow-2xl scale-105 relative z-10 hover:border-violet-300 hover:shadow-[0_25px_60px_-10px_rgba(167,139,250,0.4)] hover:-translate-y-2 transition-all duration-300">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-violet-500 to-pink-500 text-white text-[0.75rem] font-bold tracking-wide uppercase shadow-md shadow-violet-500/30">
                 Mais Popular
               </div>
-              <h3 className="text-[1.25rem] font-bold text-white mb-2">Pro</h3>
+              <h3 className="text-[1.25rem] font-bold text-white mb-2 group-hover:text-violet-300 transition-colors">Pro</h3>
               <p className="text-[0.875rem] text-white/70 h-10">Para times em crescimento focados em conversão B2B.</p>
               <div className="my-6">
-                <span className="text-[2.5rem] font-bold tracking-tight text-white">
+                <span className="text-[2.5rem] font-bold tracking-tight text-white font-mono">
                   R$ {billing === "anual" ? "239" : "299"}
                 </span>
                 <span className="text-white/50 text-[0.875rem]">/mês</span>
               </div>
-              <a href="/auth" className="w-full text-center py-3 rounded-[12px] bg-[var(--color-secondary)] text-white font-semibold text-[0.9375rem] hover:bg-blue-600 transition-colors mb-8">
+              <a href="/auth" className="w-full text-center py-3 rounded-[12px] bg-violet-500 text-white font-semibold text-[0.9375rem] hover:bg-violet-600 hover:scale-[1.03] active:scale-95 hover:shadow-[0_0_25px_rgba(167,139,250,0.5)] transition-all duration-200 mb-8 shadow-lg">
                 Começar grátis
               </a>
               <ul className="space-y-4 flex-1">
@@ -100,7 +98,7 @@ export default function PricingPage() {
                   "Suporte prioritário (SLA 4h)"
                 ].map((f, i) => (
                   <li key={i} className="flex items-start gap-3 text-[0.875rem] text-white/90">
-                    <Check size={18} className="text-[var(--color-secondary)] shrink-0" />
+                    <Check size={18} className="text-violet-400 shrink-0 mt-0.5" />
                     {f}
                   </li>
                 ))}
@@ -108,15 +106,15 @@ export default function PricingPage() {
             </div>
 
             {/* Enterprise */}
-            <div className="rounded-[24px] border border-white/[0.06] bg-white/[0.02] p-8 flex flex-col hover:bg-white/[0.04] transition-colors duration-300">
-              <h3 className="text-[1.25rem] font-bold text-white mb-2">Enterprise</h3>
+            <div className="group rounded-[24px] border border-white/[0.08] bg-white/[0.02] p-8 flex flex-col hover:bg-white/[0.06] hover:border-violet-400/40 hover:-translate-y-2 hover:shadow-[0_20px_50px_-10px_rgba(167,139,250,0.18)] transition-all duration-300">
+              <h3 className="text-[1.25rem] font-bold text-white mb-2 group-hover:text-violet-300 transition-colors">Enterprise</h3>
               <p className="text-[0.875rem] text-white/60 h-10">Solução sob medida para operações em grande escala.</p>
               <div className="my-6">
-                <span className="text-[2.5rem] font-bold tracking-tight text-white">
+                <span className="text-[2.5rem] font-bold tracking-tight text-white font-mono">
                   Customizado
                 </span>
               </div>
-              <a href="/auth" className="w-full text-center py-3 rounded-[12px] bg-white text-[var(--color-primary)] font-semibold text-[0.9375rem] hover:bg-white/90 transition-colors mb-8">
+              <a href="/auth" className="w-full text-center py-3 rounded-[12px] bg-white text-[#171523] font-semibold text-[0.9375rem] hover:bg-white/90 hover:scale-[1.03] active:scale-95 transition-all duration-200 mb-8 shadow-md">
                 Falar com consultor
               </a>
               <ul className="space-y-4 flex-1">
@@ -128,7 +126,7 @@ export default function PricingPage() {
                   "Gerente de conta exclusivo"
                 ].map((f, i) => (
                   <li key={i} className="flex items-start gap-3 text-[0.875rem] text-white/80">
-                    <Check size={18} className="text-emerald-400 shrink-0" />
+                    <Check size={18} className="text-emerald-400 shrink-0 mt-0.5" />
                     {f}
                   </li>
                 ))}

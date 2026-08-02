@@ -41,13 +41,13 @@ export default function IntegrationsSection() {
           {INTEGRATIONS.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={item.name} className={`reveal reveal-delay-${Math.min(idx + 1, 8)} card p-6 flex items-center gap-5`}>
-                <div className="w-12 h-12 rounded-[var(--radius-sm)] bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-secondary)] shrink-0">
+              <div key={item.name} className={`reveal reveal-delay-${Math.min(idx + 1, 8)} group card p-6 flex items-center gap-5 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_-8px_rgba(167,139,250,0.2)] hover:border-violet-400/50 transition-all duration-300 cursor-pointer`}>
+                <div className="w-12 h-12 rounded-[var(--radius-sm)] bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-secondary)] shrink-0 group-hover:scale-110 group-hover:bg-violet-500/10 group-hover:border-violet-400/40 group-hover:text-violet-600 transition-all duration-300 shadow-sm">
                   <Icon size={22} strokeWidth={1.75} />
                 </div>
                 <div>
-                  <h3 className="text-[0.9375rem] font-semibold text-[var(--color-text-primary)]">{item.name}</h3>
-                  <span className="text-[0.6875rem] text-[var(--color-text-muted)] font-mono uppercase tracking-[0.06em]">{item.type}</span>
+                  <h3 className="text-[0.9375rem] font-semibold text-[var(--color-text-primary)] group-hover:text-violet-600 transition-colors">{item.name}</h3>
+                  <span className="text-[0.6875rem] text-[var(--color-text-muted)] font-mono uppercase tracking-[0.06em] group-hover:text-violet-500 transition-colors">{item.type}</span>
                 </div>
               </div>
             );

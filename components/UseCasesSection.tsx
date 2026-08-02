@@ -41,12 +41,12 @@ export default function UseCasesSection() {
           {CASES.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={item.title} className={`reveal reveal-delay-${Math.min(idx + 1, 8)} card p-7 space-y-4`}>
-                <div className="w-11 h-11 rounded-[var(--radius-sm)] bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-secondary)]">
+              <div key={item.title} className={`reveal reveal-delay-${Math.min(idx + 1, 8)} group card p-7 space-y-4 hover:-translate-y-2 hover:shadow-[0_20px_40px_-12px_rgba(167,139,250,0.18)] hover:border-violet-400/50 transition-all duration-300 cursor-pointer`}>
+                <div className="w-11 h-11 rounded-[var(--radius-sm)] bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-secondary)] group-hover:scale-110 group-hover:bg-violet-500/10 group-hover:border-violet-400/40 group-hover:text-violet-600 transition-all duration-300 shadow-sm">
                   <Icon size={20} strokeWidth={1.75} />
                 </div>
-                <h3 className="text-[1rem] font-semibold text-[var(--color-text-primary)] tracking-[-0.01em]">{item.title}</h3>
-                <p className="text-[0.8125rem] text-[var(--color-text-secondary)] leading-relaxed">{item.desc}</p>
+                <h3 className="text-[1rem] font-semibold text-[var(--color-text-primary)] tracking-[-0.01em] group-hover:text-violet-600 transition-colors">{item.title}</h3>
+                <p className="text-[0.8125rem] text-[var(--color-text-secondary)] leading-relaxed group-hover:text-slate-700 transition-colors">{item.desc}</p>
               </div>
             );
           })}

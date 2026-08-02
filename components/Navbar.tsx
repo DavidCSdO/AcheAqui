@@ -20,15 +20,19 @@ export default function Navbar() {
   useEffect(() => {
     // Check if user is logged in
     const checkUser = async () => {
-      const { createClient } = await import("@/utils/supabase/client");
-      const supabase = createClient();
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session) setIsLoggedIn(true);
-      
-      const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-        setIsLoggedIn(!!session);
-      });
-      return () => subscription.unsubscribe();
+      try {
+        const { createClient } = await import("@/utils/supabase/client");
+        const supabase = createClient();
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session) setIsLoggedIn(true);
+        
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+          setIsLoggedIn(!!session);
+        });
+        return () => subscription.unsubscribe();
+      } catch (e) {
+        // Fallback gracefully
+      }
     };
     checkUser();
   }, []);
@@ -37,89 +41,106 @@ export default function Navbar() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-[var(--color-primary)]/70 backdrop-blur-xl border-b border-white/10 shadow-lg"
-          : "bg-transparent"
+          ? "bg-[#171523]/80 backdrop-blur-xl border-b border-white/10 shadow-lg"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="container-wide px-6 lg:px-8 h-[72px] flex items-center justify-between">
-        {/* Logo */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 h-[72px] flex items-center justify-between">
+        
+        {/* Brand Logo with Dynamic Colors on Scroll */}
         <a href="/" className="flex items-center gap-2.5 group">
           <div
-            className={`w-8 h-8 rounded-[10px] flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${
-              scrolled ? "bg-[var(--color-secondary)] text-white" : "bg-white text-[var(--color-primary)]"
+            className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-[180deg] ${
+              scrolled
+                ? "bg-violet-500 text-white shadow-md shadow-violet-500/25"
+                : "bg-white text-[#171523] shadow-md shadow-white/10"
             }`}
           >
-            <Crosshair size={17} strokeWidth={2} />
+            <Crosshair size={17} strokeWidth={2.2} />
           </div>
-          <span className="text-[1.15rem] font-bold tracking-[-0.02em] text-white transition-colors">
-            Ache<span style={{ color: scrolled ? "var(--color-secondary)" : "rgba(255,255,255,0.7)" }}>Aqui</span>
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="text-base font-bold tracking-tight text-white font-sans group-hover:text-violet-200 transition-colors duration-300">
+              Ache
+              <span
+                className={`transition-colors duration-300 ${
+                  scrolled ? "text-violet-400" : "text-white/70 group-hover:text-white"
+                }`}
+              >
+                Aqui
+              </span>
+            </span>
+          </div>
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {[
-            { label: "Produto", href: "/" },
-            { label: "Preço", href: "/pricing" },
-            { label: "Meu CRM", href: "/crm" },
-          ].map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-[0.875rem] font-medium text-white/70 hover:text-white transition-colors duration-200"
-            >
-              {item.label}
-            </a>
-          ))}
+        {/* Desktop Nav Links */}
+        <nav className="hidden md:flex items-center gap-2">
+          <a
+            href="/"
+            className="text-xs font-medium text-white/75 hover:text-white hover:bg-white/10 hover:shadow-[0_0_12px_rgba(255,255,255,0.08)] px-3 py-1.5 rounded-lg transition-all duration-200"
+          >
+            Produto
+          </a>
+          <a
+            href="/pricing"
+            className="text-xs font-medium text-white/75 hover:text-white hover:bg-white/10 hover:shadow-[0_0_12px_rgba(255,255,255,0.08)] px-3 py-1.5 rounded-lg transition-all duration-200"
+          >
+            Preço
+          </a>
+          <a
+            href="/crm"
+            className="text-xs font-medium text-white/75 hover:text-white hover:bg-white/10 hover:shadow-[0_0_12px_rgba(255,255,255,0.08)] px-3 py-1.5 rounded-lg transition-all duration-200"
+          >
+            Meu CRM
+          </a>
           <button 
             onClick={() => setSettingsOpen(true)}
-            className="flex items-center gap-2 text-[0.875rem] font-medium text-white/70 hover:text-[var(--color-secondary)] transition-colors duration-200"
+            className="flex items-center gap-1.5 text-xs font-medium text-white/75 hover:text-violet-300 hover:bg-violet-500/10 hover:border-violet-500/20 border border-transparent px-3 py-1.5 rounded-lg transition-all duration-200 cursor-pointer"
           >
-            <Settings size={16} /> Pitches
+            <Settings size={13} className="transition-transform duration-300 group-hover:rotate-45" /> Pitches
           </button>
         </nav>
 
-        {/* CTA */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* Action Buttons with Dynamic Styles on Scroll */}
+        <div className="hidden md:flex items-center gap-3">
           {isLoggedIn ? (
             <a 
               href="/dashboard" 
-              className={`flex items-center gap-2 text-[0.8125rem] font-semibold !py-[10px] !px-5 rounded-[var(--radius-sm)] transition-all hover:scale-105 active:scale-95 ${
+              className={`group flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-md ${
                 scrolled
-                ? "bg-[var(--color-secondary)] text-white hover:bg-purple-500"
-                : "bg-white text-[var(--color-primary)] hover:bg-white/90"
+                  ? "bg-violet-500 text-white hover:bg-violet-600 hover:shadow-violet-500/30"
+                  : "bg-white text-[#171523] hover:bg-white/95 hover:shadow-white/20"
               }`}
             >
               Acessar Dashboard
-              <ArrowRight size={14} />
+              <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
             </a>
           ) : (
             <>
               <a
                 href="/auth"
-                className="text-[0.875rem] font-medium px-3 py-2 text-white/70 hover:text-white transition-colors"
+                className="text-xs font-medium text-white/75 hover:text-white hover:bg-white/10 px-3 py-1.5 rounded-lg transition-all duration-200"
               >
                 Login
               </a>
               <a 
                 href="/auth" 
-                className={`flex items-center gap-2 text-[0.8125rem] font-semibold !py-[10px] !px-5 rounded-[var(--radius-sm)] transition-all hover:scale-105 active:scale-95 ${
+                className={`group flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-md ${
                   scrolled
-                  ? "bg-[var(--color-secondary)] text-white hover:bg-purple-500"
-                  : "bg-white text-[var(--color-primary)] hover:bg-white/90"
+                    ? "bg-violet-500 text-white hover:bg-violet-600 hover:shadow-violet-500/30"
+                    : "bg-white text-[#171523] hover:bg-white/95 hover:shadow-white/20"
                 }`}
               >
                 Começar grátis
-                <ArrowRight size={14} />
+                <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
               </a>
             </>
           )}
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Menu Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className={`md:hidden p-2 ${scrolled ? "text-[var(--color-text-secondary)]" : "text-white"}`}
+          className="md:hidden p-2 text-white/80 hover:text-white"
           aria-label="Menu"
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -128,37 +149,37 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="md:hidden bg-white border-b border-[var(--color-border)] px-6 py-8 space-y-5 animate-fade-in">
-          {["Produto", "Preço", "Meu CRM"].map((item) => (
-            <a
-              key={item}
-              href={item === "Meu CRM" ? "/crm" : `#${item.toLowerCase()}`}
-              onClick={() => setMobileOpen(false)}
-              className="block text-[0.9375rem] font-medium text-[var(--color-text-primary)]"
-            >
-              {item}
+        <div className="md:hidden bg-[#171523]/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 space-y-4 animate-fade-in text-slate-200 shadow-2xl">
+          <div className="flex flex-col gap-3 text-xs">
+            <a href="/" onClick={() => setMobileOpen(false)} className="font-medium text-white/80 hover:text-white">
+              Produto
             </a>
-          ))}
-          <button 
-            onClick={() => { setSettingsOpen(true); setMobileOpen(false); }}
-            className="block text-[0.9375rem] font-medium text-[var(--color-text-primary)]"
-          >
-            Configurar Pitches
-          </button>
-          <div className="pt-5 border-t border-[var(--color-border)] space-y-3">
+            <a href="/pricing" onClick={() => setMobileOpen(false)} className="font-medium text-white/80 hover:text-white">
+              Preço
+            </a>
+            <a href="/crm" onClick={() => setMobileOpen(false)} className="font-medium text-white/80 hover:text-white">
+              Meu CRM
+            </a>
+            <button 
+              onClick={() => { setSettingsOpen(true); setMobileOpen(false); }}
+              className="text-left font-medium text-violet-400 flex items-center gap-1.5"
+            >
+              <Settings size={14} /> Configurar Pitches
+            </button>
+          </div>
+
+          <div className="pt-4 border-t border-white/10 flex flex-col gap-2">
             {isLoggedIn ? (
-              <a href="/dashboard" className="btn-primary w-full justify-center text-[0.875rem]">
-                Acessar Dashboard
-                <ArrowRight size={14} />
+              <a href="/dashboard" className="py-2.5 px-4 rounded-xl bg-violet-500 text-white font-semibold text-center text-xs flex items-center justify-center gap-1">
+                Acessar Dashboard <ArrowRight size={13} />
               </a>
             ) : (
               <>
-                <a href="/auth" className="block text-center text-[0.875rem] font-medium py-2.5 border border-[var(--color-border)] rounded-[var(--radius-sm)] text-[var(--color-text-primary)]">
+                <a href="/auth" className="py-2 text-center text-xs font-medium text-white/80 border border-white/10 rounded-xl">
                   Login
                 </a>
-                <a href="/auth" className="btn-primary w-full justify-center text-[0.875rem]">
-                  Começar grátis
-                  <ArrowRight size={14} />
+                <a href="/auth" className="py-2.5 px-4 rounded-xl bg-white text-[#171523] font-semibold text-center text-xs flex items-center justify-center gap-1">
+                  Começar grátis <ArrowRight size={13} />
                 </a>
               </>
             )}

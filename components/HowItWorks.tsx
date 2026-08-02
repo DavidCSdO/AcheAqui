@@ -36,7 +36,7 @@ export default function HowItWorks() {
         {/* Steps */}
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Connecting line (desktop) */}
-          <div className="hidden lg:block absolute top-[3.5rem] left-[12%] right-[12%] h-px bg-gradient-to-r from-[var(--color-border)] via-[var(--color-secondary)]/20 to-[var(--color-border)]" />
+          <div className="hidden lg:block absolute top-[3.5rem] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-violet-500/30 via-violet-400 to-pink-500/30 laser-stream-line rounded-full z-10 shadow-[0_0_10px_rgba(167,139,250,0.5)]" />
 
           {STEPS.map((step, idx) => {
             const Icon = step.icon;

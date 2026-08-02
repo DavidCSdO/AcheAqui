@@ -90,26 +90,22 @@ export default function SmartSearchMockup() {
           {/* Body */}
           <div className="p-6 min-h-[360px]">
             {view === "lista" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {results.map((r, i) => (
-                  <div key={i} className="card-dark p-5 space-y-3">
+                  <div key={i} className="group p-5 rounded-2xl bg-white/[0.02] border border-white/[0.08] hover:border-violet-400/50 hover:bg-white/[0.05] hover:-translate-y-1 hover:shadow-[0_12px_30px_-8px_rgba(167,139,250,0.2)] transition-all duration-300 space-y-3 cursor-pointer">
                     <div className="flex items-start justify-between">
                       <div>
-                        <span className="text-[0.625rem] uppercase tracking-[0.1em] text-white/25 font-mono">{r.category || 'Empresa'}</span>
-                        <h4 className="text-[0.875rem] font-semibold text-white mt-0.5">{r.name}</h4>
-                        <p className="text-[0.75rem] text-white/30 flex items-center gap-1 mt-1">
-                          <MapPin size={11} />
-                          {r.address || 'Não informado'}
-                        </p>
+                        <h4 className="text-[0.9375rem] font-semibold text-white group-hover:text-violet-300 transition-colors">{r.name}</h4>
+                        <p className="text-[0.75rem] text-white/40">{r.category}</p>
                       </div>
-                      <div className="flex items-center gap-1 text-amber-400 text-[0.75rem] font-semibold shrink-0">
-                        <Star size={12} className="fill-amber-400" />
-                        {r.google_rating || '5.0'}
-                      </div>
+                      <span className="text-[0.6875rem] px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono">
+                        ⭐ {r.google_rating || '5.0'}
+                      </span>
                     </div>
+
                     <div className="pt-3 border-t border-white/[0.06] flex items-center gap-4 text-[0.6875rem] font-mono">
-                      <span className="text-emerald-400/80 flex items-center gap-1"><Phone size={11} />{r.phone || 'N/A'}</span>
-                      <span className="text-blue-400/80 flex items-center gap-1 truncate"><Mail size={11} />{r.email || 'N/A'}</span>
+                      <span className="text-emerald-400/80 flex items-center gap-1 group-hover:text-emerald-300 transition-colors"><Phone size={11} />{r.phone || 'N/A'}</span>
+                      <span className="text-blue-400/80 flex items-center gap-1 truncate group-hover:text-violet-300 transition-colors"><Mail size={11} />{r.email || 'N/A'}</span>
                     </div>
                   </div>
                 ))}
@@ -124,8 +120,8 @@ export default function SmartSearchMockup() {
                 }} />
                 {results.map((r, i) => (
                   <div key={i} className="absolute group cursor-pointer" style={{ top: `${20 + i * 20}%`, left: `${15 + i * 22}%` }}>
-                    <div className="flex items-center gap-2 bg-[var(--color-primary)] border border-blue-500/40 px-3 py-1.5 rounded-full text-[0.6875rem] font-semibold text-white shadow-xl hover:bg-[var(--color-secondary)] transition-all duration-200">
-                      <Crosshair size={12} className="text-blue-400 group-hover:rotate-90 transition-transform duration-300" />
+                    <div className="flex items-center gap-2 bg-[#171523] border border-violet-500/50 px-3.5 py-1.5 rounded-full text-[0.6875rem] font-semibold text-white shadow-xl hover:bg-violet-600 hover:border-violet-300 hover:shadow-[0_0_20px_rgba(167,139,250,0.5)] hover:scale-105 transition-all duration-300">
+                      <Crosshair size={12} className="text-violet-400 group-hover:rotate-180 transition-transform duration-500" />
                       {r.name}
                     </div>
                   </div>
@@ -147,11 +143,11 @@ export default function SmartSearchMockup() {
                   </thead>
                   <tbody className="divide-y divide-white/[0.04]">
                     {results.map((r, i) => (
-                      <tr key={i} className="hover:bg-white/[0.02] transition text-[0.8125rem]">
-                        <td className="p-3 font-semibold text-white">{r.name}</td>
-                        <td className="p-3 text-white/40">{r.category || '-'}</td>
-                        <td className="p-3 font-mono text-emerald-400/80 text-[0.75rem]">{r.phone || '-'}</td>
-                        <td className="p-3 font-mono text-blue-400/80 text-[0.75rem]">{r.email || '-'}</td>
+                      <tr key={i} className="hover:bg-white/[0.06] hover:text-white transition-all duration-200 text-[0.8125rem] cursor-pointer group">
+                        <td className="p-3 font-semibold text-white group-hover:text-violet-300 transition-colors">{r.name}</td>
+                        <td className="p-3 text-white/40 group-hover:text-white/60 transition-colors">{r.category || '-'}</td>
+                        <td className="p-3 font-mono text-emerald-400/80 text-[0.75rem] group-hover:text-emerald-300 transition-colors">{r.phone || '-'}</td>
+                        <td className="p-3 font-mono text-blue-400/80 text-[0.75rem] group-hover:text-violet-300 transition-colors">{r.email || '-'}</td>
                         <td className="p-3 text-right text-amber-400 font-semibold">⭐ {r.google_rating || '5.0'}</td>
                       </tr>
                     ))}

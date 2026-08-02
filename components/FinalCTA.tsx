@@ -26,11 +26,11 @@ export default function FinalCTA() {
 
         <a
           href="/auth"
-          className="group inline-flex items-center gap-3 px-8 py-4 rounded-[var(--radius)] bg-white text-[var(--color-primary)] font-bold text-[1rem] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 shadow-[0_8px_32px_-4px_rgba(255,255,255,0.15)]"
+          className="group inline-flex items-center gap-3 px-8 py-4 rounded-[var(--radius)] bg-white text-[var(--color-primary)] font-bold text-[1rem] hover:scale-[1.04] active:scale-[0.98] transition-all duration-300 shadow-[0_12px_40px_-4px_rgba(255,255,255,0.25)] hover:shadow-[0_12px_45px_rgba(167,139,250,0.4)]"
         >
-          <Crosshair size={18} className="text-[var(--color-secondary)] group-hover:rotate-90 transition-transform duration-300" />
+          <Crosshair size={18} className="text-violet-500 group-hover:rotate-180 transition-transform duration-700 ease-out" />
           Começar gratuitamente
-          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform duration-300" />
         </a>
 
         <div className="flex items-center justify-center gap-6 text-[0.75rem] text-white/30 mt-8 font-mono">

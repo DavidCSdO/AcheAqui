@@ -19,7 +19,7 @@ const DATA_POINTS = [
   { label: "CEP", desc: "Código postal", icon: MapPin },
   { label: "Cidade & Estado", desc: "Localização", icon: Navigation },
   { label: "Categoria", desc: "Segmento exato", icon: Building },
-  { label: "Google Rating", desc: "Nota 0–5.0", icon: Star },
+  { label: "Avaliação da Empresa", desc: "Nota 0–5.0", icon: Star },
   { label: "Avaliações", desc: "Volume de reviews", icon: MessageCircle },
   { label: "Horário", desc: "Funcionamento", icon: Clock },
   { label: "Latitude", desc: "GPS preciso", icon: Compass },

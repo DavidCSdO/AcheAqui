@@ -118,14 +118,14 @@ export default function AuthPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-white text-black font-semibold text-[0.9375rem] py-3.5 rounded-[12px] hover:bg-white/90 transition-all flex items-center justify-center gap-2 mt-6 disabled:opacity-70"
+              className="group w-full bg-white text-[#171523] font-semibold text-[0.9375rem] py-3.5 rounded-[12px] hover:bg-white hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_30px_rgba(255,255,255,0.35)] transition-all duration-300 flex items-center justify-center gap-2 mt-6 disabled:opacity-70 cursor-pointer"
             >
               {loading ? (
                 <Crosshair size={18} className="animate-spin text-black" />
               ) : (
                 <>
                   {isLogin ? "Entrar" : "Criar conta grátis"}
-                  <ArrowRight size={16} />
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </>
               )}
             </button>
@@ -138,10 +138,10 @@ export default function AuthPage() {
           </div>
 
           <div className="grid grid-cols-2 gap-3">
-            <button className="flex items-center justify-center gap-2 py-3 rounded-[12px] bg-white/5 border border-white/10 text-[0.875rem] font-medium text-white hover:bg-white/10 transition-colors">
+            <button className="flex items-center justify-center gap-2 py-3 rounded-[12px] bg-white/5 border border-white/10 text-[0.875rem] font-medium text-white hover:bg-white/10 hover:border-violet-400/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer">
               <Mail size={16} /> Google
             </button>
-            <button className="flex items-center justify-center gap-2 py-3 rounded-[12px] bg-white/5 border border-white/10 text-[0.875rem] font-medium text-white hover:bg-white/10 transition-colors">
+            <button className="flex items-center justify-center gap-2 py-3 rounded-[12px] bg-white/5 border border-white/10 text-[0.875rem] font-medium text-white hover:bg-white/10 hover:border-violet-400/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer">
               <Globe size={16} /> Web
             </button>
           </div>
@@ -152,7 +152,7 @@ export default function AuthPage() {
             {isLogin ? "Ainda não tem conta?" : "Já possui conta?"}{" "}
             <button 
               onClick={() => setIsLogin(!isLogin)}
-              className="text-white font-medium hover:underline"
+              className="text-violet-300 font-medium hover:text-white hover:underline transition-colors"
             >
               {isLogin ? "Crie uma agora" : "Fazer login"}
             </button>

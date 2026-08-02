@@ -215,3 +215,11 @@ Call log:
 
 2026-07-31 13:21:16,786 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Academia Embu das Artes' (máx: 5)
 2026-07-31 13:21:20,707 - INFO - [Phase 1 Concluída] Navegador FECHADO. 5 leads básicos na memória.
+2026-08-01 20:47:56,088 - INFO - [SSE] Busca streaming: 'Padarias artesanais BH' (limite: 20, modo: direcionada)
+2026-08-01 20:47:56,113 - INFO - Iniciando busca ultra-rápida: 'Padarias artesanais BH' (máx: 20)
+2026-08-01 20:47:56,522 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Padarias artesanais BH' (máx: 20)
+2026-08-01 20:47:56,533 - ERROR - Erro na Phase 1 (Maps list): 
+2026-08-01 20:48:09,024 - INFO - [SSE] Busca streaming: 'Padarias artesanais Belo horizonte' (limite: 20, modo: direcionada)
+2026-08-01 20:48:09,028 - INFO - Iniciando busca ultra-rápida: 'Padarias artesanais Belo horizonte' (máx: 20)
+2026-08-01 20:48:09,029 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Padarias artesanais Belo horizonte' (máx: 20)
+2026-08-01 20:48:09,033 - ERROR - Erro na Phase 1 (Maps list): 

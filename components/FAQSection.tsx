@@ -6,7 +6,7 @@ import Crosshair from "./Crosshair";
 import { ChevronDown } from "lucide-react";
 
 const FAQS = [
-  { q: "Como o AcheAqui obtém as informações?", a: "Realizamos varredura em tempo real em bases públicas oficiais, Google Maps e registros corporativos abertos, validando e-mails via SMTP e telefones via teste de linha." },
+  { q: "Como o AcheAqui obtém as informações?", a: "Realizamos varredura em tempo real em bases públicas oficiais e registros corporativos abertos, validando e-mails via SMTP e telefones via teste de linha." },
   { q: "O uso está em conformidade com a LGPD?", a: "100%. Processamos apenas dados públicos de pessoas jurídicas (PJ) e contatos comerciais, respeitando integralmente as diretrizes da LGPD para prospecção B2B." },
   { q: "Posso exportar para Excel ou Google Sheets?", a: "Sim. Baixe nos formatos CSV e XLSX, ou configure exportação automática para Google Sheets, HubSpot, Pipedrive e Zapier." },
   { q: "Existe integração com WhatsApp?", a: "Sim. Cada empresa com WhatsApp cadastrado tem um botão direto que abre a conversa no WhatsApp Web ou App." },
@@ -36,15 +36,15 @@ export default function FAQSection() {
           {FAQS.map((item, idx) => {
             const isOpen = open === idx;
             return (
-              <div key={idx} className="card overflow-hidden">
+              <div key={idx} className="group card overflow-hidden hover:border-violet-400/50 hover:shadow-[0_8px_24px_-6px_rgba(167,139,250,0.15)] transition-all duration-300 cursor-pointer">
                 <button
                   onClick={() => setOpen(isOpen ? null : idx)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 text-[0.9375rem] font-semibold text-[var(--color-text-primary)] hover:text-[var(--color-secondary)] transition-colors"
+                  className="w-full p-6 text-left flex items-center justify-between gap-4 text-[0.9375rem] font-semibold text-[var(--color-text-primary)] group-hover:text-violet-600 group-hover:bg-slate-50/60 transition-all duration-200 cursor-pointer"
                 >
                   <span>{item.q}</span>
                   <ChevronDown
                     size={18}
-                    className={`shrink-0 text-[var(--color-text-muted)] transition-transform duration-300 ${isOpen ? "rotate-180 text-[var(--color-secondary)]" : ""}`}
+                    className={`shrink-0 text-[var(--color-text-muted)] group-hover:text-violet-500 group-hover:scale-110 transition-all duration-300 ${isOpen ? "rotate-180 text-violet-600" : ""}`}
                   />
                 </button>
                 {isOpen && (

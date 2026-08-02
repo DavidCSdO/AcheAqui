@@ -3,12 +3,13 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Crosshair, Sparkles, Building2, MapPin, Phone, Star, ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
+import { Crosshair, Sparkles, Building2, MapPin, Phone, Star, ArrowRight, Loader2, CheckCircle2, Search } from "lucide-react";
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
 
 export default function OnboardingPage() {
   const [companyName, setCompanyName] = useState("");
+  const [city, setCity] = useState("");
   const [loading, setLoading] = useState(false);
   const [scrapedData, setScrapedData] = useState<any>(null);
   const [step, setStep] = useState(1);
@@ -31,7 +32,7 @@ export default function OnboardingPage() {
         setScrapedData(data.company);
         setStep(2);
       } else {
-        alert("Não conseguimos localizar a empresa no Google. Verifique o nome e a cidade.");
+        alert("Não conseguimos localizar a empresa. Verifique o nome e a cidade.");
       }
     } catch (err) {
       console.error(err);
@@ -70,7 +71,7 @@ export default function OnboardingPage() {
               Encontre sua empresa.
             </h1>
             <p className="text-lg text-white/60 mb-12">
-              Não perca tempo preenchendo formulários longos. Digite o nome da sua empresa e a cidade, e a nossa IA puxa todos os dados públicos do Google para você.
+              Não perca tempo preenchendo formulários longos. Digite o nome da sua empresa e a cidade, e a nossa IA puxa todos os dados públicos para você.
             </p>
 
             <form onSubmit={handleSearch} className="relative group max-w-xl mx-auto">
@@ -80,16 +81,24 @@ export default function OnboardingPage() {
                   required
                   value={companyName}
                   onChange={(e) => setCompanyName(e.target.value)}
-                  placeholder="Ex: Pizzaria Bella Napoli, São Paulo"
-                  className="flex-1 bg-transparent px-4 text-lg text-white placeholder:text-white/30 focus:outline-none"
-                  disabled={loading}
+                  placeholder="Nome da sua empresa ex: Sorridents..."
+                  className="flex-1 bg-transparent px-4 py-3 text-white placeholder-white/40 focus:outline-none text-base"
                 />
-                <button 
+                <input
+                  type="text"
+                  required
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  placeholder="Cidade ex: São Paulo"
+                  className="w-1/3 bg-transparent border-l border-white/10 px-4 py-3 text-white placeholder-white/40 focus:outline-none text-base hidden sm:block"
+                />
+                <button
                   type="submit"
-                  disabled={loading || !companyName}
-                  className="bg-emerald-500 hover:bg-emerald-400 text-white font-bold py-3 px-6 rounded-xl transition-all disabled:opacity-50 flex items-center gap-2"
+                  disabled={loading}
+                  className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-6 py-3 rounded-xl transition-all flex items-center gap-2"
                 >
-                  {loading ? <Loader2 className="animate-spin" size={20} /> : "Buscar Mágica"}
+                  {loading ? <Crosshair className="animate-spin" size={18} /> : <Search size={18} />}
+                  <span>Buscar</span>
                 </button>
               </div>
             </form>
@@ -97,11 +106,8 @@ export default function OnboardingPage() {
         )}
 
         {step === 2 && scrapedData && (
-          <div className="w-full max-w-2xl z-10 animate-fade-in-up flex flex-col items-center">
-            <h2 className="text-3xl font-bold mb-2">É esta a sua empresa?</h2>
-            <p className="text-white/50 mb-8">Nós preenchemos o seu perfil automaticamente.</p>
-            
-            <div className="w-full bg-[#1C1C1E] border border-emerald-500/30 rounded-3xl p-8 relative overflow-hidden shadow-2xl shadow-emerald-500/10">
+          <div className="w-full max-w-lg z-10 animate-fade-in-up">
+            <div className="bg-[#1C1C1E] border border-white/10 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-blue-500" />
               
               <div className="flex justify-between items-start mb-6">
@@ -112,10 +118,10 @@ export default function OnboardingPage() {
                     <span>{scrapedData.Categoria || "Empresa Local"}</span>
                   </div>
                 </div>
-                {scrapedData["Nota Google"] && (
+                {(scrapedData["Nota Google"] || scrapedData["Avaliação"]) && (
                   <div className="flex flex-col items-end">
                     <div className="flex items-center gap-1 text-amber-400 font-bold text-xl">
-                      <Star size={20} className="fill-amber-400" /> {scrapedData["Nota Google"]}
+                      <Star size={20} className="fill-amber-400" /> {scrapedData["Nota Google"] || scrapedData["Avaliação"]}
                     </div>
                     <span className="text-white/40 text-sm">{scrapedData["Avaliações"]}</span>
                   </div>
@@ -131,7 +137,7 @@ export default function OnboardingPage() {
                 
                 <div className="flex items-center gap-3 text-white/70 bg-white/5 p-3 rounded-xl border border-white/5">
                   <Phone size={18} className="text-[var(--color-secondary)]" />
-                  <span className="flex-1">{scrapedData["Telefone Celular"] || scrapedData["Telefone Fixo"] || "Nenhum telefone encontrado no Google"}</span>
+                  <span className="flex-1">{scrapedData["Telefone Celular"] || scrapedData["Telefone Fixo"] || "Nenhum telefone encontrado nas bases públicas"}</span>
                   {scrapedData["Telefone Celular"] || scrapedData["Telefone Fixo"] ? <CheckCircle2 size={16} className="text-emerald-400" /> : null}
                 </div>
               </div>

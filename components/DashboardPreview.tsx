@@ -60,12 +60,11 @@ export default function DashboardPreview() {
       <div className="container-wide px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 reveal" ref={ref}>
-          <div className="section-tag bg-white/[0.06] border-white/[0.08] text-white/60 mb-6 mx-auto w-fit">
-            <Crosshair size={13} className="text-violet-400" />
-            Dashboard
+          <div className="mb-6">
+            <span className="bracket-label">05 / Interface</span>
           </div>
-          <h2 className="text-headline text-[clamp(1.75rem,3.5vw,2.75rem)] text-white mb-4">
-            Gestão completa de prospecção
+          <h2 className="editorial-title text-[clamp(2.5rem,5vw,3.5rem)] text-white mb-6">
+            O centro de comando.
           </h2>
           <p className="text-[1rem] text-white/40 leading-relaxed">
             Clique nas abas do painel abaixo para alternar visualizações e métricas em tempo real.

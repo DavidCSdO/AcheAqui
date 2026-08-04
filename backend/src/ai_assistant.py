@@ -44,15 +44,12 @@ def generate_marketing_materials(company_data: dict) -> dict:
     
     try:
         model = genai.GenerativeModel('gemini-2.5-flash')
-        response = model.generate_content(prompt)
+        response = model.generate_content(
+            prompt,
+            generation_config=genai.GenerationConfig(response_mime_type="application/json")
+        )
         text = response.text.strip()
-        # Limpar crases de markdown caso o Gemini retorne
-        if text.startswith("```json"):
-            text = text[7:-3]
-        elif text.startswith("```"):
-            text = text[3:-3]
-            
-        return json.loads(text.strip())
+        return json.loads(text)
     except Exception as e:
         return {"error": str(e)}
 
@@ -66,16 +63,20 @@ def semantic_match(user_query: str, companies: List[dict]) -> dict:
     if not companies:
         return {"explanation": "Nenhuma empresa encontrada para a sua busca.", "ranked_companies": []}
 
+    company_summaries = [
+        {
+            "id": i, 
+            "name": c.get("name") or c.get("Nome"), 
+            "category": c.get("category") or c.get("Categoria"), 
+            "rating": c.get("google_rating") or c.get("Nota Google")
+        } for i, c in enumerate(companies)
+    ]
+    
     prompt = f"""
     O usuário pesquisou por: "{user_query}"
     
     Temos as seguintes empresas retornadas pela busca rápida:
-    {json.dumps([{{
-        "id": i, 
-        "name": c.get("name") or c.get("Nome"), 
-        "category": c.get("category") or c.get("Categoria"), 
-        "rating": c.get("google_rating") or c.get("Nota Google")
-    }} for i, c in enumerate(companies)], ensure_ascii=False)}
+    {json.dumps(company_summaries, ensure_ascii=False)}
 
     Sua missão é atuar como um "Consultor IA de Negócios Locais". 
     Você deve escrever um pequeno parágrafo explicando POR QUE a melhor empresa atende perfeitamente ao pedido do usuário.
@@ -90,13 +91,11 @@ def semantic_match(user_query: str, companies: List[dict]) -> dict:
     
     try:
         model = genai.GenerativeModel('gemini-2.5-flash')
-        response = model.generate_content(prompt)
+        response = model.generate_content(
+            prompt,
+            generation_config=genai.GenerationConfig(response_mime_type="application/json")
+        )
         text = response.text.strip()
-        if text.startswith("```json"):
-            text = text[7:-3]
-        elif text.startswith("```"):
-            text = text[3:-3]
-            
-        return json.loads(text.strip())
+        return json.loads(text)
     except Exception as e:
         return {"error": str(e)}

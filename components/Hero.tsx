@@ -1,11 +1,14 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import Crosshair from "./Crosshair";
+import InteractiveCrosshair from "./InteractiveCrosshair";
 import DotMatrixCanvas from "./DotMatrixCanvas";
 import { Search, MapPin, Star, Phone, Mail, Paperclip, ArrowUp, Sparkles } from "lucide-react";
 
 export default function Hero() {
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [suggestionIndex, setSuggestionIndex] = useState(0);
@@ -74,9 +77,16 @@ export default function Hero() {
     if (e) e.preventDefault();
     if (!query) return;
     setIsSearching(true);
-    if (formRef.current) {
-      formRef.current.submit();
-    }
+    
+    const limitInput = formRef.current?.elements.namedItem('limit') as HTMLInputElement;
+    const modeInput = formRef.current?.elements.namedItem('mode') as HTMLSelectElement;
+    
+    const limit = limitInput?.value || '20';
+    const mode = modeInput?.value || 'direcionada';
+    
+    router.push(`/search?q=${encodeURIComponent(query)}&limit=${limit}&mode=${mode}`);
+    
+    setTimeout(() => setIsSearching(false), 800);
   };
 
   const handlePillClick = (text: string) => {
@@ -113,32 +123,25 @@ export default function Hero() {
         <Crosshair size={800} strokeWidth={0.5} />
       </div>
 
-      <div className="relative z-20 flex flex-col items-center text-center px-6 max-w-5xl mx-auto w-full">
+      <div className="relative z-20 flex flex-col items-center text-center px-6 max-w-5xl mx-auto w-full mt-10">
         
-        {/* Monospace Tech Pill Badge */}
-        <div className="animate-hero-rise-1 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white/90 font-mono text-[11px] mb-6 tracking-wider shadow-inner">
-          <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-ping" />
-          <span className="text-violet-300 font-semibold">[01] ENGINE GROUNDING</span>
-          <span className="text-white/30">|</span>
-          <span className="text-white/70">PROSPECÇÃO B2B EM TEMPO REAL</span>
-        </div>
+        <InteractiveCrosshair />
 
-        {/* Display Headline — Instrument Serif (Avatune Editorial Style) */}
+        {/* Display Headline — Editorial Serif Style */}
         <h1 
-          className="animate-hero-rise-2 text-[clamp(2.75rem,6vw,4.5rem)] text-white mb-3 tracking-tight font-serif-editorial drop-shadow-[0_10px_25px_rgba(167,139,250,0.3)]"
+          className="animate-hero-rise-2 editorial-title text-[clamp(3rem,7vw,5.5rem)] text-white mb-6 drop-shadow-[0_10px_25px_rgba(167,139,250,0.2)]"
         >
-          Ache a Empresa <span className="gradient-text-shimmer italic">Perfeita</span>.
+          Ache a Empresa <span className="text-violet-400">Perfeita</span>.
         </h1>
 
-        <p className="animate-hero-rise-3 text-[1.125rem] text-white/80 font-medium mb-10 max-w-lg">
-          Prospecção inteligente B2B com IA. Sem esforço.
+        <p className="animate-hero-rise-3 text-[1.125rem] text-white/60 font-light mb-12 max-w-lg tracking-wide">
+          Prospecção inteligente B2B com IA.
         </p>
 
-        {/* Ultra-Minimalist Search Bar - Expands Filters on Click/Focus */}
+        {/* Ultra-Minimalist Search Bar */}
         <form 
           ref={formRef}
-          action="/search" 
-          method="GET" 
+          onSubmit={handleSearch}
           onFocus={() => setIsFocused(true)}
           onBlur={(e) => {
             if (!e.currentTarget.contains(e.relatedTarget as Node)) {
@@ -147,20 +150,20 @@ export default function Hero() {
           }}
           className="animate-hero-rise-4 w-full max-w-2xl mb-6 relative group" 
         >
-          <div className={`bg-[#1C1C1E]/90 backdrop-blur-xl border border-white/15 rounded-[20px] p-2.5 shadow-2xl flex flex-col transition-all duration-300 ${
+          <div className={`bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[24px] p-2 flex flex-col transition-all duration-500 ${
             showOptions 
-              ? "ring-2 ring-violet-400/60 border-violet-400/80 shadow-[0_0_35px_rgba(167,139,250,0.35)]" 
-              : "hover:border-violet-400/50 hover:shadow-[0_0_30px_rgba(167,139,250,0.2)] shadow-xl"
+              ? "ring-1 ring-violet-500/30 border-violet-500/50 bg-white/[0.05]" 
+              : "hover:border-white/20 hover:bg-white/[0.05]"
           }`}>
-            <div className="flex items-center gap-3 px-3 py-1">
-              <input
-                type="text"
+            <div className="flex items-center gap-3 px-4 py-2">
+              <input 
+                type="text" 
                 name="q"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
+                placeholder={placeholder}
                 onFocus={() => setIsFocused(true)}
-                placeholder={placeholder || "O que você procura?"}
-                className="flex-1 bg-transparent text-[0.9375rem] text-white placeholder:text-white/40 focus:outline-none px-2 py-1"
+                className="w-full bg-transparent border-none text-white text-[1.125rem] placeholder:text-white/30 focus:outline-none font-light h-[52px]"
               />
 
               {/* Dynamic Reveal Filters Container (Emerge suavemente no lugar) */}

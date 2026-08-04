@@ -1,0 +1,1108 @@
+2026-08-04 08:57:01,585 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 08:57:01,585 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 08:57:01,685 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 08:57:01,687 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 08:57:11,573 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Oficinas mecânicas em santos' (limit: 10)
+2026-08-04 08:57:17,682 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Oficinas mecânicas em santos' (limit: 20)
+2026-08-04 08:57:17,751 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Oficinas mecânicas em santos' (limit: 20)
+2026-08-04 08:57:25,045 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Oficinas mecânicas em santos' with 10 candidates
+2026-08-04 08:57:25,141 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Oficinas mecânicas em santos' with 10 candidates
+2026-08-04 08:59:10,986 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 08:59:10,987 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 08:59:10,992 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 08:59:10,994 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 08:59:20,896 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 08:59:20,896 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 08:59:20,902 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 08:59:20,903 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 08:59:33,674 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 08:59:33,674 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 08:59:33,681 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 08:59:33,683 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 08:59:48,003 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 08:59:48,004 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 08:59:48,008 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 08:59:48,010 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 09:00:39,825 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Oficinas mecânicas em santos' (limit: 10)
+2026-08-04 09:00:44,730 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Oficinas mecânicas em santos' with 10 candidates
+2026-08-04 09:02:09,572 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 09:02:09,572 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 09:02:09,577 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 09:02:09,578 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 09:02:17,932 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 09:02:17,933 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 09:02:17,938 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 09:02:17,940 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 09:02:24,080 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 09:02:24,080 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 09:02:24,086 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 09:02:24,088 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 09:12:41,742 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 09:12:41,742 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 09:12:41,747 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 09:12:41,749 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 09:13:01,364 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Oficinas mecânicas em santos' (limit: 10)
+2026-08-04 09:13:03,313 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Oficinas mecânicas em santos' (limit: 10)
+2026-08-04 09:13:14,438 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Oficinas mecânicas em santos' with 10 candidates
+2026-08-04 09:21:58,635 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 09:21:58,635 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 09:21:58,641 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 09:21:58,642 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 09:22:52,267 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 09:22:52,268 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 09:22:52,273 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 09:22:52,275 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 09:23:25,027 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 09:23:25,027 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 09:23:25,033 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 09:23:25,034 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 09:25:29,390 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 09:25:29,390 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 09:25:29,396 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 09:25:29,397 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 09:27:40,632 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 09:27:40,632 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 09:27:40,640 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 09:27:40,642 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 09:29:42,407 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Oficinas mecânicas em santos' (limit: 10)
+2026-08-04 09:29:56,018 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Oficinas mecânicas em santos' with 10 candidates
+2026-08-04 09:29:59,270 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Oficinas mecânicas em santos' (limit: 10)
+2026-08-04 09:30:04,502 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Oficinas mecânicas em santos' with 10 candidates
+2026-08-04 09:30:17,994 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Oficinas mecânicas em santos' (limit: 10)
+2026-08-04 09:30:23,903 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Oficinas mecânicas em santos' with 10 candidates
+2026-08-04 09:57:40,645 - AcheAqui - INFO - [Scheduler Job] Running background system check...
+2026-08-04 09:59:36,914 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Oficinas mecânicas em santos' (limit: 10)
+2026-08-04 09:59:45,237 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Oficinas mecânicas em santos' with 10 candidates
+2026-08-04 10:10:34,735 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Oficinas mecânicas em santos' (limit: 10)
+2026-08-04 10:10:44,546 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Oficinas mecânicas em santos' with 10 candidates
+2026-08-04 10:22:14,052 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Oficinas mecânicas em santos' (limit: 10)
+2026-08-04 10:22:22,080 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Oficinas mecânicas em santos' with 10 candidates
+2026-08-04 10:24:07,604 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 10:24:07,604 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 10:24:07,611 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 10:24:07,613 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 10:29:01,926 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 10:29:01,926 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 10:29:01,932 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 10:29:01,934 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 10:29:50,658 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 10:29:50,659 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 10:29:50,664 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 10:29:50,665 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 10:30:30,265 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 10:30:30,265 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 10:30:30,271 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 10:30:30,272 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 10:31:39,135 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 10:31:39,136 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 10:31:39,143 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 10:31:39,145 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 10:31:52,446 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 10:31:52,447 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 10:31:52,452 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 10:31:52,453 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 10:32:19,173 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Oficinas mecânicas em santos' (limit: 10)
+2026-08-04 10:32:33,513 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Oficinas mecânicas em santos' with 10 candidates
+2026-08-04 10:33:19,324 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Arquitetos no rio de janeirp' (limit: 10)
+2026-08-04 10:33:24,565 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Arquitetos no rio de janeirp' with 10 candidates
+2026-08-04 10:33:48,385 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Arquitetos no rio de janeirp' (limit: 10)
+2026-08-04 10:33:53,547 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Arquitetos no rio de janeirp' with 10 candidates
+2026-08-04 10:34:12,029 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Hospitais em São paulo' (limit: 10)
+2026-08-04 10:34:17,544 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Hospitais em São paulo' with 10 candidates
+2026-08-04 10:35:38,680 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 10:35:38,680 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 10:35:38,686 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 10:35:38,689 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 10:36:10,626 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 10:36:10,626 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 10:36:10,631 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 10:36:10,633 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 10:36:41,656 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 10:36:41,657 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 10:36:41,662 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 10:36:41,664 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 10:37:51,182 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 10:37:51,182 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 10:37:51,189 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 10:37:51,191 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 10:38:26,815 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 10:38:26,816 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 10:38:26,822 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 10:38:26,824 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:09:13,368 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:09:13,369 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:09:13,380 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:09:13,382 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:10:30,533 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Texnologia em Petrópolis, RJ' (limit: 30)
+2026-08-04 11:11:11,815 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Tecnologia em Petrópolis, RJ' (limit: 30)
+2026-08-04 11:11:17,747 - AcheAqui - INFO - [Google Maps Collector] Searching: 'TI em Petrópolis, RJ' (limit: 30)
+2026-08-04 11:15:25,821 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:15:25,821 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:15:25,827 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:15:25,830 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:17:24,032 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:17:24,033 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:17:24,041 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:17:24,043 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:17:57,509 - AcheAqui - INFO - [Google Maps Collector] Searching: 'TI em Petrópolis, RJ' (limit: 30)
+2026-08-04 11:19:54,300 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:19:54,300 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:19:54,305 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:19:54,307 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:20:18,812 - AcheAqui - INFO - [Google Maps Collector] Searching: 'TI em Petrópolis, RJ' (limit: 30)
+2026-08-04 11:24:04,000 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:24:04,000 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:24:04,005 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:24:04,008 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:24:22,682 - AcheAqui - INFO - [Google Maps Collector] Searching: 'TI em Petropolis, RJ' (limit: 2)
+2026-08-04 11:26:44,678 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:26:44,679 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:26:44,685 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:26:44,687 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:27:02,114 - AcheAqui - INFO - [Google Maps Collector] Searching: 'TI em Petropolis, RJ' (limit: 2)
+2026-08-04 11:27:50,695 - AcheAqui - INFO - [Google Maps Collector] Searching: 'TI em Petrópolis, RJ' (limit: 30)
+2026-08-04 11:30:29,360 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas green office Petrópolis RJ' (limit: 20)
+2026-08-04 11:30:29,421 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas green office Petrópolis RJ' (limit: 20)
+2026-08-04 11:31:09,299 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Green office Petrópolis RJ' (limit: 20)
+2026-08-04 11:31:52,936 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Green office Petrópolis Rio de Janeiro' (limit: 20)
+2026-08-04 11:33:02,045 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:33:02,045 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:33:02,050 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:33:02,052 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:33:05,722 - AcheAqui - INFO - [Google Maps Collector] Searching: 'todas em Green Office Petrópolis Rj' (limit: 20)
+2026-08-04 11:33:53,942 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:33:53,943 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:33:53,949 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:33:53,951 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:34:08,933 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:34:08,933 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:34:08,938 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:34:08,940 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:37:26,198 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:37:26,199 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:37:26,203 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:37:26,205 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:39:00,141 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:39:00,141 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:39:00,148 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:39:00,150 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:40:08,404 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:40:08,404 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:40:08,409 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:40:08,411 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:41:23,754 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Green office Petrópolis RJ' (limit: 20)
+2026-08-04 11:41:23,785 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Green office Petrópolis RJ' (limit: 20)
+2026-08-04 11:41:35,585 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Green office Petrópolis RJ' with 1 candidates
+2026-08-04 11:41:36,057 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Green office Petrópolis RJ' with 1 candidates
+2026-08-04 11:41:49,074 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Green office Petrópolis RJ' (limit: 20)
+2026-08-04 11:42:38,347 - AcheAqui - INFO - [AI Service] Performing semantic match for query: 'Empresas em Green office Petrópolis RJ' with 10 candidates
+2026-08-04 11:50:03,626 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:50:03,627 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:50:03,632 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:50:03,635 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:50:23,249 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:50:23,249 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:50:23,255 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:50:23,257 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:53:09,876 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 11:53:09,877 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 11:53:09,882 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 11:53:09,885 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 11:53:33,863 - AcheAqui - INFO - [Google Maps Collector] Searching: 'TI em Petropolis, RJ' (limit: 2)
+2026-08-04 11:55:52,404 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Green Office em Petrópolis, RJ' (limit: 30)
+2026-08-04 11:56:50,703 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Moda Fashion Representações Petrópolis/RJ: 
+2026-08-04 11:56:50,709 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Alterdata Software - Filial Petrópolis/RJ: 
+2026-08-04 11:56:50,726 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Grupo Still: 
+2026-08-04 11:56:50,918 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Octus Creative | Agência e Produtora | Publicidade e Propaganda: 
+2026-08-04 11:56:50,921 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for ie! eventos: 
+2026-08-04 11:56:51,147 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Alcance+ | Tráfego Pago: 
+2026-08-04 11:56:51,165 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Rio ECF | Automação Comercial para Supermercados: 
+2026-08-04 11:56:51,317 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Projeto Mix Arquitetura: 
+2026-08-04 11:56:51,390 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Saleen Suporte: 
+2026-08-04 11:56:51,393 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Sítio do Vale Verde: 
+2026-08-04 11:56:51,538 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for M3 Representações: 
+2026-08-04 11:56:51,606 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Petrópolis Green Offices: 
+2026-08-04 11:56:51,747 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Gelli Consultoria Imobiliária: 
+2026-08-04 11:56:51,900 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Green Fire: 
+2026-08-04 11:56:51,935 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Villa Verde Paisagismo e Jardinagem: 
+2026-08-04 11:56:52,062 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Orange Business Services: 
+2026-08-04 11:56:52,101 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Ápia Consultoria & Sistemas: 
+2026-08-04 11:56:52,134 - AcheAqui - ERROR - [Deep Enrichment] Fatal Playwright error for Cafeteria Green Office: 
+2026-08-04 12:00:43,199 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:00:43,199 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:00:43,206 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:00:43,209 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:01:02,445 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:01:02,446 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:01:02,452 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:01:02,454 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:01:18,328 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:01:18,329 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:01:18,334 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:01:18,336 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:01:35,186 - AcheAqui - INFO - [Google Maps Collector] Searching: 'TI em Petropolis, RJ' (limit: 2)
+2026-08-04 12:02:02,486 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:02:02,486 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:02:02,493 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:02:02,496 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:02:25,656 - AcheAqui - INFO - [Google Maps Collector] Searching: 'TI em Petropolis, RJ' (limit: 2)
+2026-08-04 12:05:38,732 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Green Office em Petrópolis, RJ' (limit: 30)
+2026-08-04 12:08:48,369 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:08:48,369 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:08:48,375 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:08:48,377 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:11:06,755 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:11:06,755 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:11:06,761 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:11:06,763 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:11:59,199 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:11:59,199 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:11:59,205 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:11:59,206 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:12:58,961 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:12:58,961 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:12:58,966 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:12:58,968 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:13:27,701 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:13:27,701 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:13:27,707 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:13:27,708 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:13:54,574 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:13:54,574 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:13:54,579 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:13:54,581 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:14:13,835 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:14:13,835 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:14:13,841 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:14:13,843 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:14:24,490 - AcheAqui - INFO - [Google Maps Collector] Searching: 'TI em Petropolis, RJ' (limit: 2)
+2026-08-04 12:15:05,579 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Green Office em Petrópolis, RJ' (limit: 30)
+2026-08-04 12:20:44,000 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:20:44,000 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:20:44,006 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:20:44,008 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:20:53,321 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Green Office em Petrópolis, RJ' (limit: 30)
+2026-08-04 12:23:09,632 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:23:09,632 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:23:09,641 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:23:09,643 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:53:09,648 - AcheAqui - INFO - [Scheduler Job] Running background system check...
+2026-08-04 12:53:11,159 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Green Office em Petrópolis, RJ' (limit: 3)
+2026-08-04 12:53:25,383 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-04 12:53:25,384 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-04 12:53:25,384 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-04 12:53:25,689 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-04 12:53:25,754 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-04 12:53:25,754 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-04 12:53:27,899 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-04 12:53:27,899 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-04 12:53:27,962 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
+2026-08-04 12:54:44,851 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 12:54:44,851 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 12:54:44,856 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 12:54:44,858 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 12:55:12,890 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Green Office em Petrópolis, RJ' (limit: 30)
+2026-08-04 12:56:08,331 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-04 12:56:08,332 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-04 12:56:08,332 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-04 12:56:08,641 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-04 12:56:08,709 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-04 12:56:08,709 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-04 12:56:08,710 - AcheAqui - INFO - [Extrema] Processing lead 1
+2026-08-04 12:56:08,712 - AcheAqui - INFO - [Extrema] Processing lead 2
+2026-08-04 12:56:08,958 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Ápia Consultoria & Sistemas
+2026-08-04 12:56:08,973 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Petrópolis Green Offices
+2026-08-04 12:56:09,044 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Cafeteria Green Office
+2026-08-04 12:56:10,774 - AcheAqui - INFO - [Extrema] Sending lead 2 to queue
+2026-08-04 12:56:10,774 - AcheAqui - INFO - [Extrema] Processing lead 3
+2026-08-04 12:56:10,958 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-04 12:56:10,958 - AcheAqui - INFO - [Extrema] Processing lead 4
+2026-08-04 12:56:10,991 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Green Fire
+2026-08-04 12:56:11,063 - AcheAqui - INFO - [Extrema] Sending lead 1 to queue
+2026-08-04 12:56:11,063 - AcheAqui - INFO - [Extrema] Processing lead 5
+2026-08-04 12:56:11,224 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Moda Fashion Representações Petrópolis/RJ
+2026-08-04 12:56:11,292 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Villa Verde Paisagismo e Jardinagem
+2026-08-04 12:56:12,630 - AcheAqui - INFO - [Extrema] Sending lead 3 to queue
+2026-08-04 12:56:12,631 - AcheAqui - INFO - [Extrema] Processing lead 6
+2026-08-04 12:56:12,960 - AcheAqui - INFO - [Extrema] Sending lead 4 to queue
+2026-08-04 12:56:12,960 - AcheAqui - INFO - [Extrema] Processing lead 7
+2026-08-04 12:56:12,976 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alcance+ | Tráfego Pago
+2026-08-04 12:56:13,185 - AcheAqui - INFO - [Extrema] Sending lead 5 to queue
+2026-08-04 12:56:13,185 - AcheAqui - INFO - [Extrema] Processing lead 8
+2026-08-04 12:56:13,188 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alterdata Software - Filial Petrópolis/RJ
+2026-08-04 12:56:13,412 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Octus Creative | Agência e Produtora | Publicidade e Propaganda
+2026-08-04 12:56:14,554 - AcheAqui - INFO - [Extrema] Sending lead 6 to queue
+2026-08-04 12:56:14,554 - AcheAqui - INFO - [Extrema] Processing lead 9
+2026-08-04 12:56:14,847 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Grupo Still
+2026-08-04 12:56:14,905 - AcheAqui - INFO - [Extrema] Sending lead 7 to queue
+2026-08-04 12:56:14,906 - AcheAqui - INFO - [Extrema] Processing lead 10
+2026-08-04 12:56:14,988 - AcheAqui - INFO - [Extrema] Sending lead 8 to queue
+2026-08-04 12:56:14,988 - AcheAqui - INFO - [Extrema] Processing lead 11
+2026-08-04 12:56:15,128 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Orange Business Services
+2026-08-04 12:56:15,229 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for ie! eventos
+2026-08-04 12:56:16,788 - AcheAqui - INFO - [Extrema] Sending lead 10 to queue
+2026-08-04 12:56:16,788 - AcheAqui - INFO - [Extrema] Processing lead 12
+2026-08-04 12:56:16,807 - AcheAqui - INFO - [Extrema] Sending lead 9 to queue
+2026-08-04 12:56:16,807 - AcheAqui - INFO - [Extrema] Processing lead 13
+2026-08-04 12:56:16,915 - AcheAqui - INFO - [Extrema] Sending lead 11 to queue
+2026-08-04 12:56:16,916 - AcheAqui - INFO - [Extrema] Processing lead 14
+2026-08-04 12:56:17,027 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Projeto Mix Arquitetura
+2026-08-04 12:56:17,048 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Saleen Suporte
+2026-08-04 12:56:17,182 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Rio ECF | Automação Comercial para Supermercados
+2026-08-04 12:56:18,806 - AcheAqui - INFO - [Extrema] Sending lead 13 to queue
+2026-08-04 12:56:18,806 - AcheAqui - INFO - [Extrema] Processing lead 15
+2026-08-04 12:56:19,035 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for M3 Representações
+2026-08-04 12:56:19,052 - AcheAqui - INFO - [Extrema] Sending lead 12 to queue
+2026-08-04 12:56:19,053 - AcheAqui - INFO - [Extrema] Processing lead 16
+2026-08-04 12:56:19,137 - AcheAqui - INFO - [Extrema] Sending lead 14 to queue
+2026-08-04 12:56:19,370 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Sítio do Vale Verde
+2026-08-04 12:56:20,694 - AcheAqui - INFO - [Extrema] Sending lead 15 to queue
+2026-08-04 12:56:21,104 - AcheAqui - INFO - [Extrema] Sending lead 16 to queue
+2026-08-04 12:56:21,105 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-04 12:56:21,187 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
+2026-08-04 13:06:55,998 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:06:55,998 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:06:56,004 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:06:56,006 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:08:21,698 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:08:21,698 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:08:21,705 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:08:21,707 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:09:01,804 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Agência de marketing em Petrópolis, RJ' (limit: 3)
+2026-08-04 13:09:14,261 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-04 13:09:14,262 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-04 13:09:14,262 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-04 13:09:14,616 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-04 13:09:14,686 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-04 13:09:14,686 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-04 13:09:14,688 - AcheAqui - INFO - [Extrema] Processing lead 1
+2026-08-04 13:09:14,689 - AcheAqui - INFO - [Extrema] Processing lead 2
+2026-08-04 13:09:14,933 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Pujol Propaganda
+2026-08-04 13:09:14,965 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Octus Creative | Agência e Produtora | Publicidade e Propaganda
+2026-08-04 13:09:14,978 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Agência Mercúrio - Social Media e Tráfego Pago
+2026-08-04 13:09:16,502 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-04 13:09:17,044 - AcheAqui - INFO - [Extrema] Sending lead 1 to queue
+2026-08-04 13:09:17,051 - AcheAqui - INFO - [Extrema] Sending lead 2 to queue
+2026-08-04 13:09:17,052 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-04 13:09:17,152 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
+2026-08-04 13:09:45,419 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:09:45,419 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:09:45,424 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:09:45,426 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:11:03,933 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:11:03,934 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:11:03,940 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:11:03,942 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:13:37,971 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:13:37,972 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:13:37,977 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:13:37,979 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:21:23,627 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:21:23,627 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:21:23,633 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:21:23,635 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:22:11,744 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:22:11,744 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:22:11,749 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:22:11,751 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:23:45,058 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:23:45,058 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:23:45,064 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:23:45,065 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:24:22,068 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:24:22,068 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:24:22,076 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:24:22,078 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:25:05,234 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:25:05,234 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:25:05,240 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:25:05,242 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:26:27,005 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:26:27,006 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:26:27,012 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:26:27,014 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:29:11,169 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:29:11,169 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:29:11,174 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:29:11,176 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:29:22,545 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:29:22,546 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:29:22,552 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:29:22,553 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:30:24,526 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:30:24,527 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:30:24,537 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:30:24,539 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:30:52,135 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:30:52,135 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:30:52,140 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:30:52,142 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:31:48,679 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:31:48,679 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:31:48,684 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:31:48,686 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:32:01,559 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:32:01,559 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:32:01,565 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:32:01,566 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:38:57,850 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:38:57,850 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:38:57,856 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:38:57,859 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:39:36,796 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Green Office em Petrópolis, RJ' (limit: 3)
+2026-08-04 13:39:46,290 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-04 13:39:46,291 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-04 13:39:46,292 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-04 13:39:46,603 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-04 13:39:46,669 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-04 13:39:46,669 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-04 13:39:46,670 - AcheAqui - INFO - [Extrema] Processing lead 1
+2026-08-04 13:39:46,671 - AcheAqui - INFO - [Extrema] Processing lead 2
+2026-08-04 13:39:46,923 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Cafeteria Green Office
+2026-08-04 13:39:46,950 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Ápia Consultoria & Sistemas
+2026-08-04 13:39:46,960 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Petrópolis Green Offices
+2026-08-04 13:39:49,642 - AcheAqui - INFO - [Extrema] Sending lead 1 to queue
+2026-08-04 13:39:49,885 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-04 13:39:52,200 - AcheAqui - INFO - [Extrema] Sending lead 2 to queue
+2026-08-04 13:39:52,200 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-04 13:39:52,251 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
+2026-08-04 13:40:29,728 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 13:40:29,728 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 13:40:29,734 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 13:40:29,736 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 13:40:59,996 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Green Office em Petrópolis, RJ' (limit: 3)
+2026-08-04 13:41:09,566 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-04 13:41:09,567 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-04 13:41:09,567 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-04 13:41:09,894 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-04 13:41:09,966 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-04 13:41:09,966 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-04 13:41:09,968 - AcheAqui - INFO - [Extrema] Processing lead 1
+2026-08-04 13:41:09,970 - AcheAqui - INFO - [Extrema] Processing lead 2
+2026-08-04 13:41:10,230 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Cafeteria Green Office
+2026-08-04 13:41:10,260 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Ápia Consultoria & Sistemas
+2026-08-04 13:41:10,350 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Petrópolis Green Offices
+2026-08-04 13:41:12,930 - AcheAqui - INFO - [Extrema] Sending lead 1 to queue
+2026-08-04 13:41:13,265 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-04 13:41:15,199 - AcheAqui - INFO - [Extrema] Sending lead 2 to queue
+2026-08-04 13:41:15,200 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-04 13:41:15,273 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
+2026-08-04 13:43:23,765 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Green Office em Petrópolis, RJ' (limit: 30)
+2026-08-04 13:44:21,806 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-04 13:44:21,807 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-04 13:44:21,807 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-04 13:44:22,140 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-04 13:44:22,222 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-04 13:44:22,222 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-04 13:44:22,223 - AcheAqui - INFO - [Extrema] Processing lead 1
+2026-08-04 13:44:22,224 - AcheAqui - INFO - [Extrema] Processing lead 2
+2026-08-04 13:44:22,466 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Petrópolis Green Offices
+2026-08-04 13:44:22,526 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Ápia Consultoria & Sistemas
+2026-08-04 13:44:22,537 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Cafeteria Green Office
+2026-08-04 13:44:25,488 - AcheAqui - INFO - [Extrema] Sending lead 1 to queue
+2026-08-04 13:44:25,489 - AcheAqui - INFO - [Extrema] Processing lead 3
+2026-08-04 13:44:25,493 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-04 13:44:25,494 - AcheAqui - INFO - [Extrema] Processing lead 4
+2026-08-04 13:44:25,731 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Moda Fashion Representações Petrópolis/RJ
+2026-08-04 13:44:25,765 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Green Fire
+2026-08-04 13:44:27,761 - AcheAqui - INFO - [Extrema] Sending lead 2 to queue
+2026-08-04 13:44:27,761 - AcheAqui - INFO - [Extrema] Processing lead 5
+2026-08-04 13:44:28,026 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Villa Verde Paisagismo e Jardinagem
+2026-08-04 13:44:28,432 - AcheAqui - INFO - [Extrema] Sending lead 3 to queue
+2026-08-04 13:44:28,433 - AcheAqui - INFO - [Extrema] Processing lead 6
+2026-08-04 13:44:28,763 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alcance+ | Tráfego Pago
+2026-08-04 13:44:30,981 - AcheAqui - INFO - [Extrema] Sending lead 5 to queue
+2026-08-04 13:44:30,982 - AcheAqui - INFO - [Extrema] Processing lead 7
+2026-08-04 13:44:31,326 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Gelli Consultoria Imobiliária
+2026-08-04 13:44:33,092 - AcheAqui - INFO - [Extrema] Sending lead 4 to queue
+2026-08-04 13:44:33,092 - AcheAqui - INFO - [Extrema] Processing lead 8
+2026-08-04 13:44:33,522 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alterdata Software - Filial Petrópolis/RJ
+2026-08-04 13:44:34,294 - AcheAqui - INFO - [Extrema] Sending lead 6 to queue
+2026-08-04 13:44:34,294 - AcheAqui - INFO - [Extrema] Processing lead 9
+2026-08-04 13:44:34,646 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Octus Creative | Agência e Produtora | Publicidade e Propaganda
+2026-08-04 13:44:38,599 - AcheAqui - INFO - [Extrema] Sending lead 7 to queue
+2026-08-04 13:44:38,599 - AcheAqui - INFO - [Extrema] Processing lead 10
+2026-08-04 13:44:38,854 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Grupo Still
+2026-08-04 13:44:39,341 - AcheAqui - INFO - [Extrema] Sending lead 8 to queue
+2026-08-04 13:44:39,341 - AcheAqui - INFO - [Extrema] Processing lead 11
+2026-08-04 13:44:39,667 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Orange Business Services
+2026-08-04 13:44:40,971 - AcheAqui - INFO - [Extrema] Sending lead 9 to queue
+2026-08-04 13:44:40,971 - AcheAqui - INFO - [Extrema] Processing lead 12
+2026-08-04 13:44:41,198 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Projeto Mix Arquitetura
+2026-08-04 13:44:44,595 - AcheAqui - INFO - [Extrema] Sending lead 10 to queue
+2026-08-04 13:44:44,595 - AcheAqui - INFO - [Extrema] Processing lead 13
+2026-08-04 13:44:44,855 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for ie! eventos
+2026-08-04 13:44:46,550 - AcheAqui - INFO - [Extrema] Sending lead 12 to queue
+2026-08-04 13:44:46,550 - AcheAqui - INFO - [Extrema] Processing lead 14
+2026-08-04 13:44:46,862 - AcheAqui - INFO - [Extrema] Sending lead 11 to queue
+2026-08-04 13:44:46,863 - AcheAqui - INFO - [Extrema] Processing lead 15
+2026-08-04 13:44:46,914 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Saleen Suporte
+2026-08-04 13:44:47,123 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Rio ECF | Automação Comercial para Supermercados
+2026-08-04 13:44:50,525 - AcheAqui - INFO - [Extrema] Sending lead 13 to queue
+2026-08-04 13:44:50,525 - AcheAqui - INFO - [Extrema] Processing lead 16
+2026-08-04 13:44:50,782 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for M3 Representações
+2026-08-04 13:44:51,775 - AcheAqui - INFO - [Extrema] Sending lead 14 to queue
+2026-08-04 13:44:51,776 - AcheAqui - INFO - [Extrema] Processing lead 17
+2026-08-04 13:44:52,004 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Sítio do Vale Verde
+2026-08-04 13:44:54,665 - AcheAqui - INFO - [Extrema] Sending lead 15 to queue
+2026-08-04 13:44:55,012 - AcheAqui - INFO - [Extrema] Sending lead 17 to queue
+2026-08-04 13:44:56,517 - AcheAqui - INFO - [Extrema] Sending lead 16 to queue
+2026-08-04 13:44:56,518 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-04 13:44:56,656 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
+2026-08-04 13:58:24,331 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Green Office em Petrópolis, RJ' (limit: 30)
+2026-08-04 14:00:49,348 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Green Office em Petrópolis, RJ' (limit: 30)
+2026-08-04 14:01:45,594 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-04 14:01:45,595 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-04 14:01:45,595 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-04 14:01:45,924 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-04 14:01:46,002 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-04 14:01:46,002 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-04 14:01:46,003 - AcheAqui - INFO - [Extrema] Processing lead 1
+2026-08-04 14:01:46,005 - AcheAqui - INFO - [Extrema] Processing lead 2
+2026-08-04 14:01:46,258 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Petrópolis Green Offices
+2026-08-04 14:01:46,266 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Ápia Consultoria & Sistemas
+2026-08-04 14:01:46,275 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Cafeteria Green Office
+2026-08-04 14:01:49,034 - AcheAqui - INFO - [Extrema] Sending lead 1 to queue
+2026-08-04 14:01:49,035 - AcheAqui - INFO - [Extrema] Processing lead 3
+2026-08-04 14:01:49,296 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Green Fire
+2026-08-04 14:01:49,325 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-04 14:01:49,325 - AcheAqui - INFO - [Extrema] Processing lead 4
+2026-08-04 14:01:49,585 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Moda Fashion Representações Petrópolis/RJ
+2026-08-04 14:01:51,674 - AcheAqui - INFO - [Extrema] Sending lead 2 to queue
+2026-08-04 14:01:51,675 - AcheAqui - INFO - [Extrema] Processing lead 5
+2026-08-04 14:01:51,897 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Villa Verde Paisagismo e Jardinagem
+2026-08-04 14:01:51,940 - AcheAqui - INFO - [Extrema] Sending lead 3 to queue
+2026-08-04 14:01:51,941 - AcheAqui - INFO - [Extrema] Processing lead 6
+2026-08-04 14:01:52,181 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alcance+ | Tráfego Pago
+2026-08-04 14:01:54,539 - AcheAqui - INFO - [Extrema] Sending lead 5 to queue
+2026-08-04 14:01:54,539 - AcheAqui - INFO - [Extrema] Processing lead 7
+2026-08-04 14:01:54,953 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alterdata Software - Filial Petrópolis/RJ
+2026-08-04 14:01:58,326 - AcheAqui - INFO - [Extrema] Sending lead 4 to queue
+2026-08-04 14:01:58,327 - AcheAqui - INFO - [Extrema] Processing lead 8
+2026-08-04 14:01:58,393 - AcheAqui - INFO - [Extrema] Sending lead 6 to queue
+2026-08-04 14:01:58,394 - AcheAqui - INFO - [Extrema] Processing lead 9
+2026-08-04 14:01:58,421 - AcheAqui - INFO - [Extrema] Sending lead 7 to queue
+2026-08-04 14:01:58,422 - AcheAqui - INFO - [Extrema] Processing lead 10
+2026-08-04 14:01:58,633 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Octus Creative | Agência e Produtora | Publicidade e Propaganda
+2026-08-04 14:01:58,677 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Grupo Still
+2026-08-04 14:01:58,695 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Orange Business Services
+2026-08-04 14:02:04,673 - AcheAqui - INFO - [Extrema] Sending lead 9 to queue
+2026-08-04 14:02:04,673 - AcheAqui - INFO - [Extrema] Processing lead 11
+2026-08-04 14:02:05,086 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for ie! eventos
+2026-08-04 14:02:05,548 - AcheAqui - INFO - [Extrema] Sending lead 10 to queue
+2026-08-04 14:02:05,549 - AcheAqui - INFO - [Extrema] Processing lead 12
+2026-08-04 14:02:05,801 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Projeto Mix Arquitetura
+2026-08-04 14:02:07,189 - AcheAqui - INFO - [Extrema] Sending lead 8 to queue
+2026-08-04 14:02:07,190 - AcheAqui - INFO - [Extrema] Processing lead 13
+2026-08-04 14:02:07,459 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Saleen Suporte
+2026-08-04 14:02:10,581 - AcheAqui - INFO - [Extrema] Sending lead 11 to queue
+2026-08-04 14:02:10,581 - AcheAqui - INFO - [Extrema] Processing lead 14
+2026-08-04 14:02:10,809 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Rio ECF | Automação Comercial para Supermercados
+2026-08-04 14:02:11,206 - AcheAqui - INFO - [Extrema] Sending lead 12 to queue
+2026-08-04 14:02:11,207 - AcheAqui - INFO - [Extrema] Processing lead 15
+2026-08-04 14:02:11,479 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for M3 Representações
+2026-08-04 14:02:12,253 - AcheAqui - INFO - [Extrema] Sending lead 13 to queue
+2026-08-04 14:02:12,254 - AcheAqui - INFO - [Extrema] Processing lead 16
+2026-08-04 14:02:12,536 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Sítio do Vale Verde
+2026-08-04 14:02:15,502 - AcheAqui - INFO - [Extrema] Sending lead 16 to queue
+2026-08-04 14:02:16,740 - AcheAqui - INFO - [Extrema] Sending lead 15 to queue
+2026-08-04 14:02:18,467 - AcheAqui - INFO - [Extrema] Sending lead 14 to queue
+2026-08-04 14:02:18,467 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-04 14:02:18,585 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
+2026-08-04 14:04:00,428 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Green Office em Petrópolis, RJ' (limit: 30)
+2026-08-04 14:10:29,740 - AcheAqui - INFO - [Scheduler Job] Running background system check...
+2026-08-04 14:16:45,586 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Petrópolis, RJ' (limit: 30)
+2026-08-04 14:18:06,132 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-04 14:18:06,134 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-04 14:18:06,134 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-04 14:18:06,513 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-04 14:18:06,597 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-04 14:18:06,597 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-04 14:18:06,601 - AcheAqui - INFO - [Extrema] Processing lead 1
+2026-08-04 14:18:06,606 - AcheAqui - INFO - [Extrema] Processing lead 2
+2026-08-04 14:18:06,834 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Indústria Ferplast
+2026-08-04 14:18:06,849 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for BRAL-MAX Fabricante de tampas plásticas
+2026-08-04 14:18:06,869 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Garboni Indústria de Plásticos e Moldes Ltda.
+2026-08-04 14:18:09,594 - AcheAqui - INFO - [Extrema] Sending lead 1 to queue
+2026-08-04 14:18:09,594 - AcheAqui - INFO - [Extrema] Processing lead 3
+2026-08-04 14:18:09,892 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Transporte São Luiz Ltda. (Cidade das Hortensias)
+2026-08-04 14:18:12,196 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-04 14:18:12,196 - AcheAqui - INFO - [Extrema] Processing lead 4
+2026-08-04 14:18:12,349 - AcheAqui - INFO - [Extrema] Sending lead 2 to queue
+2026-08-04 14:18:12,350 - AcheAqui - INFO - [Extrema] Processing lead 5
+2026-08-04 14:18:12,449 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Marmoraria do Roseiral
+2026-08-04 14:18:12,588 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Distribuidora Cortalina
+2026-08-04 14:18:12,682 - AcheAqui - INFO - [Extrema] Sending lead 3 to queue
+2026-08-04 14:18:12,683 - AcheAqui - INFO - [Extrema] Processing lead 6
+2026-08-04 14:18:12,956 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Humberald Indústria E Comércio De Plásticos
+2026-08-04 14:18:15,317 - AcheAqui - INFO - [Extrema] Sending lead 5 to queue
+2026-08-04 14:18:15,317 - AcheAqui - INFO - [Extrema] Processing lead 7
+2026-08-04 14:18:15,406 - AcheAqui - INFO - [Extrema] Sending lead 4 to queue
+2026-08-04 14:18:15,406 - AcheAqui - INFO - [Extrema] Processing lead 8
+2026-08-04 14:18:15,543 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alfa Laval Aalborg
+2026-08-04 14:18:15,623 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Complexo Bohemia
+2026-08-04 14:18:16,046 - AcheAqui - INFO - [Extrema] Sending lead 6 to queue
+2026-08-04 14:18:16,046 - AcheAqui - INFO - [Extrema] Processing lead 9
+2026-08-04 14:18:16,343 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Hirundoplast Industria e Comercio
+2026-08-04 14:18:19,511 - AcheAqui - INFO - [Extrema] Sending lead 9 to queue
+2026-08-04 14:18:19,512 - AcheAqui - INFO - [Extrema] Processing lead 10
+2026-08-04 14:18:19,734 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Recamol Ind e Comércio
+2026-08-04 14:18:20,731 - AcheAqui - INFO - [Extrema] Sending lead 8 to queue
+2026-08-04 14:18:20,732 - AcheAqui - INFO - [Extrema] Processing lead 11
+2026-08-04 14:18:20,951 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Kinsan
+2026-08-04 14:18:22,052 - AcheAqui - INFO - [Extrema] Sending lead 7 to queue
+2026-08-04 14:18:22,052 - AcheAqui - INFO - [Extrema] Processing lead 12
+2026-08-04 14:18:22,331 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Werner Tecidos
+2026-08-04 14:18:22,406 - AcheAqui - INFO - [Extrema] Sending lead 10 to queue
+2026-08-04 14:18:22,406 - AcheAqui - INFO - [Extrema] Processing lead 13
+2026-08-04 14:18:22,631 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Feira da Borracha
+2026-08-04 14:18:23,900 - AcheAqui - INFO - [Extrema] Sending lead 11 to queue
+2026-08-04 14:18:23,901 - AcheAqui - INFO - [Extrema] Processing lead 14
+2026-08-04 14:18:24,145 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for SEBRAE RJ-Serviço de Apoio às Micros e Pequenas Empresas-Petrópolis
+2026-08-04 14:18:25,018 - AcheAqui - INFO - [Extrema] Sending lead 12 to queue
+2026-08-04 14:18:25,018 - AcheAqui - INFO - [Extrema] Processing lead 15
+2026-08-04 14:18:25,243 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Construtora Solidum
+2026-08-04 14:18:28,105 - AcheAqui - INFO - [Extrema] Sending lead 13 to queue
+2026-08-04 14:18:28,105 - AcheAqui - INFO - [Extrema] Processing lead 16
+2026-08-04 14:18:28,331 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Orga Tecnologia
+2026-08-04 14:18:29,733 - AcheAqui - INFO - [Extrema] Sending lead 14 to queue
+2026-08-04 14:18:29,734 - AcheAqui - INFO - [Extrema] Processing lead 17
+2026-08-04 14:18:30,249 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Ecoville Petropolis
+2026-08-04 14:18:32,985 - AcheAqui - INFO - [Extrema] Sending lead 17 to queue
+2026-08-04 14:18:32,986 - AcheAqui - INFO - [Extrema] Processing lead 18
+2026-08-04 14:18:33,114 - AcheAqui - INFO - [Extrema] Sending lead 15 to queue
+2026-08-04 14:18:33,115 - AcheAqui - INFO - [Extrema] Processing lead 19
+2026-08-04 14:18:33,288 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Smart Express Petrópolis
+2026-08-04 14:18:33,374 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for bestSOFT AUTOMAÇÃO COMERCIAL
+2026-08-04 14:18:33,811 - AcheAqui - INFO - [Extrema] Sending lead 16 to queue
+2026-08-04 14:18:33,811 - AcheAqui - INFO - [Extrema] Processing lead 20
+2026-08-04 14:18:34,041 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Disck Delivery
+2026-08-04 14:18:35,962 - AcheAqui - INFO - [Extrema] Sending lead 18 to queue
+2026-08-04 14:18:35,962 - AcheAqui - INFO - [Extrema] Processing lead 21
+2026-08-04 14:18:36,188 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for KEP Estamparia
+2026-08-04 14:18:36,840 - AcheAqui - INFO - [Extrema] Sending lead 20 to queue
+2026-08-04 14:18:36,841 - AcheAqui - INFO - [Extrema] Processing lead 22
+2026-08-04 14:18:37,579 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for KSA Pneus e Rodas
+2026-08-04 14:18:39,287 - AcheAqui - INFO - [Extrema] Sending lead 21 to queue
+2026-08-04 14:18:39,287 - AcheAqui - INFO - [Extrema] Processing lead 23
+2026-08-04 14:18:39,378 - AcheAqui - INFO - [Extrema] Sending lead 19 to queue
+2026-08-04 14:18:39,520 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Shuttle Service
+2026-08-04 14:18:40,561 - AcheAqui - INFO - [Extrema] Sending lead 22 to queue
+2026-08-04 14:18:42,197 - AcheAqui - INFO - [Extrema] Sending lead 23 to queue
+2026-08-04 14:18:42,197 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-04 14:18:42,333 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
+2026-08-04 14:28:39,745 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Industrias em Petrópolis, RJ' (limit: 30)
+2026-08-04 14:29:57,486 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-04 14:29:57,488 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-04 14:29:57,488 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-04 14:29:57,859 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-04 14:29:57,945 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-04 14:29:57,945 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-04 14:29:57,948 - AcheAqui - INFO - [Extrema] Processing lead 1
+2026-08-04 14:29:57,950 - AcheAqui - INFO - [Extrema] Processing lead 2
+2026-08-04 14:29:58,203 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for BRAL-MAX Fabricante de tampas plásticas
+2026-08-04 14:29:58,213 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Master Fio Industria Textil
+2026-08-04 14:29:58,232 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for RGJ Distribuidora
+2026-08-04 14:30:00,972 - AcheAqui - INFO - [Extrema] Sending lead 2 to queue
+2026-08-04 14:30:00,973 - AcheAqui - INFO - [Extrema] Processing lead 3
+2026-08-04 14:30:01,227 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Indústria Ferplast
+2026-08-04 14:30:03,877 - AcheAqui - INFO - [Extrema] Sending lead 1 to queue
+2026-08-04 14:30:03,878 - AcheAqui - INFO - [Extrema] Processing lead 4
+2026-08-04 14:30:04,122 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Fábrica Crislyne Rio
+2026-08-04 14:30:04,560 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-04 14:30:04,561 - AcheAqui - INFO - [Extrema] Processing lead 5
+2026-08-04 14:30:04,781 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for ANDRITZ Fabrics and Rolls Indústria e Comércio S/A
+2026-08-04 14:30:06,588 - AcheAqui - INFO - [Extrema] Sending lead 3 to queue
+2026-08-04 14:30:06,588 - AcheAqui - INFO - [Extrema] Processing lead 6
+2026-08-04 14:30:06,851 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Fábrica De Copos Descartáveis Petrópolis
+2026-08-04 14:30:07,057 - AcheAqui - INFO - [Extrema] Sending lead 4 to queue
+2026-08-04 14:30:07,057 - AcheAqui - INFO - [Extrema] Processing lead 7
+2026-08-04 14:30:07,372 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Serviço De Torno E Solda P/M
+2026-08-04 14:30:07,756 - AcheAqui - INFO - [Extrema] Sending lead 5 to queue
+2026-08-04 14:30:07,757 - AcheAqui - INFO - [Extrema] Processing lead 8
+2026-08-04 14:30:07,979 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Hebrom Ind. e Com.
+2026-08-04 14:30:09,522 - AcheAqui - INFO - [Extrema] Sending lead 6 to queue
+2026-08-04 14:30:09,522 - AcheAqui - INFO - [Extrema] Processing lead 9
+2026-08-04 14:30:09,803 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alfa Laval Aalborg
+2026-08-04 14:30:10,033 - AcheAqui - INFO - [Extrema] Sending lead 7 to queue
+2026-08-04 14:30:10,034 - AcheAqui - INFO - [Extrema] Processing lead 10
+2026-08-04 14:30:10,382 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for M C L Comércio de Plásticos
+2026-08-04 14:30:10,926 - AcheAqui - INFO - [Extrema] Sending lead 8 to queue
+2026-08-04 14:30:10,926 - AcheAqui - INFO - [Extrema] Processing lead 11
+2026-08-04 14:30:11,146 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Garboni Indústria de Plásticos e Moldes Ltda.
+2026-08-04 14:30:13,366 - AcheAqui - INFO - [Extrema] Sending lead 10 to queue
+2026-08-04 14:30:13,366 - AcheAqui - INFO - [Extrema] Processing lead 12
+2026-08-04 14:30:13,635 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Quinprint do Brasil Comercio e Industria
+2026-08-04 14:30:13,839 - AcheAqui - INFO - [Extrema] Sending lead 11 to queue
+2026-08-04 14:30:13,840 - AcheAqui - INFO - [Extrema] Processing lead 13
+2026-08-04 14:30:14,054 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Companhia Petropolitana
+2026-08-04 14:30:15,537 - AcheAqui - INFO - [Extrema] Sending lead 9 to queue
+2026-08-04 14:30:15,538 - AcheAqui - INFO - [Extrema] Processing lead 14
+2026-08-04 14:30:15,766 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Eletro Metalúrgica Universal
+2026-08-04 14:30:16,574 - AcheAqui - INFO - [Extrema] Sending lead 12 to queue
+2026-08-04 14:30:16,574 - AcheAqui - INFO - [Extrema] Processing lead 15
+2026-08-04 14:30:16,901 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Indústria de Pontas Abrasivas Schelble
+2026-08-04 14:30:17,007 - AcheAqui - INFO - [Extrema] Sending lead 13 to queue
+2026-08-04 14:30:17,007 - AcheAqui - INFO - [Extrema] Processing lead 16
+2026-08-04 14:30:17,233 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Werner Tecidos
+2026-08-04 14:30:20,153 - AcheAqui - INFO - [Extrema] Sending lead 16 to queue
+2026-08-04 14:30:20,155 - AcheAqui - INFO - [Extrema] Processing lead 17
+2026-08-04 14:30:20,418 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Humberald Indústria E Comércio De Plásticos
+2026-08-04 14:30:22,729 - AcheAqui - INFO - [Extrema] Sending lead 15 to queue
+2026-08-04 14:30:22,730 - AcheAqui - INFO - [Extrema] Processing lead 18
+2026-08-04 14:30:23,040 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Hirundoplast Industria e Comercio
+2026-08-04 14:30:23,260 - AcheAqui - INFO - [Extrema] Sending lead 17 to queue
+2026-08-04 14:30:23,261 - AcheAqui - INFO - [Extrema] Processing lead 19
+2026-08-04 14:30:23,471 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Schanuel Ferramentaria e Plásticos
+2026-08-04 14:30:26,046 - AcheAqui - INFO - [Extrema] Sending lead 18 to queue
+2026-08-04 14:30:26,046 - AcheAqui - INFO - [Extrema] Processing lead 20
+2026-08-04 14:30:26,143 - AcheAqui - INFO - [Extrema] Sending lead 19 to queue
+2026-08-04 14:30:26,144 - AcheAqui - INFO - [Extrema] Processing lead 21
+2026-08-04 14:30:26,274 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Itabetoneiras | Locação de Equipamentos e Materiais para Construção em Petrópolis
+2026-08-04 14:30:26,406 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alecar Corrêas
+2026-08-04 14:30:29,448 - AcheAqui - INFO - [Extrema] Sending lead 21 to queue
+2026-08-04 14:30:29,449 - AcheAqui - INFO - [Extrema] Processing lead 22
+2026-08-04 14:30:29,842 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Lele e Rafa - Ortopédicos infantis
+2026-08-04 14:30:30,325 - AcheAqui - INFO - [Extrema] Sending lead 14 to queue
+2026-08-04 14:30:30,326 - AcheAqui - INFO - [Extrema] Processing lead 23
+2026-08-04 14:30:30,535 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for German Cunha
+2026-08-04 14:30:32,848 - AcheAqui - INFO - [Extrema] Sending lead 22 to queue
+2026-08-04 14:30:32,848 - AcheAqui - INFO - [Extrema] Processing lead 24
+2026-08-04 14:30:33,176 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Carlos França - Esquadrias Premium
+2026-08-04 14:30:33,316 - AcheAqui - INFO - [Extrema] Sending lead 20 to queue
+2026-08-04 14:30:33,316 - AcheAqui - INFO - [Extrema] Processing lead 25
+2026-08-04 14:30:33,733 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Dual Elétrica e Hidráulica
+2026-08-04 14:30:36,506 - AcheAqui - INFO - [Extrema] Sending lead 24 to queue
+2026-08-04 14:30:36,672 - AcheAqui - INFO - [Extrema] Sending lead 23 to queue
+2026-08-04 14:30:41,166 - AcheAqui - INFO - [Extrema] Sending lead 25 to queue
+2026-08-04 14:30:41,167 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-04 14:30:41,302 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
+2026-08-04 14:37:14,967 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 14:37:14,968 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 14:37:14,973 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 14:37:14,976 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 14:41:56,252 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Industrias em Petrópolis, RJ' (limit: 30)
+2026-08-04 14:43:13,611 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-04 14:43:13,612 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-04 14:43:13,613 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-04 14:43:14,023 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-04 14:43:14,106 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-04 14:43:14,106 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-04 14:43:14,108 - AcheAqui - INFO - [Extrema] Processing lead 1
+2026-08-04 14:43:14,111 - AcheAqui - INFO - [Extrema] Processing lead 2
+2026-08-04 14:43:14,364 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Master Fio Industria Textil
+2026-08-04 14:43:14,371 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Indústria Ferplast
+2026-08-04 14:43:14,534 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for BRAL-MAX Fabricante de tampas plásticas
+2026-08-04 14:43:20,204 - AcheAqui - INFO - [Extrema] Sending lead 2 to queue
+2026-08-04 14:43:20,205 - AcheAqui - INFO - [Extrema] Processing lead 3
+2026-08-04 14:43:20,489 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for RGJ Distribuidora
+2026-08-04 14:43:20,692 - AcheAqui - INFO - [Extrema] Sending lead 1 to queue
+2026-08-04 14:43:20,692 - AcheAqui - INFO - [Extrema] Processing lead 4
+2026-08-04 14:43:20,865 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-04 14:43:20,865 - AcheAqui - INFO - [Extrema] Processing lead 5
+2026-08-04 14:43:20,939 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Fábrica Crislyne Rio
+2026-08-04 14:43:21,140 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for ANDRITZ Fabrics and Rolls Indústria e Comércio S/A
+2026-08-04 14:43:23,492 - AcheAqui - INFO - [Extrema] Sending lead 3 to queue
+2026-08-04 14:43:23,493 - AcheAqui - INFO - [Extrema] Processing lead 6
+2026-08-04 14:43:23,748 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Fábrica De Copos Descartáveis Petrópolis
+2026-08-04 14:43:23,940 - AcheAqui - INFO - [Extrema] Sending lead 4 to queue
+2026-08-04 14:43:23,941 - AcheAqui - INFO - [Extrema] Processing lead 7
+2026-08-04 14:43:24,225 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Serviço De Torno E Solda P/M
+2026-08-04 14:43:24,316 - AcheAqui - INFO - [Extrema] Sending lead 5 to queue
+2026-08-04 14:43:24,316 - AcheAqui - INFO - [Extrema] Processing lead 8
+2026-08-04 14:43:24,783 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Hebrom Ind. e Com.
+2026-08-04 14:43:26,700 - AcheAqui - INFO - [Extrema] Sending lead 6 to queue
+2026-08-04 14:43:26,701 - AcheAqui - INFO - [Extrema] Processing lead 9
+2026-08-04 14:43:26,906 - AcheAqui - INFO - [Extrema] Sending lead 7 to queue
+2026-08-04 14:43:26,907 - AcheAqui - INFO - [Extrema] Processing lead 10
+2026-08-04 14:43:26,938 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alfa Laval Aalborg
+2026-08-04 14:43:27,336 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for M C L Comércio de Plásticos
+2026-08-04 14:43:27,464 - AcheAqui - INFO - [Extrema] Sending lead 8 to queue
+2026-08-04 14:43:27,464 - AcheAqui - INFO - [Extrema] Processing lead 11
+2026-08-04 14:43:27,718 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Garboni Indústria de Plásticos e Moldes Ltda.
+2026-08-04 14:43:30,012 - AcheAqui - INFO - [Extrema] Sending lead 10 to queue
+2026-08-04 14:43:30,012 - AcheAqui - INFO - [Extrema] Processing lead 12
+2026-08-04 14:43:30,260 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Quinprint do Brasil Comercio e Industria
+2026-08-04 14:43:30,736 - AcheAqui - INFO - [Extrema] Sending lead 11 to queue
+2026-08-04 14:43:30,737 - AcheAqui - INFO - [Extrema] Processing lead 13
+2026-08-04 14:43:30,986 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Companhia Petropolitana
+2026-08-04 14:43:32,991 - AcheAqui - INFO - [Extrema] Sending lead 12 to queue
+2026-08-04 14:43:32,992 - AcheAqui - INFO - [Extrema] Processing lead 14
+2026-08-04 14:43:33,197 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Eletro Metalúrgica Universal
+2026-08-04 14:43:33,650 - AcheAqui - INFO - [Extrema] Sending lead 13 to queue
+2026-08-04 14:43:33,650 - AcheAqui - INFO - [Extrema] Processing lead 15
+2026-08-04 14:43:33,896 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Indústria de Pontas Abrasivas Schelble
+2026-08-04 14:43:34,923 - AcheAqui - INFO - [Extrema] Sending lead 9 to queue
+2026-08-04 14:43:34,924 - AcheAqui - INFO - [Extrema] Processing lead 16
+2026-08-04 14:43:35,190 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Werner Tecidos
+2026-08-04 14:43:38,102 - AcheAqui - INFO - [Extrema] Sending lead 16 to queue
+2026-08-04 14:43:38,102 - AcheAqui - INFO - [Extrema] Processing lead 17
+2026-08-04 14:43:38,379 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Humberald Indústria E Comércio De Plásticos
+2026-08-04 14:43:39,745 - AcheAqui - INFO - [Extrema] Sending lead 15 to queue
+2026-08-04 14:43:39,746 - AcheAqui - INFO - [Extrema] Processing lead 18
+2026-08-04 14:43:39,984 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Hirundoplast Industria e Comercio
+2026-08-04 14:43:41,360 - AcheAqui - INFO - [Extrema] Sending lead 17 to queue
+2026-08-04 14:43:41,360 - AcheAqui - INFO - [Extrema] Processing lead 19
+2026-08-04 14:43:41,675 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Schanuel Ferramentaria e Plásticos
+2026-08-04 14:43:43,005 - AcheAqui - INFO - [Extrema] Sending lead 18 to queue
+2026-08-04 14:43:43,005 - AcheAqui - INFO - [Extrema] Processing lead 20
+2026-08-04 14:43:43,237 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Itabetoneiras | Locação de Equipamentos e Materiais para Construção em Petrópolis
+2026-08-04 14:43:44,612 - AcheAqui - INFO - [Extrema] Sending lead 19 to queue
+2026-08-04 14:43:44,613 - AcheAqui - INFO - [Extrema] Processing lead 21
+2026-08-04 14:43:44,890 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alecar Corrêas
+2026-08-04 14:43:47,373 - AcheAqui - INFO - [Extrema] Sending lead 14 to queue
+2026-08-04 14:43:47,374 - AcheAqui - INFO - [Extrema] Processing lead 22
+2026-08-04 14:43:47,599 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Lele e Rafa - Ortopédicos infantis
+2026-08-04 14:43:47,836 - AcheAqui - INFO - [Extrema] Sending lead 21 to queue
+2026-08-04 14:43:47,836 - AcheAqui - INFO - [Extrema] Processing lead 23
+2026-08-04 14:43:48,130 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for German Cunha
+2026-08-04 14:43:48,675 - AcheAqui - INFO - [Extrema] Sending lead 20 to queue
+2026-08-04 14:43:48,675 - AcheAqui - INFO - [Extrema] Processing lead 24
+2026-08-04 14:43:48,998 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Carlos França - Esquadrias Premium
+2026-08-04 14:43:50,322 - AcheAqui - INFO - [Extrema] Sending lead 22 to queue
+2026-08-04 14:43:50,323 - AcheAqui - INFO - [Extrema] Processing lead 25
+2026-08-04 14:43:50,577 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Dual Elétrica e Hidráulica
+2026-08-04 14:43:52,157 - AcheAqui - INFO - [Extrema] Sending lead 24 to queue
+2026-08-04 14:43:54,144 - AcheAqui - INFO - [Extrema] Sending lead 23 to queue
+2026-08-04 14:43:58,032 - AcheAqui - INFO - [Extrema] Sending lead 25 to queue
+2026-08-04 14:43:58,033 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-04 14:43:58,167 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
+2026-08-04 14:55:13,106 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 14:55:13,106 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 14:55:13,111 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 14:55:13,113 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 14:57:25,456 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 14:57:25,456 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 14:57:25,461 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 14:57:25,463 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 15:01:48,411 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-04 15:01:48,411 - AcheAqui - INFO - Initializing database tables...
+2026-08-04 15:01:48,417 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-04 15:01:48,418 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-04 15:02:10,704 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Industrias em Petrópolis, RJ' (limit: 30)
+2026-08-04 15:02:22,803 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Petrópolis, RJ' (limit: 20)
+2026-08-04 15:03:12,637 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-04 15:03:12,638 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-04 15:03:12,638 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-04 15:03:12,990 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-04 15:03:13,080 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-04 15:03:13,081 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-04 15:03:13,086 - AcheAqui - INFO - [Extrema] Processing lead 1
+2026-08-04 15:03:13,095 - AcheAqui - INFO - [Extrema] Processing lead 2
+2026-08-04 15:03:13,383 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Garboni Indústria de Plásticos e Moldes Ltda.
+2026-08-04 15:03:13,384 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Indústria Ferplast
+2026-08-04 15:03:13,469 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for BRAL-MAX Fabricante de tampas plásticas
+2026-08-04 15:03:16,392 - AcheAqui - INFO - [Extrema] Sending lead 1 to queue
+2026-08-04 15:03:16,393 - AcheAqui - INFO - [Extrema] Processing lead 3
+2026-08-04 15:03:16,664 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Transporte São Luiz Ltda. (Cidade das Hortensias)
+2026-08-04 15:03:18,749 - AcheAqui - INFO - [Extrema] Sending lead 2 to queue
+2026-08-04 15:03:18,750 - AcheAqui - INFO - [Extrema] Processing lead 4
+2026-08-04 15:03:19,099 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Distribuidora Cortalina
+2026-08-04 15:03:19,168 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-04 15:03:19,169 - AcheAqui - INFO - [Extrema] Processing lead 5
+2026-08-04 15:03:19,393 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alfa Laval Aalborg
+2026-08-04 15:03:19,712 - AcheAqui - INFO - [Extrema] Sending lead 3 to queue
+2026-08-04 15:03:19,713 - AcheAqui - INFO - [Extrema] Processing lead 6
+2026-08-04 15:03:19,939 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Humberald Indústria E Comércio De Plásticos
+2026-08-04 15:03:22,107 - AcheAqui - INFO - [Extrema] Sending lead 4 to queue
+2026-08-04 15:03:22,107 - AcheAqui - INFO - [Extrema] Processing lead 7
+2026-08-04 15:03:22,390 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Marmoraria do Roseiral
+2026-08-04 15:03:23,310 - AcheAqui - INFO - [Extrema] Sending lead 6 to queue
+2026-08-04 15:03:23,310 - AcheAqui - INFO - [Extrema] Processing lead 8
+2026-08-04 15:03:23,535 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Complexo Bohemia
+2026-08-04 15:03:25,023 - AcheAqui - INFO - [Extrema] Sending lead 5 to queue
+2026-08-04 15:03:25,033 - AcheAqui - INFO - [Extrema] Processing lead 9
+2026-08-04 15:03:25,249 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Hirundoplast Industria e Comercio
+2026-08-04 15:03:25,423 - AcheAqui - INFO - [Extrema] Sending lead 7 to queue
+2026-08-04 15:03:25,424 - AcheAqui - INFO - [Extrema] Processing lead 10
+2026-08-04 15:03:25,644 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Recamol Ind e Comércio
+2026-08-04 15:03:28,285 - AcheAqui - INFO - [Extrema] Sending lead 9 to queue
+2026-08-04 15:03:28,286 - AcheAqui - INFO - [Extrema] Processing lead 11
+2026-08-04 15:03:28,515 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Kinsan
+2026-08-04 15:03:28,612 - AcheAqui - INFO - [Extrema] Sending lead 10 to queue
+2026-08-04 15:03:28,612 - AcheAqui - INFO - [Extrema] Processing lead 12
+2026-08-04 15:03:28,875 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Werner Tecidos
+2026-08-04 15:03:31,488 - AcheAqui - INFO - [Extrema] Sending lead 11 to queue
+2026-08-04 15:03:31,488 - AcheAqui - INFO - [Extrema] Processing lead 13
+2026-08-04 15:03:31,563 - AcheAqui - INFO - [Extrema] Sending lead 12 to queue
+2026-08-04 15:03:31,564 - AcheAqui - INFO - [Extrema] Processing lead 14
+2026-08-04 15:03:31,728 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Feira da Borracha
+2026-08-04 15:03:31,787 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for SEBRAE RJ-Serviço de Apoio às Micros e Pequenas Empresas-Petrópolis
+2026-08-04 15:03:36,726 - AcheAqui - INFO - [Extrema] Sending lead 8 to queue
+2026-08-04 15:03:36,726 - AcheAqui - INFO - [Extrema] Processing lead 15
+2026-08-04 15:03:36,958 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Construtora Solidum
+2026-08-04 15:03:37,457 - AcheAqui - INFO - [Extrema] Sending lead 14 to queue
+2026-08-04 15:03:37,457 - AcheAqui - INFO - [Extrema] Processing lead 16
+2026-08-04 15:03:37,460 - AcheAqui - INFO - [Extrema] Sending lead 13 to queue
+2026-08-04 15:03:37,461 - AcheAqui - INFO - [Extrema] Processing lead 17
+2026-08-04 15:03:37,757 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Transmorguini Transportes e Locações
+2026-08-04 15:03:37,792 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Orga Tecnologia
+2026-08-04 15:03:39,754 - AcheAqui - INFO - [Extrema] Sending lead 15 to queue
+2026-08-04 15:03:39,755 - AcheAqui - INFO - [Extrema] Processing lead 18
+2026-08-04 15:03:40,014 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for bestSOFT AUTOMAÇÃO COMERCIAL
+2026-08-04 15:03:40,428 - AcheAqui - INFO - [Extrema] Sending lead 17 to queue
+2026-08-04 15:03:40,431 - AcheAqui - INFO - [Extrema] Processing lead 19
+2026-08-04 15:03:40,679 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Ecoville Petropolis
+2026-08-04 15:03:43,177 - AcheAqui - INFO - [Extrema] Sending lead 16 to queue
+2026-08-04 15:03:43,385 - AcheAqui - INFO - [Extrema] Sending lead 19 to queue
+2026-08-04 15:03:45,482 - AcheAqui - INFO - [Extrema] Sending lead 18 to queue
+2026-08-04 15:03:45,482 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-04 15:03:45,598 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
+2026-08-04 15:04:41,536 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Petrópolis RJ' (limit: 20)
+2026-08-04 15:04:41,598 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Petrópolis RJ' (limit: 20)
+2026-08-04 15:14:58,964 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Petrópolis RJ' (limit: 20)
+2026-08-04 15:14:58,999 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Petrópolis RJ' (limit: 20)
+2026-08-04 15:15:32,500 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Petrópolis RJ' (limit: 20)
+2026-08-04 15:16:48,367 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Petrópolis RJ' (limit: 20)
+2026-08-04 15:20:32,369 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Petrópolis RJ' (limit: 20)
+2026-08-04 15:20:34,190 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Petrópolis RJ' (limit: 20)
+2026-08-04 15:31:48,428 - AcheAqui - INFO - [Scheduler Job] Running background system check...
+2026-08-04 16:01:48,427 - AcheAqui - INFO - [Scheduler Job] Running background system check...
+2026-08-04 16:31:48,424 - AcheAqui - INFO - [Scheduler Job] Running background system check...
+2026-08-04 16:35:44,312 - AcheAqui - INFO - [Google Maps Collector] Searching: 'restaurante em Petrópolis, Rj' (limit: 20)
+2026-08-04 17:01:48,427 - AcheAqui - INFO - [Scheduler Job] Running background system check...
+2026-08-04 17:31:48,418 - AcheAqui - INFO - [Scheduler Job] Running background system check...
+2026-08-04 17:52:33,017 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Petrópolis, Rj' (limit: 100)
+2026-08-04 17:55:02,911 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-04 17:55:02,913 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-04 17:55:02,913 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-04 17:55:03,234 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-04 17:55:03,306 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-04 17:55:03,307 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-04 17:55:03,307 - AcheAqui - INFO - [Extrema] Processing lead 1
+2026-08-04 17:55:03,309 - AcheAqui - INFO - [Extrema] Processing lead 2
+2026-08-04 17:55:03,545 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Indústria Ferplast
+2026-08-04 17:55:03,578 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for BRAL-MAX Fabricante de tampas plásticas
+2026-08-04 17:55:03,583 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Transporte São Luiz Ltda. (Cidade das Hortensias)
+2026-08-04 17:55:06,506 - AcheAqui - INFO - [Extrema] Sending lead 2 to queue
+2026-08-04 17:55:06,506 - AcheAqui - INFO - [Extrema] Processing lead 3
+2026-08-04 17:55:06,740 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Distribuidora Cortalina
+2026-08-04 17:55:08,717 - AcheAqui - INFO - [Extrema] Sending lead 1 to queue
+2026-08-04 17:55:08,718 - AcheAqui - INFO - [Extrema] Processing lead 4
+2026-08-04 17:55:08,930 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Garboni Indústria de Plásticos e Moldes Ltda.
+2026-08-04 17:55:09,248 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-04 17:55:09,248 - AcheAqui - INFO - [Extrema] Processing lead 5
+2026-08-04 17:55:09,637 - AcheAqui - INFO - [Extrema] Sending lead 3 to queue
+2026-08-04 17:55:09,638 - AcheAqui - INFO - [Extrema] Processing lead 6
+2026-08-04 17:55:09,733 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Humberald Indústria E Comércio De Plásticos
+2026-08-04 17:55:09,883 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Complexo Bohemia
+2026-08-04 17:55:11,868 - AcheAqui - INFO - [Extrema] Sending lead 4 to queue
+2026-08-04 17:55:11,868 - AcheAqui - INFO - [Extrema] Processing lead 7
+2026-08-04 17:55:12,206 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Marmoraria do Roseiral
+2026-08-04 17:55:12,662 - AcheAqui - INFO - [Extrema] Sending lead 5 to queue
+2026-08-04 17:55:12,662 - AcheAqui - INFO - [Extrema] Processing lead 8
+2026-08-04 17:55:12,976 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alfa Laval Aalborg
+2026-08-04 17:55:14,965 - AcheAqui - INFO - [Extrema] Sending lead 6 to queue
+2026-08-04 17:55:14,965 - AcheAqui - INFO - [Extrema] Processing lead 9
+2026-08-04 17:55:15,122 - AcheAqui - INFO - [Extrema] Sending lead 7 to queue
+2026-08-04 17:55:15,122 - AcheAqui - INFO - [Extrema] Processing lead 10
+2026-08-04 17:55:15,223 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Hirundoplast Industria e Comercio
+2026-08-04 17:55:15,371 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Recamol Ind e Comércio
+2026-08-04 17:55:18,034 - AcheAqui - INFO - [Extrema] Sending lead 10 to queue
+2026-08-04 17:55:18,034 - AcheAqui - INFO - [Extrema] Processing lead 11
+2026-08-04 17:55:18,156 - AcheAqui - INFO - [Extrema] Sending lead 9 to queue
+2026-08-04 17:55:18,157 - AcheAqui - INFO - [Extrema] Processing lead 12
+2026-08-04 17:55:18,260 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Kinsan
+2026-08-04 17:55:18,396 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Transmorguini Transportes e Locações
+2026-08-04 17:55:18,992 - AcheAqui - INFO - [Extrema] Sending lead 8 to queue
+2026-08-04 17:55:18,993 - AcheAqui - INFO - [Extrema] Processing lead 13
+2026-08-04 17:55:19,231 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for SEBRAE RJ-Serviço de Apoio às Micros e Pequenas Empresas-Petrópolis
+2026-08-04 17:55:20,913 - AcheAqui - INFO - [Extrema] Sending lead 11 to queue
+2026-08-04 17:55:20,914 - AcheAqui - INFO - [Extrema] Processing lead 14
+2026-08-04 17:55:21,229 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Construtora Solidum
+2026-08-04 17:55:21,320 - AcheAqui - INFO - [Extrema] Sending lead 12 to queue
+2026-08-04 17:55:21,320 - AcheAqui - INFO - [Extrema] Processing lead 15
+2026-08-04 17:55:21,609 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for LM Qualidade Rio de Janeiro
+2026-08-04 17:55:24,125 - AcheAqui - INFO - [Extrema] Sending lead 14 to queue
+2026-08-04 17:55:24,125 - AcheAqui - INFO - [Extrema] Processing lead 16
+2026-08-04 17:55:24,231 - AcheAqui - INFO - [Extrema] Sending lead 15 to queue
+2026-08-04 17:55:24,232 - AcheAqui - INFO - [Extrema] Processing lead 17
+2026-08-04 17:55:24,351 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Smart Express Petrópolis
+2026-08-04 17:55:24,520 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for BSL Terceirização de Motoboys e Entregadores
+2026-08-04 17:55:27,160 - AcheAqui - INFO - [Extrema] Sending lead 17 to queue
+2026-08-04 17:55:27,160 - AcheAqui - INFO - [Extrema] Processing lead 18
+2026-08-04 17:55:27,284 - AcheAqui - INFO - [Extrema] Sending lead 16 to queue
+2026-08-04 17:55:27,285 - AcheAqui - INFO - [Extrema] Processing lead 19
+2026-08-04 17:55:27,439 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Ecoville Petropolis
+2026-08-04 17:55:27,583 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Campos Fróes Certificados Digitais
+2026-08-04 17:55:30,358 - AcheAqui - INFO - [Extrema] Sending lead 18 to queue
+2026-08-04 17:55:30,358 - AcheAqui - INFO - [Extrema] Processing lead 20
+2026-08-04 17:55:30,536 - AcheAqui - INFO - [Extrema] Sending lead 13 to queue
+2026-08-04 17:55:30,536 - AcheAqui - INFO - [Extrema] Processing lead 21
+2026-08-04 17:55:30,587 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Canal Exporta Brasil
+2026-08-04 17:55:30,780 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for KSA Pneus e Rodas
+2026-08-04 17:55:33,430 - AcheAqui - INFO - [Extrema] Sending lead 21 to queue
+2026-08-04 17:55:33,430 - AcheAqui - INFO - [Extrema] Processing lead 22
+2026-08-04 17:55:33,619 - AcheAqui - INFO - [Extrema] Sending lead 20 to queue
+2026-08-04 17:55:33,620 - AcheAqui - INFO - [Extrema] Processing lead 23
+2026-08-04 17:55:33,678 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Branco Fretes e Mudanças
+2026-08-04 17:55:33,826 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for bestSOFT AUTOMAÇÃO COMERCIAL
+2026-08-04 17:55:34,667 - AcheAqui - INFO - [Extrema] Sending lead 19 to queue
+2026-08-04 17:55:34,668 - AcheAqui - INFO - [Extrema] Processing lead 24
+2026-08-04 17:55:34,938 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Feira da Borracha
+2026-08-04 17:55:39,454 - AcheAqui - INFO - [Extrema] Sending lead 23 to queue
+2026-08-04 17:55:39,454 - AcheAqui - INFO - [Extrema] Processing lead 25
+2026-08-04 17:55:39,699 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Transfer Privativo Rio Petrópolis Itaipava e Região
+2026-08-04 17:55:40,748 - AcheAqui - INFO - [Extrema] Sending lead 24 to queue
+2026-08-04 17:55:40,749 - AcheAqui - INFO - [Extrema] Processing lead 26
+2026-08-04 17:55:41,023 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Werner Tecidos
+2026-08-04 17:55:42,550 - AcheAqui - INFO - [Extrema] Sending lead 22 to queue
+2026-08-04 17:55:42,551 - AcheAqui - INFO - [Extrema] Processing lead 27
+2026-08-04 17:55:42,603 - AcheAqui - INFO - [Extrema] Sending lead 25 to queue
+2026-08-04 17:55:42,603 - AcheAqui - INFO - [Extrema] Processing lead 28
+2026-08-04 17:55:42,795 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Associação Comercial e Empresarial De Petrópolis
+2026-08-04 17:55:42,924 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Mudanças Nacional-Municipais-Interestadual-Estaduais Partindo de Petrópolis-Fretes em Petrópolis RJ
+2026-08-04 17:55:43,673 - AcheAqui - INFO - [Extrema] Sending lead 26 to queue
+2026-08-04 17:55:43,674 - AcheAqui - INFO - [Extrema] Processing lead 29
+2026-08-04 17:55:43,950 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Petrópolis RJ
+2026-08-04 17:55:45,842 - AcheAqui - INFO - [Extrema] Sending lead 28 to queue
+2026-08-04 17:55:45,842 - AcheAqui - INFO - [Extrema] Processing lead 30
+2026-08-04 17:55:46,049 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Mafretec
+2026-08-04 17:55:46,897 - AcheAqui - INFO - [Extrema] Sending lead 29 to queue
+2026-08-04 17:55:46,897 - AcheAqui - INFO - [Extrema] Processing lead 31
+2026-08-04 17:55:47,113 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Altarede Fiber Petrópolis (RJ)
+2026-08-04 17:55:48,965 - AcheAqui - INFO - [Extrema] Sending lead 30 to queue
+2026-08-04 17:55:48,966 - AcheAqui - INFO - [Extrema] Processing lead 32
+2026-08-04 17:55:49,183 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Gás Distribuidora Alto da Serra - Igor do Gás
+2026-08-04 17:55:51,114 - AcheAqui - INFO - [Extrema] Sending lead 27 to queue
+2026-08-04 17:55:51,115 - AcheAqui - INFO - [Extrema] Processing lead 33
+2026-08-04 17:55:51,347 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for House Beer
+2026-08-04 17:55:51,813 - AcheAqui - INFO - [Extrema] Sending lead 32 to queue
+2026-08-04 17:55:51,814 - AcheAqui - INFO - [Extrema] Processing lead 34
+2026-08-04 17:55:52,047 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Grupo Prattica
+2026-08-04 17:55:54,069 - AcheAqui - INFO - [Extrema] Sending lead 31 to queue
+2026-08-04 17:55:54,070 - AcheAqui - INFO - [Extrema] Processing lead 35
+2026-08-04 17:55:54,260 - AcheAqui - INFO - [Extrema] Sending lead 33 to queue
+2026-08-04 17:55:54,260 - AcheAqui - INFO - [Extrema] Processing lead 36
+2026-08-04 17:55:54,295 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for John john
+2026-08-04 17:55:54,511 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Misa Entregas
+2026-08-04 17:55:56,949 - AcheAqui - INFO - [Extrema] Sending lead 35 to queue
+2026-08-04 17:55:56,949 - AcheAqui - INFO - [Extrema] Processing lead 37
+2026-08-04 17:55:57,295 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Brazen Escritório
+2026-08-04 17:55:57,446 - AcheAqui - INFO - [Extrema] Sending lead 36 to queue
+2026-08-04 17:55:57,446 - AcheAqui - INFO - [Extrema] Processing lead 38
+2026-08-04 17:55:57,733 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for JE Perfumaria e Descartáveis
+2026-08-04 17:55:58,020 - AcheAqui - INFO - [Extrema] Sending lead 34 to queue
+2026-08-04 17:55:58,020 - AcheAqui - INFO - [Extrema] Processing lead 39
+2026-08-04 17:55:58,249 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for ZM Ocupacional
+2026-08-04 17:56:00,366 - AcheAqui - INFO - [Extrema] Sending lead 38 to queue
+2026-08-04 17:56:00,366 - AcheAqui - INFO - [Extrema] Processing lead 40
+2026-08-04 17:56:00,587 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Orga Tecnologia
+2026-08-04 17:56:01,196 - AcheAqui - INFO - [Extrema] Sending lead 39 to queue
+2026-08-04 17:56:01,196 - AcheAqui - INFO - [Extrema] Processing lead 41
+2026-08-04 17:56:01,456 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Disq Fretes e Mudanças Petrópolis
+2026-08-04 17:56:02,593 - AcheAqui - INFO - [Extrema] Sending lead 37 to queue
+2026-08-04 17:56:02,593 - AcheAqui - INFO - [Extrema] Processing lead 42
+2026-08-04 17:56:02,812 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Bread Fruit
+2026-08-04 17:56:04,387 - AcheAqui - INFO - [Extrema] Sending lead 41 to queue
+2026-08-04 17:56:04,387 - AcheAqui - INFO - [Extrema] Processing lead 43
+2026-08-04 17:56:04,684 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for BN Brazilian Trade Com Importação e Exportação Ltda
+2026-08-04 17:56:06,003 - AcheAqui - INFO - [Extrema] Sending lead 40 to queue
+2026-08-04 17:56:06,003 - AcheAqui - INFO - [Extrema] Processing lead 44
+2026-08-04 17:56:06,241 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Ceter Estágios Petrópolis
+2026-08-04 17:56:07,322 - AcheAqui - INFO - [Extrema] Sending lead 43 to queue
+2026-08-04 17:56:07,990 - AcheAqui - INFO - [Extrema] Sending lead 42 to queue
+2026-08-04 17:56:11,573 - AcheAqui - INFO - [Extrema] Sending lead 44 to queue
+2026-08-04 17:56:11,573 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-04 17:56:11,718 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
+2026-08-04 18:01:48,426 - AcheAqui - INFO - [Scheduler Job] Running background system check...

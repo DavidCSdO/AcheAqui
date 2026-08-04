@@ -3,7 +3,7 @@
 import React from "react";
 import { useStaggerReveal } from "@/hooks/useAnimations";
 import Crosshair from "./Crosshair";
-import { Search, Database, Download, DollarSign } from "lucide-react";
+import { Search, Database, Download, DollarSign, ChevronRight } from "lucide-react";
 
 const STEPS = [
   { num: "01", title: "Pesquisar", desc: "Digite o segmento e a cidade. Nossa IA encontra automaticamente.", icon: Search },
@@ -34,30 +34,38 @@ export default function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Connecting line (desktop) */}
-          <div className="hidden lg:block absolute top-[3.5rem] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-violet-500/30 via-violet-400 to-pink-500/30 laser-stream-line rounded-full z-10 shadow-[0_0_10px_rgba(167,139,250,0.5)]" />
-
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {STEPS.map((step, idx) => {
             const Icon = step.icon;
+            const isLast = idx === STEPS.length - 1;
             return (
-              <div key={step.num} className={`reveal reveal-delay-${idx + 1} card p-8 relative`}>
-                {/* Number & Icon */}
-                <div className="flex items-center justify-between mb-8">
-                  <div className="w-12 h-12 rounded-[var(--radius-sm)] bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-secondary)]">
-                    <Icon size={22} strokeWidth={1.75} />
+              <div key={step.num} className={`reveal reveal-delay-${idx + 1} relative`}>
+                {/* Card */}
+                <div className="card p-8 h-full">
+                  {/* Number & Icon */}
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-12 h-12 rounded-[var(--radius-sm)] bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-secondary)]">
+                      <Icon size={22} strokeWidth={1.75} />
+                    </div>
+                    <span className="text-[2.5rem] font-bold text-[var(--color-border)] font-numbers leading-none">
+                      {step.num}
+                    </span>
                   </div>
-                  <span className="text-[2.5rem] font-bold text-[var(--color-border)] font-numbers leading-none">
-                    {step.num}
-                  </span>
+
+                  <h3 className="text-[1.125rem] font-bold text-[var(--color-text-primary)] tracking-[-0.01em] mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-[0.875rem] text-[var(--color-text-secondary)] leading-relaxed">
+                    {step.desc}
+                  </p>
                 </div>
 
-                <h3 className="text-[1.125rem] font-bold text-[var(--color-text-primary)] tracking-[-0.01em] mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-[0.875rem] text-[var(--color-text-secondary)] leading-relaxed">
-                  {step.desc}
-                </p>
+                {/* Connector arrow between cards (desktop only, not on last) */}
+                {!isLast && (
+                  <div className="hidden lg:flex absolute -right-[0.9375rem] top-[3rem] z-20 w-[1.875rem] h-[1.875rem] items-center justify-center rounded-full bg-[var(--color-white)] border border-[var(--color-border)] shadow-sm">
+                    <ChevronRight size={14} className="text-[var(--color-secondary)]" />
+                  </div>
+                )}
               </div>
             );
           })}

@@ -6,7 +6,7 @@ import { createClient } from "@/utils/supabase/client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Crosshair from "@/components/Crosshair";
-import { Search, MapPin, Phone, Smartphone, Mail, CheckCircle2, XCircle, Copy, Download, Briefcase, MessageSquare, PlusSquare, Flame, Sparkles, Loader2 } from "lucide-react";
+import { Search, MapPin, Phone, Smartphone, Mail, CheckCircle2, XCircle, Copy, Download, Briefcase, MessageSquare, PlusSquare, Flame, Sparkles, Loader2, Globe } from "lucide-react";
 import { calculateLeadScore, LeadScore } from "@/utils/scoring";
 
 const InstagramIcon = ({ size, className }: { size: number, className?: string }) => (
@@ -37,6 +37,12 @@ function SearchContent() {
   const [loadingStage, setLoadingStage] = useState("Buscando no banco de dados...");
   const [aiExplanation, setAiExplanation] = useState<any>(null);
   const [loadingAi, setLoadingAi] = useState(false);
+  const [filterWa, setFilterWa] = useState(false);
+  const [filterIg, setFilterIg] = useState(false);
+  const [filterHot, setFilterHot] = useState(false);
+  const [filterEmail, setFilterEmail] = useState(false);
+  const [filterSite, setFilterSite] = useState(false);
+  const [progress, setProgress] = useState(0);
   
   const [cvPitchTemplate, setCvPitchTemplate] = useState("Olá, admiro o trabalho da {empresa} e gostaria de enviar meu currículo!");
   const [salesPitchTemplate, setSalesPitchTemplate] = useState("Olá, sou especialista em soluções para {categoria} e tenho uma proposta para a {empresa}.");
@@ -132,9 +138,10 @@ function SearchContent() {
                   name: item.Nome || "Empresa Encontrada",
                   category: item.Categoria,
                   address: item["Endereço"],
-                  cellphone: item["Telefone Celular"] || item["Telefone Maps"] || item["Telefone Fixo"] || "",
+                  cellphone: item["Telefone Celular"] || "",
                   landline: item["Telefone Fixo"] || "",
                   whatsapp: item["WhatsApp Direct"] || (item["Telefone Celular"] ? `https://wa.me/55${item["Telefone Celular"].replace(/\D/g, '')}` : ""),
+                  whatsapp_verificado: item["whatsapp_verificado"] || false,
                   email: item["Email Geral"] || item["Email RH"] || item["Email"] || "",
                   website: item.Site || item["Site Oficial Maps"] || "",
                   google_rating: item["Nota Google"] ? parseFloat(item["Nota Google"].toString().replace(',','.')) : null,
@@ -143,30 +150,33 @@ function SearchContent() {
                   maps_url: item["Google Maps URL"] || ""
                 };
                 
-                const targetIdx = payload.index - 1;
-                if (targetIdx < collectedLeads.length) {
-                  collectedLeads[targetIdx] = mappedLead;
+                const existingIdx = collectedLeads.findIndex(l => l.id === mappedLead.id);
+                if (existingIdx >= 0) {
+                  collectedLeads[existingIdx] = { ...collectedLeads[existingIdx], ...mappedLead };
                 } else {
                   collectedLeads.push(mappedLead);
                 }
                 setData([...collectedLeads]);
+                setProgress(Math.min(95, Math.round(((collectedLeads.length) / limit) * 100)));
                 
               } else if (payload.type === "lead_update") {
                 const item = payload.data;
-                const targetIdx = payload.index - 1;
+                const leadId = `scraped-${payload.index}`;
+                const existingIdx = collectedLeads.findIndex(l => l.id === leadId);
                 
-                if (targetIdx >= 0 && targetIdx < collectedLeads.length) {
-                  const existing = collectedLeads[targetIdx];
-                  const newPhone = item["Telefone Celular"] || item["Telefone Maps"] || item["Telefone Fixo"] || existing.cellphone;
+                if (existingIdx >= 0) {
+                  const existing = collectedLeads[existingIdx];
+                  const newPhone = item["Telefone Celular"] || existing.cellphone;
                   const newWa = item["WhatsApp Direct"] || existing.whatsapp || (newPhone ? `https://wa.me/55${newPhone.replace(/\D/g, '')}` : "");
                   
-                  collectedLeads[targetIdx] = {
+                  collectedLeads[existingIdx] = {
                     ...existing,
                     category: item.Categoria || existing.category,
                     address: item["Endereço"] || existing.address,
                     cellphone: newPhone,
                     landline: item["Telefone Fixo"] || existing.landline,
                     whatsapp: newWa,
+                    whatsapp_verificado: item["whatsapp_verificado"] || existing.whatsapp_verificado || false,
                     email: item["Email Geral"] || item["Email RH"] || item["Email"] || existing.email,
                     website: item.Site || item["Site Oficial Maps"] || existing.website,
                     google_rating: item["Nota Google"] ? parseFloat(item["Nota Google"].toString().replace(',','.')) : existing.google_rating,
@@ -178,6 +188,7 @@ function SearchContent() {
               } else if (payload.type === "done") {
                 setLoading(false);
                 setLoadingStage("");
+                setProgress(100);
                 if (eventSource) eventSource.close();
                 if (collectedLeads.length > 0 && query) {
                   fetchAiConsultant(query, collectedLeads);
@@ -189,13 +200,13 @@ function SearchContent() {
                 setLoadingStage("");
                 if (eventSource) eventSource.close();
               }
-            } catch (parseErr) {
-              console.error("SSE parse error:", parseErr);
+            } catch (parseErr: any) {
+              console.warn("SSE parse error:", parseErr.message || parseErr);
             }
           };
           
-          eventSource.onerror = (err) => {
-            console.error("SSE connection error:", err);
+          eventSource.onerror = (err: any) => {
+            console.warn("SSE connection error:", err.message || "Connection failed");
             if (eventSource) eventSource.close();
             
             // If we got zero results via SSE, try fallback POST
@@ -206,8 +217,8 @@ function SearchContent() {
             }
           };
           
-        } catch (e) {
-          console.error("SSE setup failed:", e);
+        } catch (e: any) {
+          console.warn("SSE setup failed:", e.message || e);
           fallbackPostScrape(query, limit, mode, collectedLeads);
         }
       } else {
@@ -236,6 +247,7 @@ function SearchContent() {
               cellphone: item["Telefone Celular"],
               landline: item["Telefone Fixo"],
               whatsapp: item["WhatsApp Direct"],
+              whatsapp_verificado: item["whatsapp_verificado"] || false,
               email: item["Email Geral"] || item["Email RH"],
               website: item.Site,
               google_rating: item["Nota Google"] ? parseFloat(item["Nota Google"].toString().replace(',','.')) : null,
@@ -247,8 +259,8 @@ function SearchContent() {
             if (q) fetchAiConsultant(q, mappedData);
           }
         }
-      } catch (e) {
-        console.error("Fallback POST scraper also failed:", e);
+      } catch (e: any) {
+        console.warn("Fallback POST scraper also failed:", e.message || e);
       } finally {
         setLoading(false);
       }
@@ -276,8 +288,8 @@ function SearchContent() {
       if (res.ok && aiData.status === "success") {
         setAiExplanation(aiData.data);
       }
-    } catch (e) {
-      console.error("AI Semantic Error:", e);
+    } catch (e: any) {
+      console.warn("AI Semantic Error:", e.message || e);
     } finally {
       setLoadingAi(false);
     }
@@ -324,11 +336,28 @@ function SearchContent() {
     document.body.removeChild(link);
   };
 
-  const saveToCRM = (company: any) => {
+  const saveToCRM = async (company: any) => {
     const existing = JSON.parse(localStorage.getItem('crm_leads') || '[]');
     existing.push({ ...company, status: 'novo', saved_at: new Date().toISOString() });
     localStorage.setItem('crm_leads', JSON.stringify(existing));
-    alert(`${company.name} salvo no seu CRM!`);
+    
+    try {
+      const supabase = createClient();
+      await supabase.from("companies").insert({
+        name: company.name,
+        category: company.category,
+        address: company.address,
+        phone: company.cellphone || company.landline,
+        website: company.website,
+        email: company.email,
+        instagram: company.instagram,
+        linkedin: company.linkedin,
+        maps_url: company.maps_url
+      });
+      alert(`${company.name} salvo no CRM e no Banco de Dados!`);
+    } catch (e) {
+      alert(`${company.name} salvo apenas localmente!`);
+    }
   };
 
   return (
@@ -401,6 +430,51 @@ function SearchContent() {
           )}
         </div>
 
+        {(loading || loadingStage) && (
+          <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden mb-6">
+            <div 
+              className="h-full bg-[var(--color-secondary)] transition-all duration-300 ease-out"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        )}
+
+        {data.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2 mb-6">
+            <span className="text-white/40 text-sm mr-2 font-medium">Filtros:</span>
+            <button 
+              onClick={() => setFilterWa(!filterWa)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-colors border ${filterWa ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'bg-white/5 text-white/40 border-white/10 hover:bg-white/10'}`}
+            >
+              <Smartphone size={12} /> Com WhatsApp
+            </button>
+            <button 
+              onClick={() => setFilterIg(!filterIg)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-colors border ${filterIg ? 'bg-fuchsia-500/20 text-fuchsia-400 border-fuchsia-500/30' : 'bg-white/5 text-white/40 border-white/10 hover:bg-white/10'}`}
+            >
+              <InstagramIcon size={12} /> Com Instagram
+            </button>
+            <button 
+              onClick={() => setFilterHot(!filterHot)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-colors border ${filterHot ? 'bg-amber-500/20 text-amber-400 border-amber-500/30' : 'bg-white/5 text-white/40 border-white/10 hover:bg-white/10'}`}
+            >
+              <Flame size={12} /> Score &gt; 75
+            </button>
+            <button 
+              onClick={() => setFilterEmail(!filterEmail)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-colors border ${filterEmail ? 'bg-blue-500/20 text-blue-400 border-blue-500/30' : 'bg-white/5 text-white/40 border-white/10 hover:bg-white/10'}`}
+            >
+              <Mail size={12} /> Com E-mail
+            </button>
+            <button 
+              onClick={() => setFilterSite(!filterSite)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-colors border ${filterSite ? 'bg-purple-500/20 text-purple-400 border-purple-500/30' : 'bg-white/5 text-white/40 border-white/10 hover:bg-white/10'}`}
+            >
+              <Globe size={12} /> Com Site
+            </button>
+          </div>
+        )}
+
         <div className="space-y-4">
           {loading ? (
             <div className="text-center p-16 border border-white/10 rounded-[24px] bg-[#1C1C1E]/80 backdrop-blur-md animate-pulse">
@@ -442,7 +516,14 @@ function SearchContent() {
               )}
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                {data.map((company, index) => {
+                {data.filter(company => {
+                  if (filterWa && !company.cellphone) return false;
+                  if (filterIg && !company.instagram) return false;
+                  if (filterEmail && !company.email) return false;
+                  if (filterSite && !company.website) return false;
+                  if (filterHot && calculateLeadScore(company).score < 75) return false;
+                  return true;
+                }).map((company, index) => {
                   const hasCellphone = !!company.cellphone;
                 const hasLandline = !!company.landline;
                 const hasEmail = !!company.email;
@@ -535,33 +616,30 @@ function SearchContent() {
                             <XCircle size={14} className="text-white/20 shrink-0" />
                           </div>
                         )}
-                      </div>
-
-                      {/* Email - Largura Total */}
-                      {hasEmail ? (
-                        <a href={`mailto:${company.email}`} className="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-[var(--color-secondary)]/50 transition-colors cursor-pointer">
-                          <div className="flex items-center gap-2 overflow-hidden">
-                            <Mail size={13} className="text-amber-400 shrink-0" />
-                            <span className="text-[0.8125rem] font-medium text-white/80 truncate">{company.email}</span>
-                          </div>
-                        </a>
-                      ) : (
-                        <div className="flex items-center justify-between p-2.5 rounded-xl border bg-transparent border-transparent">
-                          <div className="flex items-center gap-2">
-                            <Mail size={13} className="text-white/20 shrink-0" />
-                            <span className="text-[0.8125rem] font-medium text-white/30 line-through">E-mail</span>
-                          </div>
-                          <XCircle size={14} className="text-white/20 shrink-0" />
-                        </div>
-                      )}
-
-                      {/* Redes Sociais - 2 Colunas */}
-                      <div className="grid grid-cols-2 gap-2">
-                        {hasInstagram ? (
-                          <a href={company.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-[var(--color-secondary)]/50 transition-colors cursor-pointer">
+                        
+                        {hasEmail ? (
+                          <button onClick={() => copyToClipboard(company.email)} className="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-[var(--color-secondary)]/50 transition-colors group/btn cursor-pointer">
+                            <div className="flex items-center gap-2 overflow-hidden">
+                              <Mail size={13} className="text-amber-400 shrink-0" />
+                              <span className="text-[0.8125rem] font-medium text-white/80 truncate">{company.email}</span>
+                            </div>
+                            <Copy size={14} className="text-white/20 group-hover/btn:text-[var(--color-secondary)] shrink-0 ml-2" />
+                          </button>
+                        ) : (
+                          <div className="flex items-center justify-between p-2.5 rounded-xl border bg-transparent border-transparent">
                             <div className="flex items-center gap-2">
-                              <InstagramIcon size={13} className="text-pink-400 shrink-0" />
-                              <span className="text-[0.8125rem] font-medium text-white/80">Instagram</span>
+                              <Mail size={13} className="text-white/20 shrink-0" />
+                              <span className="text-[0.8125rem] font-medium text-white/30 line-through">E-mail</span>
+                            </div>
+                            <XCircle size={14} className="text-white/20 shrink-0" />
+                          </div>
+                        )}
+                        
+                        {hasInstagram ? (
+                          <a href={company.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-fuchsia-500/50 transition-colors group/btn cursor-pointer">
+                            <div className="flex items-center gap-2 overflow-hidden">
+                              <InstagramIcon size={13} className="text-fuchsia-400 shrink-0" />
+                              <span className="text-[0.8125rem] font-medium text-white/80 truncate">Instagram</span>
                             </div>
                           </a>
                         ) : (
@@ -574,18 +652,18 @@ function SearchContent() {
                           </div>
                         )}
 
-                        {hasLinkedin ? (
-                          <a href={company.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-[var(--color-secondary)]/50 transition-colors cursor-pointer">
-                            <div className="flex items-center gap-2">
-                              <LinkedinIcon size={13} className="text-blue-500 shrink-0" />
-                              <span className="text-[0.8125rem] font-medium text-white/80">LinkedIn</span>
+                        {hasWebsite ? (
+                          <a href={company.website} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-blue-500/50 transition-colors group/btn cursor-pointer">
+                            <div className="flex items-center gap-2 overflow-hidden">
+                              <Globe size={13} className="text-blue-400 shrink-0" />
+                              <span className="text-[0.8125rem] font-medium text-white/80 truncate">Site Oficial</span>
                             </div>
                           </a>
                         ) : (
                           <div className="flex items-center justify-between p-2.5 rounded-xl border bg-transparent border-transparent">
                             <div className="flex items-center gap-2">
-                              <LinkedinIcon size={13} className="text-white/20 shrink-0" />
-                              <span className="text-[0.8125rem] font-medium text-white/30 line-through">LinkedIn</span>
+                              <Globe size={13} className="text-white/20 shrink-0" />
+                              <span className="text-[0.8125rem] font-medium text-white/30 line-through">Site Oficial</span>
                             </div>
                             <XCircle size={14} className="text-white/20 shrink-0" />
                           </div>
@@ -596,20 +674,12 @@ function SearchContent() {
                     <div className="flex flex-col gap-2 pt-4 border-t border-white/5 mt-auto">
                       <div className="flex gap-2">
                         <a 
-                          href={hasCellphone ? `https://wa.me/55${company.cellphone.replace(/\D/g, '')}?text=${encodeURIComponent(cvMessage)}` : '#'} 
+                          href={activePhone ? `https://wa.me/55${activePhone.replace(/\D/g, '')}?text=${encodeURIComponent(company.has_open_jobs ? cvMessage : salesMessage)}` : '#'} 
                           target="_blank" rel="noopener noreferrer"
-                          className={`flex-1 flex items-center justify-center gap-2 p-2.5 rounded-xl text-[0.8125rem] font-bold transition-all ${hasCellphone ? 'bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20' : 'bg-white/5 text-white/20 cursor-not-allowed'}`}
-                          title={hasCellphone ? "Enviar Currículo via WhatsApp" : "Sem WhatsApp"}
+                          className={`flex-1 flex items-center justify-center gap-2 p-2.5 rounded-xl text-[0.8125rem] font-bold transition-all ${activePhone ? (company.whatsapp_verificado ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 hover:bg-emerald-500/30' : 'bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20') : 'bg-white/5 text-white/20 cursor-not-allowed'}`}
                         >
-                          <Briefcase size={14} /> Currículo
-                        </a>
-                        <a 
-                          href={hasCellphone ? `https://wa.me/55${company.cellphone.replace(/\D/g, '')}?text=${encodeURIComponent(salesMessage)}` : '#'} 
-                          target="_blank" rel="noopener noreferrer"
-                          className={`flex-1 flex items-center justify-center gap-2 p-2.5 rounded-xl text-[0.8125rem] font-bold transition-all ${hasCellphone ? 'bg-blue-500/10 text-blue-400 hover:bg-blue-500/20' : 'bg-white/5 text-white/20 cursor-not-allowed'}`}
-                          title={hasCellphone ? "Mensagem B2B via WhatsApp" : "Sem WhatsApp"}
-                        >
-                          <MessageSquare size={14} /> Prospectar
+                          <MessageSquare size={14} /> {company.has_open_jobs ? "Mandar Currículo" : (company.whatsapp_verificado ? "WhatsApp Verificado" : "WhatsApp")}
+                          {company.whatsapp_verificado && <CheckCircle2 size={14} className="text-emerald-400 ml-1" />}
                         </a>
                       </div>
                       <button 

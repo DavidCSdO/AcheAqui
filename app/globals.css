@@ -649,3 +649,52 @@
 .cinematic-glow-layer {
   background: radial-gradient(circle at 50% 0%, rgba(167, 139, 250, 0.15) 0%, transparent 70%);
 }
+
+/* ─── Global Icon Personality ─── */
+svg.lucide {
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 6px rgba(167, 139, 250, 0.3));
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, filter;
+}
+
+svg.lucide:hover {
+  filter: drop-shadow(0 0 12px rgba(167, 139, 250, 0.7));
+  transform: scale(1.05);
+}
+
+/* ─── Editorial Aesthetic ─── */
+.font-serif {
+  font-family: var(--font-serif, "Playfair Display", serif);
+}
+
+.editorial-title {
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-style: italic;
+}
+
+.bracket-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.bracket-label::before {
+  content: "[ ";
+  opacity: 0.5;
+}
+
+.bracket-label::after {
+  content: " ]";
+  opacity: 0.5;
+}
+
+.editorial-divider {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}

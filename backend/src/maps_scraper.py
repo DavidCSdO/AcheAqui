@@ -13,7 +13,7 @@ from src.utils import setup_logger
 logger = setup_logger(config.LOG_FILE)
 
 
-async def _extract_feed_item_data(page, index: int) -> dict:
+async def _extract_feed_item_data(page, index: int, is_single_place: bool = False) -> dict:
     """Extract basic data from a single feed item card in the Google Maps list view."""
     info = {
         "Nome": "",
@@ -30,20 +30,72 @@ async def _extract_feed_item_data(page, index: int) -> dict:
     }
     
     try:
-        links = page.locator("a[href*='/maps/place/']")
-        if index >= await links.count():
-            return info
-        
-        link = links.nth(index)
-        info["Google Maps URL"] = await link.get_attribute("href") or ""
-        info["Nome"] = await link.get_attribute("aria-label") or ""
-        
-        try:
-            card = link.locator("xpath=ancestor::div[contains(@class, 'Nv2PK')]")
-            if await card.count() == 0:
-                card = link.locator("xpath=ancestor::div[contains(@jsaction, 'mouseover')]")
+        if not is_single_place:
+            await page.locator(f"a[href*='/maps/place/']").nth(index).click(timeout=5000)
+            await page.wait_for_timeout(2000)
+    except Exception:
+        pass
+    
+    try:
+        if is_single_place:
+            info["Google Maps URL"] = page.url
+            title_elem = page.locator("h1").first
+            info["Nome"] = await title_elem.inner_text() if await title_elem.is_visible() else ""
             
-            if await card.count() > 0:
+            # Extract from the open details panel
+            try:
+                # Rating
+                rating_elem = page.locator("div.F7nice > span > span[aria-hidden='true']").first
+                if await rating_elem.is_visible():
+                    info["Nota Google"] = (await rating_elem.inner_text()).replace(",", ".")
+                
+                # Reviews
+                reviews_elem = page.locator("button[aria-label*='avaliaç']").first
+                if await reviews_elem.is_visible():
+                    rev_text = await reviews_elem.inner_text()
+                    rev_match = re.search(r'([\d\.\s]+)', rev_text)
+                    if rev_match:
+                        info["Avaliações"] = rev_match.group(1).replace(".", "").replace(" ", "").strip()
+                
+                # Category
+                cat_elem = page.locator("button[jsaction*='pane.rating.category']").first
+                if await cat_elem.is_visible():
+                    info["Categoria"] = await cat_elem.inner_text()
+                
+                # Address
+                addr_elem = page.locator("button[data-item-id='address']").first
+                if await addr_elem.is_visible():
+                    addr_text = await addr_elem.get_attribute("aria-label") or ""
+                    info["Endereço"] = addr_text.replace("Endereço: ", "").strip()
+                
+                # Phone
+                phone_elem = page.locator("button[data-item-id^='phone:']").first
+                if await phone_elem.is_visible():
+                    phone_text = await phone_elem.get_attribute("aria-label") or ""
+                    info["Telefone Maps"] = phone_text.replace("Telefone: ", "").strip()
+                    
+                # Website
+                web_elem = page.locator("a[data-item-id='authority']").first
+                if await web_elem.is_visible():
+                    info["Site Oficial Maps"] = await web_elem.get_attribute("href") or ""
+            except Exception:
+                pass
+
+        else:
+            links = page.locator("a[href*='/maps/place/']")
+            if index >= await links.count():
+                return info
+            
+            link = links.nth(index)
+            info["Google Maps URL"] = await link.get_attribute("href") or ""
+            info["Nome"] = await link.get_attribute("aria-label") or ""
+            
+            try:
+                card = link.locator("xpath=ancestor::div[contains(@class, 'Nv2PK')]")
+                if await card.count() == 0:
+                    card = page.locator(f".Nv2PK >> nth={index}")
+                
+                # Logic for card extraction
                 card_text = await card.text_content() or ""
                 
                 # Rating
@@ -74,12 +126,11 @@ async def _extract_feed_item_data(page, index: int) -> dict:
                 except Exception:
                     pass
                     
-                # Address snippet
                 addr_match = re.search(r'·\s*([^·]*(?:R\.|Rua|Av\.|Avenida|Praça|Al\.|Alameda|Trav\.)[^·]+)', card_text)
                 if addr_match:
                     info["Endereço"] = addr_match.group(1).strip()
-        except Exception:
-            pass
+            except Exception:
+                pass
     
     except Exception:
         pass
@@ -87,7 +138,7 @@ async def _extract_feed_item_data(page, index: int) -> dict:
     return info
 
 
-async def collect_basic_leads_from_maps(query: str, max_results: int = 15) -> list[dict]:
+async def _collect_basic_leads_from_maps_async(query: str, max_results: int = 15) -> list[dict]:
     """Phase 1: Uses Playwright for ~3 seconds to scroll Maps list view and collect basic cards.
     
     CLOSES BROWSER IMMEDIATELY to free memory before returning.
@@ -146,6 +197,22 @@ async def collect_basic_leads_from_maps(query: str, max_results: int = 15) -> li
                 except Exception:
                     pass
 
+                # If no feed, check if it redirected to a single place page
+                if await page.locator("a[href*='/maps/place/']").count() == 0:
+                    # Maybe it's already a single place
+                    title_elem = page.locator("h1").first
+                    if await title_elem.is_visible():
+                        # Extract data for the single place
+                        item_data = await _extract_feed_item_data(page, 0, is_single_place=True)
+                        if item_data["Nome"] or item_data["Google Maps URL"]:
+                            feed_data.append(item_data)
+                        
+                        # Cleanup and return
+                        await page.close()
+                        await browser.close()
+                        logger.info(f"[Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).")
+                        return feed_data
+
                 prev_count = 0
                 scroll_attempts = 0
                 max_scroll_attempts = 12
@@ -177,15 +244,18 @@ async def collect_basic_leads_from_maps(query: str, max_results: int = 15) -> li
                     end_of_list = await page.locator("text='Você chegou ao fim da lista'").count() > 0
                     if end_of_list:
                         break
-
-                total_items = await page.locator("a[href*='/maps/place/']").count()
-                items_count = min(total_items, max_results)
+                        
+                final_items = page.locator("a[href*='/maps/place/']")
+                final_count = await final_items.count()
+                limit = min(final_count, max_results)
                 
-                for i in range(items_count):
+                for i in range(limit):
                     item_data = await _extract_feed_item_data(page, i)
-                    if item_data["Google Maps URL"]:
+                    if item_data["Nome"] or item_data["Google Maps URL"]:
                         feed_data.append(item_data)
                         
+            except Exception as e:
+                logger.error(f"[Phase 1] Map Collection Error: {e}")
             finally:
                 await page.close()
             
@@ -197,6 +267,22 @@ async def collect_basic_leads_from_maps(query: str, max_results: int = 15) -> li
         logger.error(f"Erro na Phase 1 (Maps list): {e}")
         
     return feed_data
+
+
+async def collect_basic_leads_from_maps(query: str, max_results: int = 15) -> list[dict]:
+    """Wraps the async Playwright scraper in a dedicated thread and Proactor event loop to prevent Uvicorn Windows bugs."""
+    def _run_in_new_loop():
+        if sys.platform == 'win32':
+            loop = asyncio.WindowsProactorEventLoopPolicy().new_event_loop()
+        else:
+            loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            return loop.run_until_complete(_collect_basic_leads_from_maps_async(query, max_results))
+        finally:
+            loop.close()
+            
+    return await asyncio.to_thread(_run_in_new_loop)
 
 
 async def enrich_lead_via_http_search(lead: dict, city_query: str, session: aiohttp.ClientSession) -> dict:
@@ -211,11 +297,12 @@ async def enrich_lead_via_http_search(lead: dict, city_query: str, session: aioh
         return enriched
         
     search_term = f"{company_name} {city_query}"
-    search_url = f"https://html.duckduckgo.com/html/?q={urllib.parse.quote(search_term)}"
+    search_url = "https://www.bing.com/search"
     
     try:
         async with session.get(
             search_url,
+            params={"q": search_term},
             timeout=aiohttp.ClientTimeout(total=5),
             headers={"User-Agent": config.HTTP_USER_AGENT}
         ) as resp:
@@ -241,20 +328,14 @@ async def enrich_lead_via_http_search(lead: dict, city_query: str, session: aioh
                             enriched["Facebook"] = clean_fb
                             break
 
-                # 3. Extract Phone (if missing from Maps list)
-                if not enriched.get("Telefone Maps"):
-                    phone_match = re.search(r'\(?\d{2}\)?\s*9?\d{4}[-\s]?\d{4}', html)
-                    if phone_match:
-                        enriched["Telefone Maps"] = phone_match.group(0).strip()
-
-                # 4. Extract Website (if missing from Maps list)
+                # 3. Extract Website (if missing from Maps list)
                 if not enriched.get("Site Oficial Maps"):
-                    urls = re.findall(r'uddg=(https?%3A%2F%2F[^&"\']+)', raw_html)
+                    urls = re.findall(r'href="(https?://[^"]+)"', raw_html)
                     for u in urls:
                         decoded = urllib.parse.unquote(u)
                         if not any(x in decoded.lower() for x in [
-                            'instagram.com', 'facebook.com', 'google.com', 'youtube.com', 
-                            'duckduckgo.com', 'tripadvisor.com', 'cnpj.biz', 'econodata.com', 'solutudo.com.br'
+                            'instagram.com', 'facebook.com', 'google.com', 'youtube.com', 'bing.com', 'microsoft.com',
+                            'duckduckgo.com', 'tripadvisor.com', 'cnpj.biz', 'econodata.com', 'solutudo.com.br', 'casadosdados.com.br'
                         ]):
                             enriched["Site Oficial Maps"] = decoded
                             break
@@ -262,8 +343,8 @@ async def enrich_lead_via_http_search(lead: dict, city_query: str, session: aioh
     except Exception as e:
         logger.warning(f"Search enrichment error for '{company_name}': {e}")
 
-    # 5. If Website exists, do a quick HTTP GET to grab Email
-    if enriched.get("Site Oficial Maps") and not enriched.get("Email"):
+    # 5. If Website exists, do a quick HTTP GET to grab Email and Phone
+    if enriched.get("Site Oficial Maps") and (not enriched.get("Email") or not enriched.get("Telefone Maps")):
         try:
             async with session.get(
                 enriched["Site Oficial Maps"],
@@ -273,11 +354,20 @@ async def enrich_lead_via_http_search(lead: dict, city_query: str, session: aioh
             ) as site_resp:
                 if site_resp.status == 200:
                     site_html = await site_resp.text(errors="replace")
-                    email_match = re.search(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+', site_html)
-                    if email_match:
-                        email = email_match.group(0)
-                        if not email.endswith(('.png', '.jpg', '.gif', '.webp', '.svg')):
-                            enriched["Email"] = email
+                    
+                    if not enriched.get("Email"):
+                        email_match = re.search(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+', site_html)
+                        if email_match:
+                            email = email_match.group(0)
+                            if not email.endswith(('.png', '.jpg', '.gif', '.webp', '.svg')):
+                                enriched["Email"] = email
+                                
+                    if not enriched.get("Telefone Maps"):
+                        # Look for a typical Brazilian phone format, requiring some boundary or formatting to avoid false positives
+                        phone_match = re.search(r'(?:\+?55\s?)?(?:\(?0?\d{2}\)?\s?)?(?:9\d{4}|\d{4})[-\s]?\d{4}', site_html)
+                        if phone_match:
+                            enriched["Telefone Maps"] = phone_match.group(0).strip()
+                            
         except Exception:
             pass
 

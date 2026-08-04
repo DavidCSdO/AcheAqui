@@ -2,16 +2,21 @@
 
 import React, { useState, useEffect } from "react";
 import Crosshair from "./Crosshair";
-import { ArrowRight, Menu, X, Settings } from "lucide-react";
+import { X, ArrowRight, Settings } from "lucide-react";
 import SettingsModal from "./SettingsModal";
+import Link from "next/link";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -37,157 +42,212 @@ export default function Navbar() {
     checkUser();
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Formatting date/time to match the Aveon style
+  // E.g. "Tuesday, August 4, 2026"
+  const dateFormatted = currentTime.toLocaleDateString("en-US", {
+    weekday: 'long', 
+    month: 'long', 
+    day: 'numeric', 
+    year: 'numeric'
+  });
+  
+  // E.g. "15:07:16"
+  const timeFormatted = currentTime.toLocaleTimeString("en-US", {
+    hour12: false,
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   return (
-    <header
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "bg-[#171523]/80 backdrop-blur-xl border-b border-white/10 shadow-lg"
-          : "bg-transparent border-b border-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 h-[72px] flex items-center justify-between">
-        
-        {/* Brand Logo with Dynamic Colors on Scroll */}
-        <a href="/" className="flex items-center gap-2.5 group">
-          <div
-            className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-[180deg] ${
-              scrolled
-                ? "bg-violet-500 text-white shadow-md shadow-violet-500/25"
-                : "bg-white text-[#171523] shadow-md shadow-white/10"
-            }`}
-          >
-            <Crosshair size={17} strokeWidth={2.2} />
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-base font-bold tracking-tight text-white font-sans group-hover:text-violet-200 transition-colors duration-300">
-              Ache
-              <span
-                className={`transition-colors duration-300 ${
-                  scrolled ? "text-violet-400" : "text-white/70 group-hover:text-white"
-                }`}
-              >
-                Aqui
+    <>
+      <header className="fixed top-0 z-40 w-full bg-transparent">
+        <div className="max-w-[1600px] mx-auto px-4 md:px-8 h-[72px] flex items-center justify-between">
+          
+          {/* LEFT: Menu Button */}
+          <div className="flex-1 flex justify-start">
+            <button
+              onClick={() => setMobileOpen(true)}
+              className={`pl-3 pr-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 flex items-center gap-3 text-white shadow-lg backdrop-blur-md group`}
+            >
+              <div className="flex items-center justify-center w-6 h-6">
+                <Crosshair 
+                  size={20} 
+                  strokeWidth={2.5} 
+                  className={`transition-all duration-500 ${mobileOpen ? 'rotate-180 scale-90' : 'animate-[spin_4s_linear_infinite]'}`}
+                />
+              </div>
+              <span className="text-[11px] font-mono tracking-[0.2em] font-semibold text-white/70 group-hover:text-white transition-colors">
+                MENU
               </span>
-            </span>
-          </div>
-        </a>
-
-        {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-2">
-          <a
-            href="/"
-            className="text-xs font-medium text-white/75 hover:text-white hover:bg-white/10 hover:shadow-[0_0_12px_rgba(255,255,255,0.08)] px-3 py-1.5 rounded-lg transition-all duration-200"
-          >
-            Produto
-          </a>
-          <a
-            href="/pricing"
-            className="text-xs font-medium text-white/75 hover:text-white hover:bg-white/10 hover:shadow-[0_0_12px_rgba(255,255,255,0.08)] px-3 py-1.5 rounded-lg transition-all duration-200"
-          >
-            Preço
-          </a>
-          <a
-            href="/crm"
-            className="text-xs font-medium text-white/75 hover:text-white hover:bg-white/10 hover:shadow-[0_0_12px_rgba(255,255,255,0.08)] px-3 py-1.5 rounded-lg transition-all duration-200"
-          >
-            Meu CRM
-          </a>
-          <button 
-            onClick={() => setSettingsOpen(true)}
-            className="flex items-center gap-1.5 text-xs font-medium text-white/75 hover:text-violet-300 hover:bg-violet-500/10 hover:border-violet-500/20 border border-transparent px-3 py-1.5 rounded-lg transition-all duration-200 cursor-pointer"
-          >
-            <Settings size={13} className="transition-transform duration-300 group-hover:rotate-45" /> Pitches
-          </button>
-        </nav>
-
-        {/* Action Buttons with Dynamic Styles on Scroll */}
-        <div className="hidden md:flex items-center gap-3">
-          {isLoggedIn ? (
-            <a 
-              href="/dashboard" 
-              className={`group flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-md ${
-                scrolled
-                  ? "bg-violet-500 text-white hover:bg-violet-600 hover:shadow-violet-500/30"
-                  : "bg-white text-[#171523] hover:bg-white/95 hover:shadow-white/20"
-              }`}
-            >
-              Acessar Dashboard
-              <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
-          ) : (
-            <>
-              <a
-                href="/auth"
-                className="text-xs font-medium text-white/75 hover:text-white hover:bg-white/10 px-3 py-1.5 rounded-lg transition-all duration-200"
-              >
-                Login
-              </a>
-              <a 
-                href="/auth" 
-                className={`group flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-md ${
-                  scrolled
-                    ? "bg-violet-500 text-white hover:bg-violet-600 hover:shadow-violet-500/30"
-                    : "bg-white text-[#171523] hover:bg-white/95 hover:shadow-white/20"
-                }`}
-              >
-                Começar grátis
-                <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </a>
-            </>
-          )}
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden p-2 text-white/80 hover:text-white"
-          aria-label="Menu"
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
-
-      {/* Mobile Drawer */}
-      {mobileOpen && (
-        <div className="md:hidden bg-[#171523]/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 space-y-4 animate-fade-in text-slate-200 shadow-2xl">
-          <div className="flex flex-col gap-3 text-xs">
-            <a href="/" onClick={() => setMobileOpen(false)} className="font-medium text-white/80 hover:text-white">
-              Produto
-            </a>
-            <a href="/pricing" onClick={() => setMobileOpen(false)} className="font-medium text-white/80 hover:text-white">
-              Preço
-            </a>
-            <a href="/crm" onClick={() => setMobileOpen(false)} className="font-medium text-white/80 hover:text-white">
-              Meu CRM
-            </a>
-            <button 
-              onClick={() => { setSettingsOpen(true); setMobileOpen(false); }}
-              className="text-left font-medium text-violet-400 flex items-center gap-1.5"
-            >
-              <Settings size={14} /> Configurar Pitches
             </button>
           </div>
 
-          <div className="pt-4 border-t border-white/10 flex flex-col gap-2">
-            {isLoggedIn ? (
-              <a href="/dashboard" className="py-2.5 px-4 rounded-xl bg-violet-500 text-white font-semibold text-center text-xs flex items-center justify-center gap-1">
-                Acessar Dashboard <ArrowRight size={13} />
-              </a>
-            ) : (
+          {/* CENTER: Branding Text */}
+          <div className="flex-1 flex justify-center hidden sm:flex">
+            <span className="text-[11px] font-mono tracking-[0.15em] text-white/50 uppercase whitespace-nowrap">
+              AcheAqui - B2B Prospecting
+            </span>
+          </div>
+
+          {/* RIGHT: Clock & Date */}
+          <div className="flex-1 flex justify-end items-center gap-2 text-[11px] font-mono tracking-widest text-white/50 uppercase">
+            {mounted ? (
               <>
-                <a href="/auth" className="py-2 text-center text-xs font-medium text-white/80 border border-white/10 rounded-xl">
-                  Login
-                </a>
-                <a href="/auth" className="py-2.5 px-4 rounded-xl bg-white text-[#171523] font-semibold text-center text-xs flex items-center justify-center gap-1">
-                  Começar grátis <ArrowRight size={13} />
-                </a>
+                <span className="hidden lg:block whitespace-nowrap">{dateFormatted}</span>
+                <span className="text-white/80 w-[70px] text-right">{timeFormatted}</span>
               </>
+            ) : (
+              <span className="w-[70px]"></span>
             )}
           </div>
+
         </div>
-      )}
+      </header>
+
+      {/* OFFCANVAS SIDEBAR MENU */}
+      <div 
+        className={`fixed inset-0 z-50 transition-opacity duration-500 ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+      >
+        {/* Backdrop */}
+        <div 
+          className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+          onClick={() => setMobileOpen(false)}
+        />
+        
+        {/* Sidebar Panel */}
+        <div 
+          className={`absolute top-0 left-0 h-full w-[85vw] md:w-[45vw] max-w-[500px] bg-[#110f1a] border-r border-white/10 shadow-2xl flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            mobileOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          {/* Header of Sidebar */}
+          <div className="flex items-center justify-between p-6 md:p-10 border-b border-white/5">
+            <div className="flex flex-col gap-1">
+              <a href="/" className="flex items-center gap-2 group w-max">
+                <div className="w-6 h-6 rounded-lg bg-[var(--color-secondary)] text-white flex items-center justify-center">
+                  <Crosshair size={14} strokeWidth={2.5} />
+                </div>
+                <span className="text-lg font-bold tracking-tight text-white font-sans">
+                  AcheAqui
+                </span>
+              </a>
+              <span className="text-[9px] font-mono tracking-[0.1em] text-white/40 uppercase">
+                Plataforma de Prospecção - Est. 2024
+              </span>
+            </div>
+            
+            <button 
+              onClick={() => setMobileOpen(false)}
+              className="p-2 text-white/50 hover:text-white transition-colors"
+            >
+              <X size={24} strokeWidth={1.5} />
+            </button>
+          </div>
+
+          {/* Large Navigation Links */}
+          <div className="flex-1 flex flex-col justify-center px-6 md:px-10 py-8 gap-4 overflow-y-auto">
+            <Link 
+              href="/" 
+              onClick={() => setMobileOpen(false)}
+              className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white/60 hover:text-white transition-colors duration-300 w-max"
+            >
+              Home
+            </Link>
+            <Link 
+              href="/prospecting" 
+              onClick={() => setMobileOpen(false)}
+              className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white/60 hover:text-[var(--color-secondary)] transition-colors duration-300 w-max"
+            >
+              Prospecção
+            </Link>
+            <Link 
+              href="/crm" 
+              onClick={() => setMobileOpen(false)}
+              className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white/60 hover:text-white transition-colors duration-300 w-max"
+            >
+              Meu CRM
+            </Link>
+            <Link 
+              href="/pricing" 
+              onClick={() => setMobileOpen(false)}
+              className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white/60 hover:text-white transition-colors duration-300 w-max"
+            >
+              Preço
+            </Link>
+            
+            <button 
+              onClick={() => { setSettingsOpen(true); setMobileOpen(false); }}
+              className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-violet-500/60 hover:text-violet-400 transition-colors duration-300 w-max text-left flex items-center gap-4 mt-4"
+            >
+              Pitches <Settings size={32} className="opacity-50" />
+            </button>
+          </div>
+
+          {/* Sidebar Footer Info */}
+          <div className="p-6 md:p-10 border-t border-white/5 flex flex-col sm:flex-row gap-8 justify-between mt-auto bg-[#171523]/50">
+            <div className="flex flex-col gap-3">
+              <span className="text-[10px] font-bold font-mono tracking-widest text-[var(--color-secondary)] uppercase">
+                [ Suporte ]
+              </span>
+              <div className="flex flex-col text-sm text-white/50 font-medium">
+                <a href="mailto:contato@acheaqui.com" className="hover:text-white transition-colors">
+                  contato@acheaqui.com
+                </a>
+                <span>+55 (11) 9999-9999</span>
+              </div>
+            </div>
+            
+            <div className="flex flex-col gap-3">
+              <span className="text-[10px] font-bold font-mono tracking-widest text-violet-400 uppercase">
+                [ Acesso ]
+              </span>
+              <div className="flex flex-col text-sm text-white/50 font-medium gap-1">
+                {isLoggedIn ? (
+                  <Link href="/dashboard" onClick={() => setMobileOpen(false)} className="flex items-center gap-1.5 text-white hover:text-violet-300 transition-colors">
+                    Dashboard <ArrowRight size={14} />
+                  </Link>
+                ) : (
+                  <>
+                    <Link href="/auth" onClick={() => setMobileOpen(false)} className="hover:text-white transition-colors">
+                      Fazer Login
+                    </Link>
+                    <Link href="/auth" onClick={() => setMobileOpen(false)} className="flex items-center gap-1.5 text-white hover:text-violet-300 transition-colors">
+                      Começar grátis <ArrowRight size={14} />
+                    </Link>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+          
+          {/* Copyright */}
+          <div className="px-6 md:px-10 pb-6 pt-2 text-[10px] font-medium text-white/30 uppercase tracking-wider bg-[#171523]/50">
+            © {new Date().getFullYear()} ACHEAQUI B2B
+          </div>
+        </div>
+      </div>
 
       <SettingsModal isOpen={settingsOpen} onClose={() => setSettingsOpen(false)} />
-    </header>
+    </>
   );
 }

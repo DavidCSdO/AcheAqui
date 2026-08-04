@@ -2,8 +2,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 
+load_dotenv(".env.local")
 load_dotenv()
-
 BASE_DIR = Path(__file__).parent
 OUTPUT_DIR = BASE_DIR / "output"
 OUTPUT_EXCEL = OUTPUT_DIR / "empresas.xlsx"

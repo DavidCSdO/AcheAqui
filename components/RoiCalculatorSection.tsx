@@ -5,7 +5,7 @@ import Crosshair from "./Crosshair";
 import { Calculator, ArrowRight, Sparkles, Clock, TrendingUp, DollarSign } from "lucide-react";
 
 export default function RoiCalculatorSection() {
-  const [leadsCount, setLeadsCount] = useState<number>(2500);
+  const [leadsCount, setLeadsCount] = useState<number>(2.500);
 
   // Calculations:
   // 1 lead manual = ~12 mins (0.2 hours)
@@ -23,9 +23,9 @@ export default function RoiCalculatorSection() {
 
       <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="rounded-3xl bg-white/[0.02] border border-white/10 p-8 sm:p-12 shadow-2xl glow-border-trace">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
+
             {/* Left Column: Controls & Description */}
             <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-400/20 text-violet-300 font-mono text-[11px] tracking-wider">
@@ -47,7 +47,7 @@ export default function RoiCalculatorSection() {
                   <span className="text-white/60">Meta de Leads Mensais:</span>
                   <span className="text-violet-300 font-bold text-base font-mono">{leadsCount.toLocaleString()} leads/mês</span>
                 </div>
-                
+
                 <input
                   type="range"
                   min="200"
@@ -68,7 +68,7 @@ export default function RoiCalculatorSection() {
 
             {/* Right Column: Calculated Results Display */}
             <div className="lg:col-span-6 bg-[#171523]/90 rounded-2xl border border-violet-400/30 p-6 space-y-6 shadow-xl">
-              
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-1 hover:border-violet-400/40 hover:bg-white/[0.07] transition-all duration-200">
                   <div className="flex items-center gap-1.5 text-xs text-white/50 font-mono">

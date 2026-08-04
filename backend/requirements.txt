@@ -1,12 +1,17 @@
 fastapi
 uvicorn
 pydantic
+pydantic-settings
+sqlalchemy
+aiosqlite
+apscheduler
 playwright
 pandas
 openpyxl
 duckduckgo-search
 tldextract
 beautifulsoup4
+lxml
 aiohttp
 python-dotenv
 dnspython

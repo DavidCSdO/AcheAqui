@@ -223,3 +223,212 @@ Call log:
 2026-08-01 20:48:09,028 - INFO - Iniciando busca ultra-rápida: 'Padarias artesanais Belo horizonte' (máx: 20)
 2026-08-01 20:48:09,029 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Padarias artesanais Belo horizonte' (máx: 20)
 2026-08-01 20:48:09,033 - ERROR - Erro na Phase 1 (Maps list): 
+2026-08-03 08:24:11,969 - INFO - [SSE] Busca streaming: 'Oficinas mecânicas em santos' (limite: 15, modo: direcionada)
+2026-08-03 08:24:11,979 - INFO - Iniciando busca ultra-rápida: 'Oficinas mecânicas em santos' (máx: 15)
+2026-08-03 08:24:12,037 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 15)
+2026-08-03 08:24:12,040 - ERROR - Erro na Phase 1 (Maps list): 
+2026-08-03 08:24:22,312 - INFO - [SSE] Busca streaming: 'Oficinas mecânicas em santos' (limite: 15, modo: direcionada)
+2026-08-03 08:24:22,312 - INFO - Iniciando busca ultra-rápida: 'Oficinas mecânicas em santos' (máx: 15)
+2026-08-03 08:24:22,313 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 15)
+2026-08-03 08:24:22,315 - ERROR - Erro na Phase 1 (Maps list): 
+2026-08-03 08:28:41,384 - INFO - [SSE] Busca streaming: 'Oficinas mecânicas em santos' (limite: 15, modo: direcionada)
+2026-08-03 08:28:41,391 - INFO - Iniciando busca ultra-rápida: 'Oficinas mecânicas em santos' (máx: 15)
+2026-08-03 08:28:41,466 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 15)
+2026-08-03 08:28:41,472 - ERROR - Erro na Phase 1 (Maps list): 
+2026-08-03 08:28:50,957 - INFO - [SSE] Busca streaming: 'Oficinas mecânicas em santos' (limite: 15, modo: direcionada)
+2026-08-03 08:28:50,958 - INFO - Iniciando busca ultra-rápida: 'Oficinas mecânicas em santos' (máx: 15)
+2026-08-03 08:28:50,958 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 15)
+2026-08-03 08:28:50,960 - ERROR - Erro na Phase 1 (Maps list): 
+2026-08-04 08:38:30,902 - INFO - [SSE] Busca streaming: 'Fabricas em petrópolis RJ' (limite: 15, modo: direcionada)
+2026-08-04 08:38:30,909 - INFO - Iniciando busca ultra-rápida: 'Fabricas em petrópolis RJ' (máx: 15)
+2026-08-04 08:38:30,999 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Fabricas em petrópolis RJ' (máx: 15)
+2026-08-04 08:38:31,002 - ERROR - Erro na Phase 1 (Maps list): 
+2026-08-04 08:38:51,901 - INFO - [SSE] Busca streaming: 'Fabricas em Petrópolis RJ' (limite: 15, modo: direcionada)
+2026-08-04 08:38:51,902 - INFO - Iniciando busca ultra-rápida: 'Fabricas em Petrópolis RJ' (máx: 15)
+2026-08-04 08:38:51,902 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Fabricas em Petrópolis RJ' (máx: 15)
+2026-08-04 08:38:51,903 - ERROR - Erro na Phase 1 (Maps list): 
+2026-08-04 08:42:20,984 - INFO - [SSE] Busca streaming: 'Oficinas mecânicas em santos' (limite: 10, modo: direcionada)
+2026-08-04 08:42:20,985 - INFO - Iniciando busca ultra-rápida: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 08:42:20,985 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 08:42:20,987 - ERROR - Erro na Phase 1 (Maps list): 
+2026-08-04 08:42:21,049 - INFO - [SSE] Busca streaming: 'Oficinas mecânicas em santos' (limite: 10, modo: direcionada)
+2026-08-04 08:42:21,049 - INFO - Iniciando busca ultra-rápida: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 08:42:21,049 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 08:42:21,051 - ERROR - Erro na Phase 1 (Maps list): 
+2026-08-04 08:57:11,647 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 08:57:17,683 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 20)
+2026-08-04 08:57:17,752 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 20)
+2026-08-04 08:57:21,475 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 08:57:25,007 - INFO - [Phase 1 Concluída] Navegador FECHADO. 20 leads básicos na memória.
+2026-08-04 08:57:25,046 - INFO - [Phase 1 Concluída] Navegador FECHADO. 20 leads básicos na memória.
+2026-08-04 09:00:39,891 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 09:00:44,700 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 09:13:01,444 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 09:13:03,314 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 09:13:09,075 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 09:13:09,211 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 09:29:42,463 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 09:29:50,319 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 09:29:59,271 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 09:30:04,032 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 09:30:17,995 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 09:30:23,373 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 09:59:36,915 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 09:59:44,677 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 10:10:34,736 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 10:10:43,938 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 10:22:14,053 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 10:22:21,551 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 10:32:19,231 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Oficinas mecânicas em santos' (máx: 10)
+2026-08-04 10:32:26,853 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 10:33:19,324 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Arquitetos no rio de janeirp' (máx: 10)
+2026-08-04 10:33:24,042 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 10:33:48,386 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Arquitetos no rio de janeirp' (máx: 10)
+2026-08-04 10:33:53,072 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 10:34:12,030 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Hospitais em São paulo' (máx: 10)
+2026-08-04 10:34:17,055 - INFO - [Phase 1 Concluída] Navegador FECHADO. 10 leads básicos na memória.
+2026-08-04 11:10:30,666 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Texnologia em Petrópolis, RJ' (máx: 30)
+2026-08-04 11:10:45,310 - INFO - [Phase 1 Concluída] Navegador FECHADO. 30 leads básicos na memória.
+2026-08-04 11:11:11,816 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Tecnologia em Petrópolis, RJ' (máx: 30)
+2026-08-04 11:11:17,749 - INFO - [Phase 1] Coletando lista rápida no Maps: 'TI em Petrópolis, RJ' (máx: 30)
+2026-08-04 11:11:21,936 - INFO - [Phase 1 Concluída] Navegador FECHADO. 30 leads básicos na memória.
+2026-08-04 11:11:27,956 - WARNING - Search enrichment error for 'phoenix informatica': 
+2026-08-04 11:11:29,453 - INFO - [Phase 1 Concluída] Navegador FECHADO. 30 leads básicos na memória.
+2026-08-04 11:11:33,946 - WARNING - Search enrichment error for 'Marca Informática e Sistemas Ltda.': 
+2026-08-04 11:11:34,944 - WARNING - Search enrichment error for '4TI': 
+2026-08-04 11:11:39,957 - WARNING - Search enrichment error for 'CPTI/FAETERJ Petrópolis': 
+2026-08-04 11:11:40,958 - WARNING - Search enrichment error for 'CPTI/FAETERJ Petrópolis': 
+2026-08-04 11:11:45,947 - WARNING - Search enrichment error for 'Megatec Soluções': 
+2026-08-04 11:11:46,955 - WARNING - Search enrichment error for 'FlavioInfo Itamarati Informática, Papelaria e Gráfica Rápida': 
+2026-08-04 11:11:51,948 - WARNING - Search enrichment error for 'Alfagates Serviços e Soluções em TI': 
+2026-08-04 11:11:52,954 - WARNING - Search enrichment error for 'Total Recover Recuperação de Dados de HD em Petropolis RJ': 
+2026-08-04 11:11:57,955 - WARNING - Search enrichment error for 'DataSerra': 
+2026-08-04 11:11:58,954 - WARNING - Search enrichment error for 'Orga Tecnologia': 
+2026-08-04 11:12:03,955 - WARNING - Search enrichment error for 'Senac Petrópolis': 
+2026-08-04 11:12:04,954 - WARNING - Search enrichment error for 'ÁTRIO TI': 
+2026-08-04 11:12:09,955 - WARNING - Search enrichment error for 'Next Tecnologia da Informação': 
+2026-08-04 11:12:10,954 - WARNING - Search enrichment error for 'INFOSERVICE Petrópolis': 
+2026-08-04 11:12:15,955 - WARNING - Search enrichment error for 'Fundação Parque Alta Tecnologia Petrópolis': 
+2026-08-04 11:12:16,948 - WARNING - Search enrichment error for 'Versatyl TI - Informática e Website': 
+2026-08-04 11:12:22,950 - WARNING - Search enrichment error for 'Senac Petrópolis': 
+2026-08-04 11:12:28,949 - WARNING - Search enrichment error for 'Prisma': 
+2026-08-04 11:12:34,950 - WARNING - Search enrichment error for 'Alfagates Serviços e Soluções em TI': 
+2026-08-04 11:12:40,957 - WARNING - Search enrichment error for 'Paulo Coutinho TI Banco de Dados, Oracle, Mysql, Sustentação de Banco de Dados Advanced Database': 
+2026-08-04 11:12:46,951 - WARNING - Search enrichment error for 'MR-Info - Técnico de Informática Marcos Rogerio - Manutenção de Macbooks, iMacs, Notebooks e Computadores': 
+2026-08-04 11:12:52,944 - WARNING - Search enrichment error for 'Future Technologies': 
+2026-08-04 11:12:58,954 - WARNING - Search enrichment error for 'Vinícius Mussel': 
+2026-08-04 11:13:04,950 - WARNING - Search enrichment error for 'Egydio Informática': 
+2026-08-04 11:13:10,949 - WARNING - Search enrichment error for 'Zanata Soluções em TI': 
+2026-08-04 11:13:16,955 - WARNING - Search enrichment error for 'Support Ti': 
+2026-08-04 11:13:22,948 - WARNING - Search enrichment error for 'Smart Service Ti': 
+2026-08-04 11:13:28,955 - WARNING - Search enrichment error for 'SFB Celulares Notebooks e Computadores': 
+2026-08-04 11:13:34,956 - WARNING - Search enrichment error for 'Tidea': 
+2026-08-04 11:13:40,946 - WARNING - Search enrichment error for 'StiffWeb Informática': 
+2026-08-04 11:13:46,958 - WARNING - Search enrichment error for 'Smart Bytes': 
+2026-08-04 11:13:52,954 - WARNING - Search enrichment error for 'GRUPO CONNECT TI': 
+2026-08-04 11:13:58,950 - WARNING - Search enrichment error for 'FAETEC Cascatinha': 
+2026-08-04 11:14:04,958 - WARNING - Search enrichment error for 'MH info Soluções em Tecnologia': 
+2026-08-04 11:14:10,951 - WARNING - Search enrichment error for 'Prisma Notebook': 
+2026-08-04 11:14:16,947 - WARNING - Search enrichment error for 'SFB Notebooks, Computadores e Celulares': 
+2026-08-04 11:17:57,593 - INFO - [Phase 1] Coletando lista rápida no Maps: 'TI em Petrópolis, RJ' (máx: 30)
+2026-08-04 11:18:07,940 - INFO - [Phase 1 Concluída] Navegador FECHADO. 30 leads básicos na memória.
+2026-08-04 11:20:18,879 - INFO - [Phase 1] Coletando lista rápida no Maps: 'TI em Petrópolis, RJ' (máx: 30)
+2026-08-04 11:20:29,749 - INFO - [Phase 1 Concluída] Navegador FECHADO. 30 leads básicos na memória.
+2026-08-04 11:24:22,757 - INFO - [Phase 1] Coletando lista rápida no Maps: 'TI em Petropolis, RJ' (máx: 2)
+2026-08-04 11:24:26,131 - INFO - [Phase 1 Concluída] Navegador FECHADO. 2 leads básicos na memória.
+2026-08-04 11:27:02,190 - INFO - [Phase 1] Coletando lista rápida no Maps: 'TI em Petropolis, RJ' (máx: 2)
+2026-08-04 11:27:05,822 - INFO - [Phase 1 Concluída] Navegador FECHADO. 2 leads básicos na memória.
+2026-08-04 11:27:50,777 - INFO - [Phase 1] Coletando lista rápida no Maps: 'TI em Petrópolis, RJ' (máx: 30)
+2026-08-04 11:28:01,865 - INFO - [Phase 1 Concluída] Navegador FECHADO. 30 leads básicos na memória.
+2026-08-04 11:30:29,361 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas green office Petrópolis RJ' (máx: 20)
+2026-08-04 11:30:29,423 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas green office Petrópolis RJ' (máx: 20)
+2026-08-04 11:30:52,973 - INFO - [Phase 1 Concluída] Navegador FECHADO. 0 leads básicos na memória.
+2026-08-04 11:30:53,122 - INFO - [Phase 1 Concluída] Navegador FECHADO. 0 leads básicos na memória.
+2026-08-04 11:31:09,300 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Green office Petrópolis RJ' (máx: 20)
+2026-08-04 11:31:32,754 - INFO - [Phase 1 Concluída] Navegador FECHADO. 0 leads básicos na memória.
+2026-08-04 11:31:52,937 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Green office Petrópolis Rio de Janeiro' (máx: 20)
+2026-08-04 11:32:16,382 - INFO - [Phase 1 Concluída] Navegador FECHADO. 0 leads básicos na memória.
+2026-08-04 11:33:05,815 - INFO - [Phase 1] Coletando lista rápida no Maps: 'todas em Green Office Petrópolis Rj' (máx: 20)
+2026-08-04 11:33:11,488 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Green office Petrópolis Rio de Janeiro' (máx: 5)
+2026-08-04 11:33:29,251 - INFO - [Phase 1 Concluída] Navegador FECHADO. 0 leads básicos na memória.
+2026-08-04 11:33:35,052 - INFO - [Phase 1 Concluída] Navegador FECHADO. 0 leads básicos na memória.
+2026-08-04 11:37:41,590 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Green office Petrópolis Rio de Janeiro' (máx: 5)
+2026-08-04 11:37:52,838 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 11:39:16,519 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Green office Petrópolis Rio de Janeiro' (máx: 5)
+2026-08-04 11:39:27,984 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 11:40:20,903 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Green office Petrópolis Rio de Janeiro' (máx: 5)
+2026-08-04 11:40:32,219 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 11:41:23,824 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Green office Petrópolis RJ' (máx: 20)
+2026-08-04 11:41:23,825 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Green office Petrópolis RJ' (máx: 20)
+2026-08-04 11:41:35,292 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 11:41:35,299 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 11:41:49,075 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Green office Petrópolis RJ' (máx: 20)
+2026-08-04 11:42:37,462 - INFO - [Phase 1 Concluída] Navegador FECHADO. 20 leads básicos na memória.
+2026-08-04 11:53:33,935 - INFO - [Phase 1] Coletando lista rápida no Maps: 'TI em Petropolis, RJ' (máx: 2)
+2026-08-04 11:53:44,002 - INFO - [Phase 1 Concluída] Navegador FECHADO. 2 leads básicos na memória.
+2026-08-04 11:55:52,469 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Green Office em Petrópolis, RJ' (máx: 30)
+2026-08-04 11:56:50,418 - INFO - [Phase 1 Concluída] Navegador FECHADO. 18 leads básicos na memória.
+2026-08-04 12:01:35,256 - INFO - [Phase 1] Coletando lista rápida no Maps: 'TI em Petropolis, RJ' (máx: 2)
+2026-08-04 12:01:42,708 - INFO - [Phase 1 Concluída] Navegador FECHADO. 2 leads básicos na memória.
+2026-08-04 12:02:25,737 - INFO - [Phase 1] Coletando lista rápida no Maps: 'TI em Petropolis, RJ' (máx: 2)
+2026-08-04 12:02:33,467 - INFO - [Phase 1 Concluída] Navegador FECHADO. 2 leads básicos na memória.
+2026-08-04 12:05:38,802 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Green Office em Petrópolis, RJ' (máx: 30)
+2026-08-04 12:06:35,578 - INFO - [Phase 1 Concluída] Navegador FECHADO. 18 leads básicos na memória.
+2026-08-04 12:14:24,593 - INFO - [Phase 1] Coletando lista rápida no Maps: 'TI em Petropolis, RJ' (máx: 2)
+2026-08-04 12:14:32,096 - INFO - [Phase 1 Concluída] Navegador FECHADO. 2 leads básicos na memória.
+2026-08-04 12:15:05,657 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Green Office em Petrópolis, RJ' (máx: 30)
+2026-08-04 12:16:03,314 - INFO - [Phase 1 Concluída] Navegador FECHADO. 18 leads básicos na memória.
+2026-08-04 12:20:53,385 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Green Office em Petrópolis, RJ' (máx: 30)
+2026-08-04 12:21:52,395 - INFO - [Phase 1 Concluída] Navegador FECHADO. 18 leads básicos na memória.
+2026-08-04 12:53:11,215 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Green Office em Petrópolis, RJ' (máx: 3)
+2026-08-04 12:53:25,367 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 12:55:12,947 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Green Office em Petrópolis, RJ' (máx: 30)
+2026-08-04 12:56:08,300 - INFO - [Phase 1 Concluída] Navegador FECHADO. 17 leads básicos na memória.
+2026-08-04 13:09:01,868 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Agência de marketing em Petrópolis, RJ' (máx: 3)
+2026-08-04 13:09:14,230 - INFO - [Phase 1 Concluída] Navegador FECHADO. 3 leads básicos na memória.
+2026-08-04 13:39:36,865 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Green Office em Petrópolis, RJ' (máx: 3)
+2026-08-04 13:39:46,269 - INFO - [Phase 1 Concluída] Navegador FECHADO. 3 leads básicos na memória.
+2026-08-04 13:41:00,051 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Green Office em Petrópolis, RJ' (máx: 3)
+2026-08-04 13:41:09,546 - INFO - [Phase 1 Concluída] Navegador FECHADO. 3 leads básicos na memória.
+2026-08-04 13:43:23,766 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Green Office em Petrópolis, RJ' (máx: 30)
+2026-08-04 13:44:21,767 - INFO - [Phase 1 Concluída] Navegador FECHADO. 18 leads básicos na memória.
+2026-08-04 13:58:24,332 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Green Office em Petrópolis, RJ' (máx: 30)
+2026-08-04 13:59:25,102 - INFO - [Phase 1 Concluída] Navegador FECHADO. 18 leads básicos na memória.
+2026-08-04 14:00:49,349 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Green Office em Petrópolis, RJ' (máx: 30)
+2026-08-04 14:01:45,559 - INFO - [Phase 1 Concluída] Navegador FECHADO. 17 leads básicos na memória.
+2026-08-04 14:04:00,429 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Green Office em Petrópolis, RJ' (máx: 30)
+2026-08-04 14:05:00,789 - INFO - [Phase 1 Concluída] Navegador FECHADO. 18 leads básicos na memória.
+2026-08-04 14:16:45,588 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Petrópolis, RJ' (máx: 30)
+2026-08-04 14:18:06,077 - INFO - [Phase 1 Concluída] Navegador FECHADO. 30 leads básicos na memória.
+2026-08-04 14:28:39,746 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Industrias em Petrópolis, RJ' (máx: 30)
+2026-08-04 14:29:57,419 - INFO - [Phase 1 Concluída] Navegador FECHADO. 30 leads básicos na memória.
+2026-08-04 14:41:56,365 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Industrias em Petrópolis, RJ' (máx: 30)
+2026-08-04 14:43:13,548 - INFO - [Phase 1 Concluída] Navegador FECHADO. 30 leads básicos na memória.
+2026-08-04 15:02:10,772 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Industrias em Petrópolis, RJ' (máx: 30)
+2026-08-04 15:02:22,804 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Petrópolis, RJ' (máx: 20)
+2026-08-04 15:03:12,590 - INFO - [Phase 1 Concluída] Navegador FECHADO. 20 leads básicos na memória.
+2026-08-04 15:03:28,904 - INFO - [Phase 1 Concluída] Navegador FECHADO. 30 leads básicos na memória.
+2026-08-04 15:04:41,536 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Petrópolis RJ' (máx: 20)
+2026-08-04 15:04:41,599 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Petrópolis RJ' (máx: 20)
+2026-08-04 15:04:52,896 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 15:04:52,941 - WARNING - Search enrichment error for 'Petrópolis': Connector is closed.
+2026-08-04 15:04:53,057 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 15:14:58,965 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Petrópolis RJ' (máx: 20)
+2026-08-04 15:14:59,000 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Petrópolis RJ' (máx: 20)
+2026-08-04 15:15:10,221 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 15:15:10,228 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 15:15:10,288 - WARNING - Search enrichment error for 'Petrópolis': Connector is closed.
+2026-08-04 15:15:32,518 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Petrópolis RJ' (máx: 20)
+2026-08-04 15:15:43,941 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 15:15:43,982 - WARNING - Search enrichment error for 'Petrópolis': Connector is closed.
+2026-08-04 15:16:48,368 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Petrópolis RJ' (máx: 20)
+2026-08-04 15:16:59,517 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 15:16:59,569 - WARNING - Search enrichment error for 'Petrópolis': Connector is closed.
+2026-08-04 15:20:32,370 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Petrópolis RJ' (máx: 20)
+2026-08-04 15:20:34,192 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Petrópolis RJ' (máx: 20)
+2026-08-04 15:20:43,551 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 15:20:45,674 - INFO - [Phase 1 Concluída] Navegador FECHADO. 1 lead básico na memória (Redirecionamento direto).
+2026-08-04 16:35:44,313 - INFO - [Phase 1] Coletando lista rápida no Maps: 'restaurante em Petrópolis, Rj' (máx: 20)
+2026-08-04 16:36:37,214 - INFO - [Phase 1 Concluída] Navegador FECHADO. 20 leads básicos na memória.
+2026-08-04 17:52:33,018 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Petrópolis, Rj' (máx: 100)
+2026-08-04 17:55:02,807 - INFO - [Phase 1 Concluída] Navegador FECHADO. 56 leads básicos na memória.

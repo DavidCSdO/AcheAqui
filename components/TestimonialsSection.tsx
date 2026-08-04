@@ -33,22 +33,21 @@ export default function TestimonialsSection() {
   const containerRef = useStaggerReveal();
 
   return (
-    <section className="section-padding bg-[var(--color-surface)] relative">
-      <div className="absolute right-[-5%] top-1/3 text-[var(--color-text-primary)] opacity-[0.015] pointer-events-none">
+    <section className="section-padding bg-transparent relative text-white">
+      <div className="absolute right-[-5%] top-1/3 text-white opacity-[0.015] pointer-events-none">
         <Crosshair size={500} strokeWidth={0.5} />
       </div>
 
       <div className="container-wide px-6 lg:px-8" ref={containerRef}>
 
         <div className="text-center max-w-2xl mx-auto mb-16 reveal">
-          <div className="section-tag mb-6 mx-auto w-fit">
-            <Crosshair size={13} className="text-[var(--color-secondary)]" />
-            Depoimentos
+          <div className="mb-6">
+            <span className="bracket-label">06 / Client Stories</span>
           </div>
-          <h2 className="text-headline text-[clamp(1.75rem,3.5vw,2.75rem)] text-[var(--color-text-primary)] mb-4">
+          <h2 className="editorial-title text-[clamp(2.5rem,5vw,3.5rem)] text-white mb-6">
             Quem usa, recomenda
           </h2>
-          <p className="text-body-lg">
+          <p className="text-[1.125rem] text-white/40 leading-relaxed font-light">
             Líderes comerciais que utilizam a plataforma diariamente.
           </p>
         </div>

@@ -1106,3 +1106,281 @@
 2026-08-04 17:56:11,573 - AcheAqui - INFO - [Extrema] All tasks gathered
 2026-08-04 17:56:11,718 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
 2026-08-04 18:01:48,426 - AcheAqui - INFO - [Scheduler Job] Running background system check...
+2026-08-05 08:19:39,198 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-05 08:19:39,198 - AcheAqui - INFO - Initializing database tables...
+2026-08-05 08:19:39,212 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-05 08:19:39,214 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-05 08:20:58,547 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Petrópolis RJ' (limit: 100)
+2026-08-05 08:30:40,042 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Petrópolis RJ' (limit: 100)
+2026-08-05 08:33:59,118 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-05 08:33:59,119 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-05 08:33:59,119 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-05 08:33:59,491 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-05 08:33:59,564 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-05 08:33:59,565 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-05 08:33:59,566 - AcheAqui - INFO - [Extrema] Processing lead 1
+2026-08-05 08:33:59,567 - AcheAqui - INFO - [Extrema] Processing lead 2
+2026-08-05 08:33:59,804 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for BRAL-MAX Fabricante de tampas plásticas
+2026-08-05 08:33:59,822 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Transporte São Luiz Ltda. (Cidade das Hortensias)
+2026-08-05 08:33:59,840 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Distribuidora Cortalina
+2026-08-05 08:34:02,806 - AcheAqui - INFO - [Extrema] Sending lead 2 to queue
+2026-08-05 08:34:02,806 - AcheAqui - INFO - [Extrema] Processing lead 3
+2026-08-05 08:34:02,808 - AcheAqui - INFO - [Extrema] Sending lead 1 to queue
+2026-08-05 08:34:02,808 - AcheAqui - INFO - [Extrema] Processing lead 4
+2026-08-05 08:34:03,034 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alfa Laval Aalborg
+2026-08-05 08:34:03,049 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Marmoraria do Roseiral
+2026-08-05 08:34:06,006 - AcheAqui - INFO - [Extrema] Sending lead 3 to queue
+2026-08-05 08:34:06,007 - AcheAqui - INFO - [Extrema] Processing lead 5
+2026-08-05 08:34:06,101 - AcheAqui - INFO - [Extrema] Sending lead 4 to queue
+2026-08-05 08:34:06,101 - AcheAqui - INFO - [Extrema] Processing lead 6
+2026-08-05 08:34:06,213 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Humberald Indústria E Comércio De Plásticos
+2026-08-05 08:34:06,311 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Hirundoplast Industria e Comercio
+2026-08-05 08:34:08,047 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-05 08:34:08,047 - AcheAqui - INFO - [Extrema] Processing lead 7
+2026-08-05 08:34:08,284 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Complexo Bohemia
+2026-08-05 08:34:08,888 - AcheAqui - INFO - [Extrema] Sending lead 5 to queue
+2026-08-05 08:34:08,888 - AcheAqui - INFO - [Extrema] Processing lead 8
+2026-08-05 08:34:09,015 - AcheAqui - INFO - [Extrema] Sending lead 6 to queue
+2026-08-05 08:34:09,016 - AcheAqui - INFO - [Extrema] Processing lead 9
+2026-08-05 08:34:09,105 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Construtora Solidum
+2026-08-05 08:34:09,238 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Werner Tecidos
+2026-08-05 08:34:12,054 - AcheAqui - INFO - [Extrema] Sending lead 8 to queue
+2026-08-05 08:34:12,054 - AcheAqui - INFO - [Extrema] Processing lead 10
+2026-08-05 08:34:12,173 - AcheAqui - INFO - [Extrema] Sending lead 9 to queue
+2026-08-05 08:34:12,173 - AcheAqui - INFO - [Extrema] Processing lead 11
+2026-08-05 08:34:12,265 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Feira da Borracha
+2026-08-05 08:34:12,383 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Kinsan
+2026-08-05 08:34:13,384 - AcheAqui - INFO - [Extrema] Sending lead 7 to queue
+2026-08-05 08:34:13,384 - AcheAqui - INFO - [Extrema] Processing lead 12
+2026-08-05 08:34:13,673 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Orga Tecnologia
+2026-08-05 08:34:15,284 - AcheAqui - INFO - [Extrema] Sending lead 11 to queue
+2026-08-05 08:34:15,285 - AcheAqui - INFO - [Extrema] Processing lead 13
+2026-08-05 08:34:15,494 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Transmorguini Transportes e Locações
+2026-08-05 08:34:17,954 - AcheAqui - INFO - [Extrema] Sending lead 10 to queue
+2026-08-05 08:34:17,954 - AcheAqui - INFO - [Extrema] Processing lead 14
+2026-08-05 08:34:18,192 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Grupo Prattica
+2026-08-05 08:34:18,429 - AcheAqui - INFO - [Extrema] Sending lead 13 to queue
+2026-08-05 08:34:18,429 - AcheAqui - INFO - [Extrema] Processing lead 15
+2026-08-05 08:34:18,698 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for LM Qualidade Rio de Janeiro
+2026-08-05 08:34:19,056 - AcheAqui - INFO - [Extrema] Sending lead 12 to queue
+2026-08-05 08:34:19,057 - AcheAqui - INFO - [Extrema] Processing lead 16
+2026-08-05 08:34:19,313 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Smart Express Petrópolis
+2026-08-05 08:34:21,350 - AcheAqui - INFO - [Extrema] Sending lead 15 to queue
+2026-08-05 08:34:21,350 - AcheAqui - INFO - [Extrema] Processing lead 17
+2026-08-05 08:34:21,583 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Translog DFP
+2026-08-05 08:34:22,496 - AcheAqui - INFO - [Extrema] Sending lead 16 to queue
+2026-08-05 08:34:22,496 - AcheAqui - INFO - [Extrema] Processing lead 18
+2026-08-05 08:34:22,729 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for BSL Terceirização de Motoboys e Entregadores
+2026-08-05 08:34:24,712 - AcheAqui - INFO - [Extrema] Sending lead 14 to queue
+2026-08-05 08:34:24,712 - AcheAqui - INFO - [Extrema] Processing lead 19
+2026-08-05 08:34:24,852 - AcheAqui - INFO - [Extrema] Sending lead 17 to queue
+2026-08-05 08:34:24,852 - AcheAqui - INFO - [Extrema] Processing lead 20
+2026-08-05 08:34:24,918 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Brazen Escritório
+2026-08-05 08:34:25,103 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Ultragaz
+2026-08-05 08:34:25,669 - AcheAqui - INFO - [Extrema] Sending lead 18 to queue
+2026-08-05 08:34:25,669 - AcheAqui - INFO - [Extrema] Processing lead 21
+2026-08-05 08:34:25,909 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Shuttle Service
+2026-08-05 08:34:28,079 - AcheAqui - INFO - [Extrema] Sending lead 20 to queue
+2026-08-05 08:34:28,080 - AcheAqui - INFO - [Extrema] Processing lead 22
+2026-08-05 08:34:28,325 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for KSA Pneus e Rodas
+2026-08-05 08:34:28,830 - AcheAqui - INFO - [Extrema] Sending lead 21 to queue
+2026-08-05 08:34:28,830 - AcheAqui - INFO - [Extrema] Processing lead 23
+2026-08-05 08:34:29,103 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for ZM Ocupacional
+2026-08-05 08:34:30,609 - AcheAqui - INFO - [Extrema] Sending lead 19 to queue
+2026-08-05 08:34:30,610 - AcheAqui - INFO - [Extrema] Processing lead 24
+2026-08-05 08:34:30,986 - AcheAqui - INFO - [Extrema] Sending lead 22 to queue
+2026-08-05 08:34:30,987 - AcheAqui - INFO - [Extrema] Processing lead 25
+2026-08-05 08:34:30,991 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Ecoville Petropolis
+2026-08-05 08:34:31,252 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Branco Fretes e Mudanças
+2026-08-05 08:34:32,055 - AcheAqui - INFO - [Extrema] Sending lead 23 to queue
+2026-08-05 08:34:32,055 - AcheAqui - INFO - [Extrema] Processing lead 26
+2026-08-05 08:34:32,281 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for GE AEROSPACE - Avio do Brasil
+2026-08-05 08:34:33,904 - AcheAqui - INFO - [Extrema] Sending lead 24 to queue
+2026-08-05 08:34:33,904 - AcheAqui - INFO - [Extrema] Processing lead 27
+2026-08-05 08:34:34,185 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Transfer Privativo Rio Petrópolis Itaipava e Região
+2026-08-05 08:34:34,942 - AcheAqui - INFO - [Extrema] Sending lead 26 to queue
+2026-08-05 08:34:34,943 - AcheAqui - INFO - [Extrema] Processing lead 28
+2026-08-05 08:34:35,195 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for SEBRAE RJ-Serviço de Apoio às Micros e Pequenas Empresas-Petrópolis
+2026-08-05 08:34:37,160 - AcheAqui - INFO - [Extrema] Sending lead 27 to queue
+2026-08-05 08:34:37,161 - AcheAqui - INFO - [Extrema] Processing lead 29
+2026-08-05 08:34:37,426 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Mafretec
+2026-08-05 08:34:40,349 - AcheAqui - INFO - [Extrema] Sending lead 29 to queue
+2026-08-05 08:34:40,349 - AcheAqui - INFO - [Extrema] Processing lead 30
+2026-08-05 08:34:40,597 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Petrópolis RJ
+2026-08-05 08:34:40,888 - AcheAqui - INFO - [Extrema] Sending lead 25 to queue
+2026-08-05 08:34:40,889 - AcheAqui - INFO - [Extrema] Processing lead 31
+2026-08-05 08:34:41,124 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Campos Fróes Certificados Digitais
+2026-08-05 08:34:43,496 - AcheAqui - INFO - [Extrema] Sending lead 30 to queue
+2026-08-05 08:34:43,496 - AcheAqui - INFO - [Extrema] Processing lead 32
+2026-08-05 08:34:43,726 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for House Beer
+2026-08-05 08:34:46,645 - AcheAqui - INFO - [Extrema] Sending lead 31 to queue
+2026-08-05 08:34:46,645 - AcheAqui - INFO - [Extrema] Processing lead 33
+2026-08-05 08:34:46,651 - AcheAqui - INFO - [Extrema] Sending lead 28 to queue
+2026-08-05 08:34:46,652 - AcheAqui - INFO - [Extrema] Processing lead 34
+2026-08-05 08:34:46,717 - AcheAqui - INFO - [Extrema] Sending lead 32 to queue
+2026-08-05 08:34:46,718 - AcheAqui - INFO - [Extrema] Processing lead 35
+2026-08-05 08:34:46,884 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Bread Fruit
+2026-08-05 08:34:46,936 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for bestSOFT AUTOMAÇÃO COMERCIAL
+2026-08-05 08:34:46,959 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Mudanças Nacional-Municipais-Interestadual-Estaduais Partindo de Petrópolis-Fretes em Petrópolis RJ
+2026-08-05 08:34:49,828 - AcheAqui - INFO - [Extrema] Sending lead 34 to queue
+2026-08-05 08:34:49,829 - AcheAqui - INFO - [Extrema] Processing lead 36
+2026-08-05 08:34:49,903 - AcheAqui - INFO - [Extrema] Sending lead 33 to queue
+2026-08-05 08:34:49,903 - AcheAqui - INFO - [Extrema] Processing lead 37
+2026-08-05 08:34:50,083 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Gás Distribuidora Alto da Serra - Igor do Gás
+2026-08-05 08:34:50,118 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for JE Perfumaria e Descartáveis
+2026-08-05 08:34:52,917 - AcheAqui - INFO - [Extrema] Sending lead 35 to queue
+2026-08-05 08:34:52,917 - AcheAqui - INFO - [Extrema] Processing lead 38
+2026-08-05 08:34:53,024 - AcheAqui - INFO - [Extrema] Sending lead 36 to queue
+2026-08-05 08:34:53,024 - AcheAqui - INFO - [Extrema] Processing lead 39
+2026-08-05 08:34:53,052 - AcheAqui - INFO - [Extrema] Sending lead 37 to queue
+2026-08-05 08:34:53,052 - AcheAqui - INFO - [Extrema] Processing lead 40
+2026-08-05 08:34:53,180 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for JPS Condo Administração e Contabilidade
+2026-08-05 08:34:53,233 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for John john
+2026-08-05 08:34:53,263 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Crecont – Contabilidade e assessoria empresarial
+2026-08-05 08:34:56,114 - AcheAqui - INFO - [Extrema] Sending lead 38 to queue
+2026-08-05 08:34:56,115 - AcheAqui - INFO - [Extrema] Processing lead 41
+2026-08-05 08:34:56,164 - AcheAqui - INFO - [Extrema] Sending lead 39 to queue
+2026-08-05 08:34:56,164 - AcheAqui - INFO - [Extrema] Processing lead 42
+2026-08-05 08:34:56,341 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Associação Comercial e Empresarial De Petrópolis
+2026-08-05 08:34:56,391 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Disq Fretes e Mudanças Petrópolis
+2026-08-05 08:34:58,795 - AcheAqui - INFO - [Extrema] Sending lead 40 to queue
+2026-08-05 08:34:58,796 - AcheAqui - INFO - [Extrema] Processing lead 43
+2026-08-05 08:34:59,027 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Altarede Fiber Petrópolis (RJ)
+2026-08-05 08:34:59,078 - AcheAqui - INFO - [Extrema] Sending lead 42 to queue
+2026-08-05 08:34:59,078 - AcheAqui - INFO - [Extrema] Processing lead 44
+2026-08-05 08:34:59,385 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for BN Brazilian Trade Com Importação e Exportação Ltda
+2026-08-05 08:35:02,309 - AcheAqui - INFO - [Extrema] Sending lead 44 to queue
+2026-08-05 08:35:02,310 - AcheAqui - INFO - [Extrema] Processing lead 45
+2026-08-05 08:35:02,587 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for In Black Toner
+2026-08-05 08:35:05,154 - AcheAqui - INFO - [Extrema] Sending lead 43 to queue
+2026-08-05 08:35:05,154 - AcheAqui - INFO - [Extrema] Processing lead 46
+2026-08-05 08:35:05,380 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for JM Topografia e Engenharia
+2026-08-05 08:35:08,290 - AcheAqui - INFO - [Extrema] Sending lead 46 to queue
+2026-08-05 08:35:08,290 - AcheAqui - INFO - [Extrema] Processing lead 47
+2026-08-05 08:35:08,588 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for BR LASER Cartuchos Aluguel de Impressoras em Petrópolis RJ
+2026-08-05 08:35:09,231 - AcheAqui - INFO - [Extrema] Sending lead 45 to queue
+2026-08-05 08:35:09,231 - AcheAqui - INFO - [Extrema] Processing lead 48
+2026-08-05 08:35:09,505 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Gasista Botelho
+2026-08-05 08:35:10,143 - AcheAqui - INFO - [Extrema] Sending lead 41 to queue
+2026-08-05 08:35:10,143 - AcheAqui - INFO - [Extrema] Processing lead 49
+2026-08-05 08:35:10,361 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Icnex Telecom - Internet Fibra Óptica
+2026-08-05 08:35:15,605 - AcheAqui - INFO - [Extrema] Sending lead 47 to queue
+2026-08-05 08:35:15,605 - AcheAqui - INFO - [Extrema] Processing lead 50
+2026-08-05 08:35:15,706 - AcheAqui - INFO - [Extrema] Sending lead 49 to queue
+2026-08-05 08:35:15,707 - AcheAqui - INFO - [Extrema] Processing lead 51
+2026-08-05 08:35:15,857 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Enel
+2026-08-05 08:35:15,924 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Almec
+2026-08-05 08:35:16,132 - AcheAqui - INFO - [Extrema] Sending lead 48 to queue
+2026-08-05 08:35:16,132 - AcheAqui - INFO - [Extrema] Processing lead 52
+2026-08-05 08:35:16,379 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Ceter Estágios Petrópolis
+2026-08-05 08:35:18,802 - AcheAqui - INFO - [Extrema] Sending lead 50 to queue
+2026-08-05 08:35:18,802 - AcheAqui - INFO - [Extrema] Processing lead 53
+2026-08-05 08:35:18,871 - AcheAqui - INFO - [Extrema] Sending lead 51 to queue
+2026-08-05 08:35:18,872 - AcheAqui - INFO - [Extrema] Processing lead 54
+2026-08-05 08:35:19,054 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Aster Recursos Humanos
+2026-08-05 08:35:19,102 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alves Engenharia Regulatória e Ambiental
+2026-08-05 08:35:21,808 - AcheAqui - INFO - [Extrema] Sending lead 52 to queue
+2026-08-05 08:35:21,808 - AcheAqui - INFO - [Extrema] Processing lead 55
+2026-08-05 08:35:21,874 - AcheAqui - INFO - [Extrema] Sending lead 53 to queue
+2026-08-05 08:35:21,875 - AcheAqui - INFO - [Extrema] Processing lead 56
+2026-08-05 08:35:22,078 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Diário de Petrópolis Digital
+2026-08-05 08:35:22,129 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Brisa Coworking
+2026-08-05 08:35:25,696 - AcheAqui - INFO - [Extrema] Sending lead 54 to queue
+2026-08-05 08:35:25,697 - AcheAqui - INFO - [Extrema] Processing lead 57
+2026-08-05 08:35:25,995 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for REAL DOMINIO CONTABILIDADE
+2026-08-05 08:35:28,151 - AcheAqui - INFO - [Extrema] Sending lead 55 to queue
+2026-08-05 08:35:28,151 - AcheAqui - INFO - [Extrema] Processing lead 58
+2026-08-05 08:35:28,234 - AcheAqui - INFO - [Extrema] Sending lead 56 to queue
+2026-08-05 08:35:28,234 - AcheAqui - INFO - [Extrema] Processing lead 59
+2026-08-05 08:35:28,541 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Setranspetro
+2026-08-05 08:35:28,569 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for LN Med - Medicina do Trabalho
+2026-08-05 08:35:33,821 - AcheAqui - INFO - [Extrema] Sending lead 57 to queue
+2026-08-05 08:35:33,822 - AcheAqui - INFO - [Extrema] Processing lead 60
+2026-08-05 08:35:34,112 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for BSL Bolt Logistica
+2026-08-05 08:35:34,557 - AcheAqui - INFO - [Extrema] Sending lead 58 to queue
+2026-08-05 08:35:34,558 - AcheAqui - INFO - [Extrema] Processing lead 61
+2026-08-05 08:35:34,662 - AcheAqui - INFO - [Extrema] Sending lead 59 to queue
+2026-08-05 08:35:34,662 - AcheAqui - INFO - [Extrema] Processing lead 62
+2026-08-05 08:35:34,783 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for R S Secretariado Remoto
+2026-08-05 08:35:34,981 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for MS Elevadores
+2026-08-05 08:35:36,764 - AcheAqui - INFO - [Extrema] Sending lead 60 to queue
+2026-08-05 08:35:36,764 - AcheAqui - INFO - [Extrema] Processing lead 63
+2026-08-05 08:35:37,053 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Misa Entregas
+2026-08-05 08:35:37,464 - AcheAqui - INFO - [Extrema] Sending lead 61 to queue
+2026-08-05 08:35:37,465 - AcheAqui - INFO - [Extrema] Processing lead 64
+2026-08-05 08:35:37,702 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Objetiva Turismo
+2026-08-05 08:35:38,041 - AcheAqui - INFO - [Extrema] Sending lead 62 to queue
+2026-08-05 08:35:38,042 - AcheAqui - INFO - [Extrema] Processing lead 65
+2026-08-05 08:35:38,324 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Angular rolamentos
+2026-08-05 08:35:39,989 - AcheAqui - INFO - [Extrema] Sending lead 63 to queue
+2026-08-05 08:35:39,989 - AcheAqui - INFO - [Extrema] Processing lead 66
+2026-08-05 08:35:40,231 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for DIB Supermercados - Centro
+2026-08-05 08:35:40,817 - AcheAqui - INFO - [Extrema] Sending lead 64 to queue
+2026-08-05 08:35:43,157 - AcheAqui - INFO - [Extrema] Sending lead 66 to queue
+2026-08-05 08:35:44,566 - AcheAqui - INFO - [Extrema] Sending lead 65 to queue
+2026-08-05 08:35:44,567 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-05 08:35:44,774 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue
+2026-08-05 08:49:39,216 - AcheAqui - INFO - [Scheduler Job] Running background system check...
+2026-08-05 09:05:53,430 - AcheAqui - INFO - Starting AcheAqui Backend v3.0...
+2026-08-05 09:05:53,430 - AcheAqui - INFO - Initializing database tables...
+2026-08-05 09:05:53,436 - AcheAqui - INFO - Database tables initialized successfully.
+2026-08-05 09:05:53,437 - AcheAqui - INFO - APScheduler initialized and started in background.
+2026-08-05 09:06:08,554 - AcheAqui - INFO - [Google Maps Collector] Searching: 'Empresas em Green Office em Petrópolis RJ' (limit: 100)
+2026-08-05 09:07:07,058 - AcheAqui - INFO - [Extrema] Thread started
+2026-08-05 09:07:07,059 - AcheAqui - INFO - [Extrema] Event loop created in thread
+2026-08-05 09:07:07,059 - AcheAqui - INFO - [Extrema] Starting async_playwright context
+2026-08-05 09:07:07,417 - AcheAqui - INFO - [Extrema] Launching chromium
+2026-08-05 09:07:07,486 - AcheAqui - INFO - [Extrema] Chromium launched
+2026-08-05 09:07:07,486 - AcheAqui - INFO - [Extrema] Processing lead 0
+2026-08-05 09:07:07,487 - AcheAqui - INFO - [Extrema] Processing lead 1
+2026-08-05 09:07:07,489 - AcheAqui - INFO - [Extrema] Processing lead 2
+2026-08-05 09:07:07,736 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Petrópolis Green Offices
+2026-08-05 09:07:07,759 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Cafeteria Green Office
+2026-08-05 09:07:07,788 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Ápia Consultoria & Sistemas
+2026-08-05 09:07:10,694 - AcheAqui - INFO - [Extrema] Sending lead 0 to queue
+2026-08-05 09:07:10,694 - AcheAqui - INFO - [Extrema] Processing lead 3
+2026-08-05 09:07:10,699 - AcheAqui - INFO - [Extrema] Sending lead 1 to queue
+2026-08-05 09:07:10,699 - AcheAqui - INFO - [Extrema] Processing lead 4
+2026-08-05 09:07:10,939 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Moda Fashion Representações Petrópolis/RJ
+2026-08-05 09:07:10,968 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Green Fire
+2026-08-05 09:07:12,626 - AcheAqui - INFO - [Extrema] Sending lead 2 to queue
+2026-08-05 09:07:12,627 - AcheAqui - INFO - [Extrema] Processing lead 5
+2026-08-05 09:07:13,288 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Villa Verde Paisagismo e Jardinagem
+2026-08-05 09:07:13,623 - AcheAqui - INFO - [Extrema] Sending lead 3 to queue
+2026-08-05 09:07:13,623 - AcheAqui - INFO - [Extrema] Processing lead 6
+2026-08-05 09:07:13,888 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alterdata Software - Filial Petrópolis/RJ
+2026-08-05 09:07:16,207 - AcheAqui - INFO - [Extrema] Sending lead 5 to queue
+2026-08-05 09:07:16,208 - AcheAqui - INFO - [Extrema] Processing lead 7
+2026-08-05 09:07:16,421 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Alcance+ | Tráfego Pago
+2026-08-05 09:07:17,989 - AcheAqui - INFO - [Extrema] Sending lead 4 to queue
+2026-08-05 09:07:17,989 - AcheAqui - INFO - [Extrema] Processing lead 8
+2026-08-05 09:07:18,225 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Octus Creative | Agência e Produtora | Publicidade e Propaganda
+2026-08-05 09:07:21,444 - AcheAqui - INFO - [Extrema] Sending lead 6 to queue
+2026-08-05 09:07:21,446 - AcheAqui - INFO - [Extrema] Processing lead 9
+2026-08-05 09:07:21,672 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Orange Business Services
+2026-08-05 09:07:23,042 - AcheAqui - INFO - [Extrema] Sending lead 7 to queue
+2026-08-05 09:07:23,042 - AcheAqui - INFO - [Extrema] Processing lead 10
+2026-08-05 09:07:23,290 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Grupo Still
+2026-08-05 09:07:26,188 - AcheAqui - INFO - [Extrema] Sending lead 10 to queue
+2026-08-05 09:07:26,188 - AcheAqui - INFO - [Extrema] Processing lead 11
+2026-08-05 09:07:27,732 - AcheAqui - INFO - [Extrema] Sending lead 8 to queue
+2026-08-05 09:07:27,732 - AcheAqui - INFO - [Extrema] Processing lead 12
+2026-08-05 09:07:27,954 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Together Company
+2026-08-05 09:07:29,514 - AcheAqui - INFO - [Extrema] Sending lead 9 to queue
+2026-08-05 09:07:29,515 - AcheAqui - INFO - [Extrema] Processing lead 13
+2026-08-05 09:07:29,729 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Rio ECF | Automação Comercial para Supermercados
+2026-08-05 09:07:30,457 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Projeto Mix Arquitetura
+2026-08-05 09:07:33,683 - AcheAqui - INFO - [Extrema] Sending lead 12 to queue
+2026-08-05 09:07:33,683 - AcheAqui - INFO - [Extrema] Processing lead 14
+2026-08-05 09:07:33,937 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for M3 Representações
+2026-08-05 09:07:35,472 - AcheAqui - INFO - [Extrema] Sending lead 11 to queue
+2026-08-05 09:07:35,472 - AcheAqui - INFO - [Extrema] Processing lead 15
+2026-08-05 09:07:35,703 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for ie! eventos
+2026-08-05 09:07:37,277 - AcheAqui - INFO - [Extrema] Sending lead 13 to queue
+2026-08-05 09:07:37,277 - AcheAqui - INFO - [Extrema] Processing lead 16
+2026-08-05 09:07:37,547 - AcheAqui - INFO - [Deep Enrichment] Starting Playwright context for Sítio do Vale Verde
+2026-08-05 09:07:39,208 - AcheAqui - INFO - [Extrema] Sending lead 14 to queue
+2026-08-05 09:07:40,476 - AcheAqui - INFO - [Extrema] Sending lead 16 to queue
+2026-08-05 09:07:43,575 - AcheAqui - INFO - [Extrema] Sending lead 15 to queue
+2026-08-05 09:07:43,576 - AcheAqui - INFO - [Extrema] All tasks gathered
+2026-08-05 09:07:43,719 - AcheAqui - INFO - [Extrema] Thread finishing, putting None to queue

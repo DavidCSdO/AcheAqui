@@ -432,3 +432,9 @@ Call log:
 2026-08-04 16:36:37,214 - INFO - [Phase 1 Concluída] Navegador FECHADO. 20 leads básicos na memória.
 2026-08-04 17:52:33,018 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Petrópolis, Rj' (máx: 100)
 2026-08-04 17:55:02,807 - INFO - [Phase 1 Concluída] Navegador FECHADO. 56 leads básicos na memória.
+2026-08-05 08:20:58,651 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Petrópolis RJ' (máx: 100)
+2026-08-05 08:25:14,516 - INFO - [Phase 1 Concluída] Navegador FECHADO. 96 leads básicos na memória.
+2026-08-05 08:30:40,043 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Petrópolis RJ' (máx: 100)
+2026-08-05 08:33:58,939 - INFO - [Phase 1 Concluída] Navegador FECHADO. 76 leads básicos na memória.
+2026-08-05 09:06:08,614 - INFO - [Phase 1] Coletando lista rápida no Maps: 'Empresas em Green Office em Petrópolis RJ' (máx: 100)
+2026-08-05 09:07:07,021 - INFO - [Phase 1 Concluída] Navegador FECHADO. 17 leads básicos na memória.

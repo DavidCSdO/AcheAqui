@@ -529,6 +529,7 @@ function SearchContent() {
                 const hasEmail = !!company.email;
                 const hasInstagram = !!company.instagram;
                 const hasLinkedin = !!company.linkedin;
+                const hasWebsite = !!company.website;
                 const activePhone = company.cellphone || company.landline;
                 
                 const leadScore: LeadScore = calculateLeadScore(company);
